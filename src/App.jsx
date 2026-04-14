@@ -71,93 +71,159 @@ function App() {
     {
       icon: <Globe size={40} />,
       title: 'Web Sayt Yaratish',
-      description: 'Zamonaviy, tez va xavfsiz web saytlar. Landing page, korporativ saytlar, e-commerce platformalar va murakkab web ilovalar.',
-      features: ['React, Next.js, Vue.js', 'SEO optimizatsiya', 'Responsive dizayn', 'CMS integratsiya'],
+      description: 'Zamonaviy, tez va xavfsiz web saytlar. Landing page, korporativ saytlar, e-commerce platformalar, SaaS ilovalar va murakkab web tizimlar noldan loyihalanadi.',
+      features: ['React, Next.js, Vue.js', 'SEO optimizatsiya', 'Responsive dizayn', 'CMS integratsiya', 'Performance optimization', 'PWA yechimlar'],
       color: '#00f5ff'
     },
     {
       icon: <Smartphone size={40} />,
       title: 'Mobil Ilovalar',
-      description: 'iOS va Android uchun yuqori sifatli cross-platform mobil ilovalar. Murakkab animatsiyalar va mukammal UX/UI.',
-      features: ['Flutter development', 'Native performance', 'Push notifications', 'Offline mode'],
+      description: 'iOS va Android uchun yuqori sifatli cross-platform mobil ilovalar. Murakkab animatsiyalar, offline rejim va mukammal UX/UI dizayn bilan.',
+      features: ['Flutter development', 'Native performance', 'Push notifications', 'Offline mode', 'App Store & Play Market', 'State management'],
       color: '#a855f7'
     },
     {
       icon: <Brain size={40} />,
       title: 'AI Yechimlar',
-      description: 'Sun\'iy intellekt asosida avtomatlashtirilgan tizimlar. Chatbotlar, tahliliy tizimlar va machine learning modellar.',
-      features: ['Gemini API integratsiya', 'NLP yechimlar', 'Computer vision', 'AI agentlar'],
+      description: 'Sun\'iy intellekt asosida avtomatlashtirilgan tizimlar. Chatbotlar, tahliliy tizimlar, machine learning modellar va AI agentlar yaratish.',
+      features: ['Gemini API integratsiya', 'NLP yechimlar', 'Computer vision', 'AI agentlar', 'Custom ML modellar', 'Data analytics'],
       color: '#22d3ee'
     },
     {
       icon: <Server size={40} />,
       title: 'Backend & API',
-      description: 'Kuchli va ishonchli backend arxitektura. REST API, GraphQL, mikroservislar va yuqori yuklanishga bardoshli tizimlar.',
-      features: ['Python, FastAPI, Django', 'PostgreSQL, MongoDB', 'Redis caching', 'API documentation'],
+      description: 'Kuchli va ishonchli backend arxitektura. REST API, GraphQL, mikroservislar va yuqori yuklanishga bardoshli tizimlar loyihalash.',
+      features: ['Python, FastAPI, Django', 'PostgreSQL, MongoDB', 'Redis caching', 'API documentation', 'Authentication & Auth', 'Rate limiting'],
       color: '#f472b6'
     },
     {
       icon: <Cloud size={40} />,
       title: 'DevOps & Cloud',
-      description: 'Bulutli infratuzilma, CI/CD pipeline, monitoring va avtomatik deploy. Docker, Kubernetes, AWS/GCP.',
-      features: ['Docker & Kubernetes', 'CI/CD pipelines', 'Cloud deployment', 'Monitoring & Logging'],
+      description: 'Bulutli infratuzilma, CI/CD pipeline, monitoring va avtomatik deploy. Docker, Kubernetes, AWS/GCP va boshqa platformalar.',
+      features: ['Docker & Kubernetes', 'CI/CD pipelines', 'Cloud deployment', 'Monitoring & Logging', 'Auto-scaling', 'Backup & Recovery'],
       color: '#fb923c'
     },
     {
       icon: <Shield size={40} />,
       title: 'Xavfsizlik & Audit',
-      description: 'Kiberxavfsizlik auditlari, penetratsion testlar va ma\'lumotlar xavfsizligini ta\'minlash.',
-      features: ['Security audit', 'Penetration testing', 'SSL & encryption', 'Data protection'],
+      description: 'Kiberxavfsizlik auditlari, penetratsion testlar va ma\'lumotlar xavfsizligini ta\'minlash. SSL, shifrlash va access control.',
+      features: ['Security audit', 'Penetration testing', 'SSL & encryption', 'Data protection', 'OWASP standards', 'Vulnerability assessment'],
       color: '#34d399'
+    },
+    {
+      icon: <Database size={40} />,
+      title: 'Ma\'lumotlar Bazasi',
+      description: 'Murakkab ma\'lumotlar bazasi arxitekturasi, optimizatsiya va migratsiya. Relatsion va NoSQL bazalar bilan ishlash.',
+      features: ['PostgreSQL, MySQL', 'MongoDB, Firebase', 'Redis, Memcached', 'Query optimization', 'Data modeling', 'Backup strategies'],
+      color: '#fbbf24'
+    },
+    {
+      icon: <Layers size={40} />,
+      title: 'UI/UX Dizayn',
+      description: 'Foydalanuvchi tajribasini tahlil qilish va zamonaviy dizayn yaratish. Wireframe, prototype va final dizayn tayyorlash.',
+      features: ['Figma dizayn', 'User research', 'Wireframing', 'Prototyping', 'Design system', 'Accessibility (a11y)'],
+      color: '#f87171'
+    },
+    {
+      icon: <Code2 size={40} />,
+      title: 'Telegram Botlar',
+      description: 'Murakkab funksional Telegram botlar. Payment integratsiya, admin panel, analytics va avtomatlashtirish.',
+      features: ['Telegram Bot API', 'Webhook & polling', 'Inline keyboard', 'Payment integration', 'Admin dashboard', 'Analytics'],
+      color: '#38bdf8'
+    },
+    {
+      icon: <Rocket size={40} />,
+      title: 'ERP & CRM Tizimlar',
+      description: 'Biznes jarayonlarini avtomatlashtirish uchun ERP va CRM tizimlar yaratish. Inventory, HR, accounting va reporting.',
+      features: ['Custom ERP/CRM', 'Inventory management', 'HR & Payroll', 'Financial reporting', 'Workflow automation', 'Role-based access'],
+      color: '#c084fc'
+    },
+    {
+      icon: <Terminal size={40} />,
+      title: 'Konsalting & Training',
+      description: 'Texnik konsalting, jamoalarni o\'qitish va code review. Dasturlash asoslari, best practices va arxitektura bo\'yicha mentorlik.',
+      features: ['Code review', 'Architecture consulting', 'Team training', 'Best practices', 'Tech stack selection', 'Performance audit'],
+      color: '#4ade80'
+    },
+    {
+      icon: <Cpu size={40} />,
+      title: 'IoT & Avtomatizatsiya',
+      description: 'Internet of Things yechimlari, smart home/system integratsiya va hardware-dastur aloqasini ta\'minlash.',
+      features: ['IoT protocols', 'Sensor integration', 'Smart home', 'Real-time monitoring', 'Edge computing', 'Automation scripts'],
+      color: '#818cf8'
     },
   ]
 
   const projects = [
     {
       title: 'Rare Flowers Agro-turizm',
-      description: '5 gektar maydonni egallagan premium klassdagi agro-turizm kompleksi. Lyuks brending, zamonaviy oyna konstruksiyalari, quyosh energiyasi integratsiyasi.',
-      tech: ['React', 'Three.js', 'Python', 'PostgreSQL'],
+      description: '5 gektar maydonni egallagan premium klassdagi agro-turizm kompleksi. Lyuks brending, zamonaviy oyna konstruksiyalari, quyosh energiyasi integratsiyasi va yuqori darajadagi peyzaj dizayni. Loyihaning to\'liq arxitekturasi va vizualizatsiyasiga boshchilik qilgan.',
+      tech: ['React', 'Three.js', 'Python', 'PostgreSQL', 'Figma'],
       image: '🌺',
       link: '#',
       status: 'Faol'
     },
     {
       title: 'Yoshlar Front Ofisi',
-      description: 'Maxsus bot va mobil ilovalar ekotizimi. Web platforma (front-ofis.uz) Render kabi bulutli platformalarda to\'liq domen va server sozlamalari bilan.',
-      tech: ['Flutter', 'Node.js', 'MongoDB', 'Telegram Bot API'],
+      description: 'Maxsus bot va mobil ilovalar ekotizimi. Web platforma (front-ofis.uz) Render kabi bulutli platformalarda to\'liq domen va server sozlamalari bilan ishga tushirilgan. Real-time analytics va user management tizimi.',
+      tech: ['Flutter', 'Node.js', 'MongoDB', 'Telegram Bot API', 'Render'],
       image: '🏢',
       link: 'https://front-ofis.uz',
       status: 'Faol'
     },
     {
       title: 'Ravshanov AI (RAI)',
-      description: 'Sun\'iy intellekt va raqamli innovatsiyalarga yo\'naltirilgan AI-ekotizim. Gemini API va boshqa ilg\'or neyrotarmoqlarni amaliy dasturlarga integratsiya.',
-      tech: ['Python', 'Gemini API', 'FastAPI', 'React'],
+      description: 'Sun\'iy intellekt va raqamli innovatsiyalarga yo\'naltirilgan AI-ekotizim. Gemini API va boshqa ilg\'or neyrotarmoqlarni amaliy dasturlarga integratsiya. Mustaqil tahlil va avtomatlashtirish qobiliyatiga ega.',
+      tech: ['Python', 'Gemini API', 'FastAPI', 'React', 'LangChain'],
       image: '🤖',
       link: '#',
       status: 'Rivojlanmoqda'
     },
     {
       title: 'Turon Beton Raqamlashtirish',
-      description: 'Kompaniyaning raqamli infratuzilmasi, ma\'lumotlar xavfsizligi va raqamli avtomatlashtirish jarayonlarini to\'liq boshqarish.',
-      tech: ['ERP tizim', 'Python', 'Docker', 'PostgreSQL'],
+      description: 'Kompaniyaning raqamli infratuzilmasi, ma\'lumotlar xavfsizligi va raqamli avtomatlashtirish jarayonlarini to\'liq boshqarish. ERP tizim, inventory management, HR va accounting modullari.',
+      tech: ['ERP tizim', 'Python', 'Docker', 'PostgreSQL', 'Redis'],
       image: '🏗️',
       link: '#',
       status: 'Faol'
     },
     {
       title: 'InteliSoft Yechimlar',
-      description: 'Dasturiy yechimlar bo\'yicha bosh maslahatchi va texnik tayanch sifatida murakkab biznes tizimlarini ishlab chiqish.',
-      tech: ['Full-stack', 'Cloud', 'AI', 'Microservices'],
+      description: 'Dasturiy yechimlar bo\'yicha bosh maslahatchi va texnik tayanch sifatida murakkab biznes tizimlarini ishlab chiqish. Mikroservis arxitektura, CI/CD pipeline va cloud deployment.',
+      tech: ['Full-stack', 'Cloud', 'AI', 'Microservices', 'Kubernetes'],
       image: '💼',
       link: '#',
       status: 'Davom etmoqda'
     },
     {
       title: 'AI Agent Tizimlari',
-      description: 'Mustaqil tahlil qila oladigan avtomatlashtirilgan tizimlar. Nafaqat xabarlarni qayta ishlaydigan, balki mustaqil qaror qabul qiluvchi AI agentlar.',
-      tech: ['LangChain', 'Gemini', 'Python', 'Vector DB'],
+      description: 'Mustaqil tahlil qila oladigan avtomatlashtirilgan tizimlar. Nafaqat xabarlarni qayta ishlaydigan, balki mustaqil qaror qabul qiluvchi AI agentlar. Vector database va RAG arxitektura.',
+      tech: ['LangChain', 'Gemini', 'Python', 'Vector DB', 'RAG'],
       image: '🧠',
+      link: '#',
+      status: 'Beta'
+    },
+    {
+      title: 'Sinergiya Platformasi',
+      description: 'Sun\'iy intellekt va raqamli innovatsiyalarga yo\'naltirilgan qo\'shma loyiha. Biznes avtomatlashtirish, AI-powered analytics va real-time monitoring tizimi.',
+      tech: ['React', 'Python', 'AI/ML', 'WebSocket', 'D3.js'],
+      image: '🔄',
+      link: '#',
+      status: 'Rejalashtirilgan'
+    },
+    {
+      title: 'E-Commerce Platform',
+      description: 'Ko\'p funksiyali onlayn do\'kon platformasi. Payment gateway integratsiya, inventory management, order tracking va analytics dashboard. Mobile-first yondashuv bilan yaratilgan.',
+      tech: ['Next.js', 'Stripe', 'PostgreSQL', 'Tailwind', 'Redis'],
+      image: '🛒',
+      link: '#',
+      status: 'Faol'
+    },
+    {
+      title: 'Smart Home Dashboard',
+      description: 'IoT qurilmalarini boshqarish uchun real-time dashboard. Sensor ma\'lumotlarini monitoring, automation rules va energy analytics. WebSocket orqali real-time yangilanish.',
+      tech: ['Flutter', 'MQTT', 'Node-RED', 'InfluxDB', 'Grafana'],
+      image: '🏠',
       link: '#',
       status: 'Beta'
     },
@@ -168,36 +234,36 @@ function App() {
       company: 'Turon Beton MChJ',
       role: 'Dasturiy ta\'minotni ishlab chiqish bo\'limi boshlig\'i',
       period: 'Hozirgi',
-      description: 'Kompaniyaning raqamli infratuzilmasi, ma\'lumotlar xavfsizligi va raqamli avtomatlashtirish jarayonlarini to\'liq boshqaradi.',
-      achievements: ['ERP tizimini joriy qilish', 'Raqamli transformatsiya', 'Xavfsizlik protokollari']
+      description: 'Kompaniyaning raqamli infratuzilmasi, ma\'lumotlar xavfsizligi va raqamli avtomatlashtirish jarayonlarini to\'liq boshqaradi. ERP tizimini joriy qilish, inventory management, HR va accounting modullarini ishlab chiqish.',
+      achievements: ['ERP tizimini joriy qilish', 'Raqamli transformatsiya', 'Xavfsizlik protokollari', 'Jamoa boshqaruvi']
     },
     {
       company: 'Ravshanov AI (RAI)',
       role: 'Asoschi & Bosh Arxitektor',
       period: 'Hozirgi',
-      description: 'Sun\'iy intellekt va raqamli innovatsiyalarga yo\'naltirilgan loyihalar asoschisi. RAI brendi ostida AI-ekotizimlarni rivojlantirish.',
-      achievements: ['AI-ekotizim yaratish', 'Gemini API integratsiya', 'Innovatsion yechimlar']
+      description: 'Sun\'iy intellekt va raqamli innovatsiyalarga yo\'naltirilgan loyihalar asoschisi. RAI brendi ostida AI-ekotizimlarni rivojlantirish. Gemini API va boshqa ilg\'or neyrotarmoqlarni amaliy dasturlarga integratsiya.',
+      achievements: ['AI-ekotizim yaratish', 'Gemini API integratsiya', 'Innovatsion yechimlar', 'AI agentlar']
     },
     {
       company: 'InteliSoft',
       role: 'Strategik a\'zosi & Bosh maslahatchi',
       period: 'Hozirgi',
-      description: 'Dasturiy yechimlar bo\'yicha bosh maslahatchi va texnik tayanchi.',
-      achievements: ['Murakkab tizimlar', 'Jamoa boshqaruvi', 'Texnik strategiya']
+      description: 'Dasturiy yechimlar bo\'yicha bosh maslahatchi va texnik tayanchi. Murakkab biznes tizimlarini loyihalash, mikroservis arxitektura va cloud deployment bo\'yicha ekspertiza.',
+      achievements: ['Murakkab tizimlar', 'Jamoa boshqaruvi', 'Texnik strategiya', 'Code review']
     },
     {
       company: 'Sinergiya',
       role: 'Hammuassis & Texnik Direktor',
       period: 'Hozirgi',
-      description: 'Sun\'iy intellekt va raqamli innovatsiyalarga yo\'naltirilgan qo\'shma loyihalar.',
-      achievements: ['Hamkorlik loyihalari', 'AI yechimlar', 'Biznes rivojlanish']
+      description: 'Sun\'iy intellekt va raqamli innovatsiyalarga yo\'naltirilgan qo\'shma loyihalar. Biznes avtomatlashtirish, AI-powered analytics va real-time monitoring tizimlarini rivojlantirish.',
+      achievements: ['Hamkorlik loyihalari', 'AI yechimlar', 'Biznes rivojlanish', 'Platform arxitektura']
     },
     {
       company: 'Sardor & Media',
       role: 'Matbuot va media yo\'nalishi yetakchisi',
       period: 'Dekabr 2025',
-      description: '"Sardor" darajasiga ko\'tarilgan, Matbuot va media yo\'nalishi bo\'yicha yetakchi sifatida faoliyat.',
-      achievements: ['Media strategiya', 'Brend rivojlanishi', 'Jamoatchilik aloqalari']
+      description: '"Sardor" darajasiga ko\'tarilgan, Matbuot va media yo\'nalishi bo\'yicha yetakchi sifatida faoliyat. Media strategiya, brend rivojlanishi va jamoatchilik aloqalarini boshqarish.',
+      achievements: ['Media strategiya', 'Brend rivojlanishi', 'Jamoatchilik aloqalari', 'Sardor darajasi']
     },
   ]
 
@@ -438,22 +504,21 @@ function App() {
           <motion.div className="about-grid" variants={staggerContainer}>
             <motion.div className="about-text" variants={fadeInUp}>
               <p>
-                <strong>Toshkent shahrida faoliyat yurituvchi, 18 yoshli yuqori malakali dasturiy ta'minot arxitektori.</strong>
-                Web va mobil ilovalarni noldan loyihalashtirish, murakkab tizimlarni yaratish va istalgan dasturlash tiliga
-                tezkor moslasha olish qobiliyatiga ega.
+                <strong>Otabek Ravshanov Avazbekovich</strong> — Toshkent shahrida faoliyat yurituvchi, 18 yoshli yuqori malakali dasturiy ta'minot arxitektori.
+                Web va mobil ilovalarni noldan loyihalashtirish, murakkab tizimlarni yaratish va istalgan dasturlash tiliga tezkor moslasha olish qobiliyatiga ega.
               </p>
               <p>
-                Mening professional diapazonim faqatgina kod yozish bilan cheklanmaydi; men yirik biznes-loyihalar ekotizimini
-                yaratish, jamoalarni boshqarish va sun'iy intellekt texnologiyalarini reallikka tadbiq etish salohiyatiga egaman.
+                Mening professional diapazonim faqatgina kod yozish bilan cheklanmaydi — men yirik biznes-loyihalar ekotizimini yaratish, jamoalarni boshqarish
+                va sun'iy intellekt texnologiyalarini reallikka tadbiq etish salohiyatiga egaman. Poliglot dasturchi sifatida har qandan murakkablikdagi loyihalarni
+                bir nechta dasturlash tillarida amalga oshira olaman.
               </p>
               <p>
-                Qat'iy intizom, qorong'i va metall ranglar ustunlik qiluvchi <strong>"brutal"</strong> hamda yuqori texnologik
-                estetika tarafdoriman. Asosiy ish jarayonlarini, jumladan kod yozish va arxitektura chizishni tungi vaqtlarda,
-                chuqur konsentratsiya holatida amalga oshirishni afzal ko'raman.
+                Qat'iy intizom, qorong'i va metall ranglar ustunlik qiluvchi <strong>"brutal"</strong> hamda yuqori texnologik estetika tarafdoriman.
+                Asosiy ish jarayonlarini, jumladan kod yozish va arxitektura chizishni tungi vaqtlarda, chuqur konsentratsiya holatida amalga oshirishni afzal ko'raman.
               </p>
               <p>
-                Mening yondashuvim shunchaki vizual chiroyli dastur tuzish emas, balki <strong className="accent">"beast mode"</strong>
-                darajasida qat'iy mantiq va mukammal texnik dizayn asosida ishlovchi xatosiz mexanizmlarni yaratishdir.
+                Mening yondashuvim shunchaki vizual chiroyli dastur tuzish emas, balki <strong className="accent">"beast mode"</strong> darajasida qat'iy mantiq
+                va mukammal texnik dizayn asosida ishlovchi xatosiz mexanizmlarni yaratishdir. Har bir loyiha — bu san'at asari kabi mukammal bo'lishi kerak.
               </p>
             </motion.div>
 
