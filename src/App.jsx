@@ -201,6 +201,20 @@ function App() {
 
   const experiences = [
     {
+      company: 'Qo\'qon Innavations',
+      role: 'Dasturlash kursi talabasi',
+      period: '2018 - 2019',
+      description: 'Professional dasturlash kursida o\'qishni boshlaganim bilan dasturchilik yo\'liga qadam qo\'ydim. Zamonaviy dasturlash asoslarini chuqur o\'rgandim va amaliy loyihalar ustida ishlash orqali tajriba orttirdim.',
+      achievements: ['Dasturlash asoslari', 'Amaliy loyihalar', 'Jamoa ishlari', 'Problem solving']
+    },
+    {
+      company: 'Takvandoga',
+      role: 'Talaba',
+      period: '2017',
+      description: 'O\'z bilimlarimni rivojlantirish va yangi ko\'nikmalarni o\'rganish maqsadida Takvandoga bordim. Bu tajriba menga mustaqil o\'rganish va moslashuvchanlik qobiliyatlarini rivojlantirishga yordam berdi.',
+      achievements: ['Mustaqil o\'rganish', 'Moslashuvchanlik', 'Yangi tajriba', 'Motivatsiya']
+    },
+    {
       company: 'Turon Beton MChJ',
       role: 'Dasturiy ta\'minotni ishlab chiqish bo\'limi boshlig\'i',
       period: 'Hozirgi',
@@ -227,13 +241,6 @@ function App() {
       period: 'Hozirgi',
       description: 'Sun\'iy intellekt va raqamli innovatsiyalarga yo\'naltirilgan qo\'shma loyihalar. Biznes avtomatlashtirish, AI-powered analytics va real-time monitoring tizimlarini rivojlantirish.',
       achievements: ['Hamkorlik loyihalari', 'AI yechimlar', 'Biznes rivojlanish', 'Platform arxitektura']
-    },
-    {
-      company: 'Sardor & Media',
-      role: 'Matbuot va media yo\'nalishi yetakchisi',
-      period: 'Dekabr 2025',
-      description: '"Sardor" darajasiga ko\'tarilgan, Matbuot va media yo\'nalishi bo\'yicha yetakchi sifatida faoliyat. Media strategiya, brend rivojlanishi va jamoatchilik aloqalarini boshqarish.',
-      achievements: ['Media strategiya', 'Brend rivojlanishi', 'Jamoatchilik aloqalari', 'Sardor darajasi']
     },
   ]
 
@@ -584,20 +591,40 @@ function App() {
             <motion.div className="about-text" variants={fadeInUp}>
               <p>
                 <strong>Otabek Ravshanov Avazbekovich</strong> — Toshkent shahrida faoliyat yurituvchi, 18 yoshli yuqori malakali dasturiy ta'minot arxitektori.
-                Web va mobil ilovalarni noldan loyihalashtirish, murakkab tizimlarni yaratish va istalgan dasturlash tiliga tezkor moslasha olish qobiliyatiga ega.
+                22-fevralda tug'ilganman. Web va mobil ilovalarni noldan loyihalashtirish, murakkab tizimlarni yaratish va istalgan dasturlash tiliga tezkor moslasha olish qobiliyatiga ega.
+                Yoshligimdan kompyuter texnologiyalari va dasturlashga qiziqib kelganman, bu qiziqish menga professional yo'lni tanlashimda asos bo'ldi.
+              </p>
+              <p>
+                Mening dasturlashga bo'lgan sayohatim 2017-yilda Takvandoga borib, u yerda o'z bilimlarimni rivojlantirishni boshlaganimdan boshlangan.
+                Bu yerda men o'z-o'zimni sinab ko'rish va mustaqil o'rganish ko'nikmalarini rivojlantirish imkoniyatiga ega bo'ldim.
+                2018-yilda Qo'qon Innavations dasturlash kursida o'qishni boshlaganim bilan professional dasturchilik yo'liga qadam qo'ydim.
+                Bu kurslarda zamonaviy dasturlash asoslarini chuqur o'rgandim va amaliy loyihalar ustida ishlash orqali tajriba orttirdim.
+              </p>
+              <p>
+                Bugungi kunda men bir nechta muhim lavozimlarda ishlamoqda: Turon Beton MChJ da dasturiy ta'minotni ishlab chiqish bo'limi boshlig'i, 
+                Ravshanov AI (RAI) asoschisi va bosh arxitektori, InteliSoft strategik a'zosi va bosh maslahatchi, 
+                shuningdek Sinergiya hamkorlik loyihalarida hammuassis va texnik direktor sifatida faoliyat yuritaman.
               </p>
               <p>
                 Mening professional diapazonim faqatgina kod yozish bilan cheklanmaydi — men yirik biznes-loyihalar ekotizimini yaratish, jamoalarni boshqarish
                 va sun'iy intellekt texnologiyalarini reallikka tadbiq etish salohiyatiga egaman. Poliglot dasturchi sifatida har qandan murakkablikdagi loyihalarni
-                bir nechta dasturlash tillarida amalga oshira olaman.
+                bir nechta dasturlash tillarida amalga oshira olaman. React, Vue, Flutter, Python, JavaScript, TypeScript kabi texnologiyalarda chuqur tajribaga egaman.
               </p>
               <p>
                 Qat'iy intizom, qorong'i va metall ranglar ustunlik qiluvchi <strong>"brutal"</strong> hamda yuqori texnologik estetika tarafdoriman.
                 Asosiy ish jarayonlarini, jumladan kod yozish va arxitektura chizishni tungi vaqtlarda, chuqur konsentratsiya holatida amalga oshirishni afzal ko'raman.
+                Bu yondashuv menga eng murakkab muammolarni ham hal qilish imkonini beradi. Tungi ish rejimi menga eng chuqur fikrlash va eng yaxshi yechimlarni topish imkonini beradi.
               </p>
               <p>
                 Mening yondashuvim shunchaki vizual chiroyli dastur tuzish emas, balki <strong className="accent">"beast mode"</strong> darajasida qat'iy mantiq
                 va mukammal texnik dizayn asosida ishlovchi xatosiz mexanizmlarni yaratishdir. Har bir loyiha — bu san'at asari kabi mukammal bo'lishi kerak.
+                Doimiy o'z-o'zimni rivojlantirishga e'tibor beraman, yangi texnologiyalarni o'rganish va eng yaxshi amaliyotlarni qo'llash — mening asosiy tamoyilim.
+                Har kuni yangi narsalarni o'rganaman, har loyihada o'zimni yaxshilashga harakat qilaman.
+              </p>
+              <p>
+                Men kelajakda global miqyosdagi loyihalarda ishlash, o'z startaplarini yaratish va O'zbekiston IT sektorida inqilob qilishni maqsad qilganman.
+                Sun'iy intellekt, blockchain va IoT kabi rivojlanayotgan texnologiyalarga katta e'tibor beraman.
+                Jamoalar bilan ishlashni, bilimlarni baham ko'rishni va yosh dasturchilarga yo'l ko'rsatishni yaxshi ko'raman.
               </p>
             </motion.div>
 
@@ -646,8 +673,8 @@ function App() {
                 >
                   <Cpu size={32} />
                 </motion.div>
-                <h3>Yosh</h3>
-                <p>18 yosh</p>
+                <h3>Tug'ilgan sana</h3>
+                <p>22-fevral</p>
               </motion.div>
 
               <motion.div 
@@ -664,6 +691,22 @@ function App() {
                 </motion.div>
                 <h3>Ish Uslubi</h3>
                 <p>Beast Mode & Night Owl</p>
+              </motion.div>
+
+              <motion.div 
+                className="info-card" 
+                variants={scaleIn}
+                whileHover={{ scale: 1.05, y: -8, rotate: 2 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <motion.div
+                  animate={{ rotate: [0, 180, 360] }}
+                  transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+                >
+                  <Layers size={32} />
+                </motion.div>
+                <h3>Ta'lim</h3>
+                <p>Qo'qon Innavations (2018)</p>
               </motion.div>
             </motion.div>
           </motion.div>
