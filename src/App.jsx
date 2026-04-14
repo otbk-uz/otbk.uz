@@ -251,13 +251,83 @@ function App() {
   const fadeInUp = {
     initial: { opacity: 0, y: 60 },
     animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.6 }
+    transition: { duration: 0.6, ease: "easeOut" }
+  }
+
+  const fadeInDown = {
+    initial: { opacity: 0, y: -60 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.6, ease: "easeOut" }
+  }
+
+  const fadeInLeft = {
+    initial: { opacity: 0, x: -60 },
+    animate: { opacity: 1, x: 0 },
+    transition: { duration: 0.6, ease: "easeOut" }
+  }
+
+  const fadeInRight = {
+    initial: { opacity: 0, x: 60 },
+    animate: { opacity: 1, x: 0 },
+    transition: { duration: 0.6, ease: "easeOut" }
+  }
+
+  const scaleIn = {
+    initial: { opacity: 0, scale: 0.8 },
+    animate: { opacity: 1, scale: 1 },
+    transition: { duration: 0.5, ease: "easeOut" }
+  }
+
+  const rotateIn = {
+    initial: { opacity: 0, rotate: -180 },
+    animate: { opacity: 1, rotate: 0 },
+    transition: { duration: 0.8, ease: "easeOut" }
+  }
+
+  const slideIn = {
+    initial: { opacity: 0, x: 100 },
+    animate: { opacity: 1, x: 0 },
+    transition: { duration: 0.7, ease: "easeOut" }
+  }
+
+  const bounceIn = {
+    initial: { opacity: 0, y: -100 },
+    animate: { opacity: 1, y: 0 },
+    transition: { 
+      duration: 0.8, 
+      ease: "easeOut",
+      type: "spring",
+      stiffness: 100
+    }
   }
 
   const staggerContainer = {
     animate: {
       transition: {
         staggerChildren: 0.1
+      }
+    }
+  }
+
+  const staggerContainerSlow = {
+    animate: {
+      transition: {
+        staggerChildren: 0.2
+      }
+    }
+  }
+
+  const glowPulse = {
+    animate: {
+      boxShadow: [
+        "0 0 20px rgba(212, 175, 55, 0.2)",
+        "0 0 40px rgba(212, 175, 55, 0.4)",
+        "0 0 20px rgba(212, 175, 55, 0.2)"
+      ],
+      transition: {
+        duration: 2,
+        repeat: Infinity,
+        ease: "easeInOut"
       }
     }
   }
@@ -271,11 +341,17 @@ function App() {
         <motion.a
           href="#hero"
           className="logo"
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5 }}
+          initial={{ opacity: 0, x: -20, scale: 0.8 }}
+          animate={{ opacity: 1, x: 0, scale: 1 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          whileHover={{ scale: 1.05 }}
         >
-          <Terminal size={28} />
+          <motion.div
+            animate={{ rotate: 360 }}
+            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+          >
+            <Terminal size={28} />
+          </motion.div>
           <span>OTBK<span className="accent">.UZ</span></span>
         </motion.a>
 
@@ -288,6 +364,8 @@ function App() {
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: index * 0.1 }}
+              whileHover={{ scale: 1.1, y: -2 }}
+              whileTap={{ scale: 0.95 }}
             >
               {item.label}
             </motion.a>
@@ -324,19 +402,33 @@ function App() {
         <div className="hero-grid">
           <div className="hero-content">
             <motion.h1
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 0.8 }}
+              initial={{ opacity: 0, y: 40, scale: 0.9 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{ delay: 0.3, duration: 0.8, ease: "easeOut" }}
             >
-              <span className="greeting">Salom, men</span>
-              <span className="name">Otabek <span className="accent">Ravshanov</span></span>
+              <motion.span 
+                className="greeting"
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.4, duration: 0.5 }}
+              >
+                Salom, men
+              </motion.span>
+              <motion.span 
+                className="name"
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.5, duration: 0.5 }}
+              >
+                Otabek <span className="accent">Ravshanov</span>
+              </motion.span>
             </motion.h1>
 
             <motion.p
               className="subtitle"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5, duration: 0.6 }}
+              transition={{ delay: 0.6, duration: 0.6 }}
             >
               Dasturiy Ta'minot Arxitektori | Poliglot Dasturchi | IT Loyihalar Boshqaruvchisi
             </motion.p>
@@ -345,7 +437,7 @@ function App() {
               className="description"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.7, duration: 0.6 }}
+              transition={{ delay: 0.8, duration: 0.6 }}
             >
               18 yosh. Toshkent. Murakkab tizimlarni noldan yaratish, AI-ekotizimlar rivojlantirish va
               yuqori darajadagi raqamli yechimlar taqdim etish — mening kundalik faoliyatim.
@@ -357,63 +449,110 @@ function App() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.9, duration: 0.6 }}
             >
-              <a href="#projects" className="btn-primary">
-                <Rocket size={20} />
+              <motion.a 
+                href="#projects" 
+                className="btn-primary"
+                whileHover={{ scale: 1.05, y: -3 }}
+                whileTap={{ scale: 0.95 }}
+                {...glowPulse}
+              >
+                <motion.div
+                  animate={{ x: [0, 5, 0] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                >
+                  <Rocket size={20} />
+                </motion.div>
                 Loyihalarni ko'rish
-              </a>
-              <a href="#contact" className="btn-secondary">
+              </motion.a>
+              <motion.a 
+                href="#contact" 
+                className="btn-secondary"
+                whileHover={{ scale: 1.05, y: -3 }}
+                whileTap={{ scale: 0.95 }}
+              >
                 <Mail size={20} />
                 Bog'lanish
-              </a>
+              </motion.a>
             </motion.div>
 
             <motion.div
               className="hero-stats"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
+              variants={staggerContainer}
+              initial="initial"
+              animate="animate"
               transition={{ delay: 1.1, duration: 0.6 }}
             >
-              <div className="stat">
-                <Star size={24} />
-                <span>5+</span>
-                <small>Yillik tajriba</small>
-              </div>
-              <div className="stat">
-                <Award size={24} />
-                <span>20+</span>
-                <small>Loyihalar</small>
-              </div>
-              <div className="stat">
-                <Users size={24} />
-                <span>10+</span>
-                <small>Mijozlar</small>
-              </div>
-              <div className="stat">
-                <Zap size={24} />
-                <span>15+</span>
-                <small>Texnologiyalar</small>
-              </div>
+              {[
+                { icon: <Star size={24} />, value: '5+', label: 'Yillik tajriba' },
+                { icon: <Award size={24} />, value: '20+', label: 'Loyihalar' },
+                { icon: <Users size={24} />, value: '10+', label: 'Mijozlar' },
+                { icon: <Zap size={24} />, value: '15+', label: 'Texnologiyalar' }
+              ].map((stat, index) => (
+                <motion.div
+                  key={index}
+                  className="stat"
+                  variants={scaleIn}
+                  whileHover={{ scale: 1.1, y: -5 }}
+                >
+                  <motion.div
+                    animate={{ rotate: [0, 10, -10, 0] }}
+                    transition={{ duration: 2, repeat: Infinity, delay: index * 0.2 }}
+                  >
+                    {stat.icon}
+                  </motion.div>
+                  <motion.span
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 1.3 + index * 0.1 }}
+                  >
+                    {stat.value}
+                  </motion.span>
+                  <small>{stat.label}</small>
+                </motion.div>
+              ))}
             </motion.div>
           </div>
 
           <motion.div
             className="hero-visual"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.5, duration: 0.8 }}
+            initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
+            animate={{ opacity: 1, scale: 1, rotate: 0 }}
+            transition={{ delay: 0.5, duration: 0.8, ease: "easeOut" }}
+            whileHover={{ scale: 1.02, rotate: 2 }}
           >
-            <div className="profile-window">
+            <motion.div 
+              className="profile-window"
+              whileHover={{ boxShadow: "0 0 60px rgba(212, 175, 55, 0.4)" }}
+              transition={{ duration: 0.3 }}
+            >
               <div className="window-header">
                 <div className="window-dots">
-                  <span className="red" />
-                  <span className="yellow" />
-                  <span className="green" />
+                  <motion.span 
+                    className="red"
+                    whileHover={{ scale: 1.2 }}
+                  />
+                  <motion.span 
+                    className="yellow"
+                    whileHover={{ scale: 1.2 }}
+                  />
+                  <motion.span 
+                    className="green"
+                    whileHover={{ scale: 1.2 }}
+                  />
                 </div>
               </div>
               <div className="window-content">
-                <img src={photoMain} alt="Otabek Ravshanov" className="profile-photo" />
+                <motion.img 
+                  src={photoMain} 
+                  alt="Otabek Ravshanov" 
+                  className="profile-photo"
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.7, duration: 0.5 }}
+                  whileHover={{ scale: 1.05 }}
+                />
               </div>
-            </div>
+            </motion.div>
           </motion.div>
         </div>
 
@@ -462,27 +601,67 @@ function App() {
               </p>
             </motion.div>
 
-            <motion.div className="about-cards" variants={staggerContainer}>
-              <motion.div className="info-card" variants={fadeInUp}>
-                <MapPin size={32} />
+            <motion.div className="about-cards" variants={staggerContainerSlow}>
+              <motion.div 
+                className="info-card" 
+                variants={scaleIn}
+                whileHover={{ scale: 1.05, y: -8, rotate: 2 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <motion.div
+                  animate={{ y: [0, -5, 0] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                >
+                  <MapPin size={32} />
+                </motion.div>
                 <h3>Joylashuv</h3>
                 <p>Toshkent shahri, O'zbekiston</p>
               </motion.div>
 
-              <motion.div className="info-card" variants={fadeInUp}>
-                <Award size={32} />
+              <motion.div 
+                className="info-card" 
+                variants={scaleIn}
+                whileHover={{ scale: 1.05, y: -8, rotate: -2 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <motion.div
+                  animate={{ rotate: [0, 10, -10, 0] }}
+                  transition={{ duration: 3, repeat: Infinity }}
+                >
+                  <Award size={32} />
+                </motion.div>
                 <h3>Lavozim</h3>
                 <p>Dasturiy Ta'minot Arxitektori</p>
               </motion.div>
 
-              <motion.div className="info-card" variants={fadeInUp}>
-                <Cpu size={32} />
+              <motion.div 
+                className="info-card" 
+                variants={scaleIn}
+                whileHover={{ scale: 1.05, y: -8, rotate: 2 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <motion.div
+                  animate={{ scale: [1, 1.1, 1] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                >
+                  <Cpu size={32} />
+                </motion.div>
                 <h3>Yosh</h3>
                 <p>18 yosh</p>
               </motion.div>
 
-              <motion.div className="info-card" variants={fadeInUp}>
-                <Zap size={32} />
+              <motion.div 
+                className="info-card" 
+                variants={scaleIn}
+                whileHover={{ scale: 1.05, y: -8, rotate: -2 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <motion.div
+                  animate={{ opacity: [0.5, 1, 0.5] }}
+                  transition={{ duration: 1.5, repeat: Infinity }}
+                >
+                  <Zap size={32} />
+                </motion.div>
                 <h3>Ish Uslubi</h3>
                 <p>Beast Mode & Night Owl</p>
               </motion.div>
@@ -507,24 +686,61 @@ function App() {
             Sizning g'oyangizni raqamli reallikka aylantiraman
           </motion.p>
 
-          <motion.div className="services-grid" variants={staggerContainer}>
+          <motion.div className="services-grid" variants={staggerContainerSlow}>
             {services.map((service, index) => (
               <motion.div
                 key={service.title}
                 className="service-card"
-                variants={fadeInUp}
-                whileHover={{ y: -10, scale: 1.02 }}
+                variants={scaleIn}
+                whileHover={{ 
+                  y: -12, 
+                  scale: 1.03, 
+                  rotateX: 5,
+                  boxShadow: "0 20px 40px rgba(212, 175, 55, 0.3)"
+                }}
+                transition={{ type: "spring", stiffness: 300 }}
                 style={{ '--accent-color': service.color }}
               >
-                <div className="service-icon">{service.icon}</div>
-                <h3>{service.title}</h3>
+                <motion.div 
+                  className="service-icon"
+                  animate={{ 
+                    rotate: [0, 5, -5, 0],
+                    scale: [1, 1.1, 1]
+                  }}
+                  transition={{ 
+                    duration: 3, 
+                    repeat: Infinity,
+                    delay: index * 0.1
+                  }}
+                  whileHover={{ rotate: 15, scale: 1.2 }}
+                >
+                  {service.icon}
+                </motion.div>
+                <motion.h3
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  transition={{ delay: 0.2 }}
+                >
+                  {service.title}
+                </motion.h3>
                 <p>{service.description}</p>
                 <ul className="service-features">
                   {service.features.map((feature, i) => (
-                    <li key={i}>
-                      <ArrowRight size={14} />
+                    <motion.li 
+                      key={i}
+                      initial={{ opacity: 0, x: -10 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ delay: i * 0.05 }}
+                      whileHover={{ x: 5 }}
+                    >
+                      <motion.span
+                        animate={{ x: [0, 3, 0] }}
+                        transition={{ duration: 1.5, repeat: Infinity }}
+                      >
+                        <ArrowRight size={14} />
+                      </motion.span>
                       {feature}
-                    </li>
+                    </motion.li>
                   ))}
                 </ul>
               </motion.div>
@@ -549,28 +765,101 @@ function App() {
             Murakkab muammolarni sodda va samarali yechimlar
           </motion.p>
 
-          <motion.div className="projects-grid" variants={staggerContainer}>
+          <motion.div className="projects-grid" variants={staggerContainerSlow}>
             {projects.map((project, index) => (
               <motion.div
                 key={project.title}
                 className="project-card"
-                variants={fadeInUp}
-                whileHover={{ y: -8 }}
+                variants={slideIn}
+                whileHover={{ 
+                  y: -10, 
+                  scale: 1.02,
+                  rotateZ: 1,
+                  boxShadow: "0 25px 50px rgba(212, 175, 55, 0.2)"
+                }}
+                transition={{ type: "spring", stiffness: 200 }}
               >
-                <div className="project-header">
-                  <span className="project-emoji">{project.image}</span>
-                  <span className="project-status">{project.status}</span>
-                </div>
-                <h3>{project.title}</h3>
-                <p>{project.description}</p>
-                <div className="project-tech">
+                <motion.div 
+                  className="project-header"
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                >
+                  <motion.span 
+                    className="project-emoji"
+                    animate={{ 
+                      rotate: [0, 10, -10, 0],
+                      scale: [1, 1.1, 1]
+                    }}
+                    transition={{ 
+                      duration: 4, 
+                      repeat: Infinity,
+                      delay: index * 0.2
+                    }}
+                    whileHover={{ scale: 1.3, rotate: 20 }}
+                  >
+                    {project.image}
+                  </motion.span>
+                  <motion.span 
+                    className="project-status"
+                    animate={{ 
+                      opacity: [0.7, 1, 0.7]
+                    }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                  >
+                    {project.status}
+                  </motion.span>
+                </motion.div>
+                <motion.h3
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.1 }}
+                >
+                  {project.title}
+                </motion.h3>
+                <motion.p
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  transition={{ delay: 0.2 }}
+                >
+                  {project.description}
+                </motion.p>
+                <motion.div 
+                  className="project-tech"
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  transition={{ delay: 0.3 }}
+                >
                   {project.tech.map((t, i) => (
-                    <span key={i} className="tech-tag">{t}</span>
+                    <motion.span 
+                      key={i} 
+                      className="tech-tag"
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      transition={{ delay: 0.3 + i * 0.05 }}
+                      whileHover={{ 
+                        scale: 1.1,
+                        backgroundColor: "var(--accent-gold)",
+                        color: "var(--bg-primary)"
+                      }}
+                    >
+                      {t}
+                    </motion.span>
                   ))}
-                </div>
-                <a href={project.link} className="project-link">
-                  Batafsil <ExternalLink size={14} />
-                </a>
+                </motion.div>
+                <motion.a 
+                  href={project.link} 
+                  className="project-link"
+                  whileHover={{ x: 5 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  Batafsil 
+                  <motion.span
+                    animate={{ x: [0, 5, 0] }}
+                    transition={{ duration: 1, repeat: Infinity }}
+                  >
+                    <ExternalLink size={14} />
+                  </motion.span>
+                </motion.a>
               </motion.div>
             ))}
           </motion.div>
@@ -590,27 +879,89 @@ function App() {
             Ish <span className="accent">Tajribasi</span>
           </motion.h2>
 
-          <motion.div className="timeline" variants={staggerContainer}>
+          <motion.div className="timeline" variants={staggerContainerSlow}>
             {experiences.map((exp, index) => (
               <motion.div
                 key={exp.company}
                 className="timeline-item"
-                variants={fadeInUp}
+                variants={fadeInLeft}
+                whileHover={{ x: 10 }}
               >
-                <div className="timeline-marker" />
-                <div className="timeline-content">
+                <motion.div 
+                  className="timeline-marker"
+                  animate={{ 
+                    scale: [1, 1.2, 1],
+                    boxShadow: [
+                      "0 0 0 rgba(212, 175, 55, 0)",
+                      "0 0 20px rgba(212, 175, 55, 0.5)",
+                      "0 0 0 rgba(212, 175, 55, 0)"
+                    ]
+                  }}
+                  transition={{ duration: 2, repeat: Infinity, delay: index * 0.3 }}
+                />
+                <motion.div 
+                  className="timeline-content"
+                  whileHover={{ scale: 1.02, boxShadow: "0 10px 30px rgba(212, 175, 55, 0.2)" }}
+                  transition={{ type: "spring", stiffness: 200 }}
+                >
                   <div className="timeline-header">
-                    <h3>{exp.company}</h3>
-                    <span className="timeline-period">{exp.period}</span>
+                    <motion.h3
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.1 }}
+                    >
+                      {exp.company}
+                    </motion.h3>
+                    <motion.span 
+                      className="timeline-period"
+                      animate={{ 
+                        opacity: [0.8, 1, 0.8]
+                      }}
+                      transition={{ duration: 3, repeat: Infinity }}
+                    >
+                      {exp.period}
+                    </motion.span>
                   </div>
-                  <p className="timeline-role">{exp.role}</p>
-                  <p className="timeline-description">{exp.description}</p>
-                  <div className="timeline-achievements">
+                  <motion.p 
+                    className="timeline-role"
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ delay: 0.2 }}
+                  >
+                    {exp.role}
+                  </motion.p>
+                  <motion.p 
+                    className="timeline-description"
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ delay: 0.3 }}
+                  >
+                    {exp.description}
+                  </motion.p>
+                  <motion.div 
+                    className="timeline-achievements"
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ delay: 0.4 }}
+                  >
                     {exp.achievements.map((achievement, i) => (
-                      <span key={i} className="achievement-tag">{achievement}</span>
+                      <motion.span 
+                        key={i} 
+                        className="achievement-tag"
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        transition={{ delay: 0.4 + i * 0.1 }}
+                        whileHover={{ 
+                          scale: 1.1,
+                          backgroundColor: "var(--accent-gold)",
+                          color: "var(--bg-primary)"
+                        }}
+                      >
+                        {achievement}
+                      </motion.span>
                     ))}
-                  </div>
-                </div>
+                  </motion.div>
+                </motion.div>
               </motion.div>
             ))}
           </motion.div>
@@ -633,15 +984,27 @@ function App() {
             Professional va ijodiy lahzalar
           </motion.p>
 
-          <motion.div className="gallery-grid" variants={staggerContainer}>
+          <motion.div className="gallery-grid" variants={staggerContainerSlow}>
             {[photoMain, photo1, photo2, photo3].map((photo, index) => (
               <motion.div
                 key={index}
                 className="gallery-item"
-                variants={fadeInUp}
-                whileHover={{ scale: 1.03 }}
+                variants={scaleIn}
+                whileHover={{ 
+                  scale: 1.05,
+                  rotateZ: index % 2 === 0 ? 2 : -2,
+                  boxShadow: "0 30px 60px rgba(212, 175, 55, 0.3)"
+                }}
+                transition={{ type: "spring", stiffness: 200 }}
               >
-                <img src={photo} alt={`Otabek Ravshanov - Photo ${index + 1}`} />
+                <motion.img 
+                  src={photo} 
+                  alt={`Otabek Ravshanov - Photo ${index + 1}`}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.2 }}
+                  whileHover={{ scale: 1.1 }}
+                />
               </motion.div>
             ))}
           </motion.div>
@@ -664,29 +1027,49 @@ function App() {
             Zamonaviy va ishonchli texnologiyalar
           </motion.p>
 
-          <motion.div className="stack-grid" variants={staggerContainer}>
-            {Object.entries(techStack).map(([category, techs]) => (
+          <motion.div className="stack-grid" variants={staggerContainerSlow}>
+            {Object.entries(techStack).map(([category, techs], catIndex) => (
               <motion.div
                 key={category}
                 className="stack-category"
-                variants={fadeInUp}
+                variants={scaleIn}
+                whileHover={{ 
+                  scale: 1.02,
+                  boxShadow: "0 15px 40px rgba(212, 175, 55, 0.2)"
+                }}
+                transition={{ type: "spring", stiffness: 200 }}
               >
-                <div className="stack-category-header">
-                  <Layers size={24} />
+                <motion.div 
+                  className="stack-category-header"
+                  whileHover={{ x: 5 }}
+                >
+                  <motion.div
+                    animate={{ rotate: [0, 360] }}
+                    transition={{ duration: 20, repeat: Infinity, ease: "linear", delay: catIndex * 0.5 }}
+                  >
+                    <Layers size={24} />
+                  </motion.div>
                   <h3>{category}</h3>
-                </div>
-                <div className="stack-items">
-                  {techs.map((tech) => (
+                </motion.div>
+                <motion.div className="stack-items">
+                  {techs.map((tech, i) => (
                     <motion.span
                       key={tech}
                       className="stack-item"
-                      variants={fadeInUp}
-                      whileHover={{ scale: 1.1 }}
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      transition={{ delay: i * 0.05 }}
+                      whileHover={{ 
+                        scale: 1.15,
+                        rotateZ: 5,
+                        backgroundColor: "var(--accent-gold)",
+                        color: "var(--bg-primary)"
+                      }}
                     >
                       {tech}
                     </motion.span>
                   ))}
-                </div>
+                </motion.div>
               </motion.div>
             ))}
           </motion.div>
@@ -709,26 +1092,57 @@ function App() {
             Loyihangiz uchun professional yondashuv kerakmi? Keling, gaplashamiz!
           </motion.p>
 
-          <motion.div className="contact-grid" variants={staggerContainer}>
+          <motion.div className="contact-grid" variants={staggerContainerSlow}>
             <motion.div className="contact-info" variants={staggerContainer}>
-              <motion.a href="mailto:otabekxoff@gmail.com" className="contact-item" variants={fadeInUp}>
-                <Mail size={28} />
+              <motion.a 
+                href="mailto:otabekxoff@gmail.com" 
+                className="contact-item" 
+                variants={fadeInLeft}
+                whileHover={{ x: 10, scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <motion.div
+                  animate={{ rotate: [0, 10, -10, 0] }}
+                  transition={{ duration: 3, repeat: Infinity }}
+                >
+                  <Mail size={28} />
+                </motion.div>
                 <div>
                   <h4>Email</h4>
                   <p>otabekxoff@gmail.com</p>
                 </div>
               </motion.a>
 
-              <motion.a href="tel:+998880016777" className="contact-item" variants={fadeInUp}>
-                <Phone size={28} />
+              <motion.a 
+                href="tel:+998880016777" 
+                className="contact-item" 
+                variants={fadeInLeft}
+                whileHover={{ x: 10, scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <motion.div
+                  animate={{ scale: [1, 1.1, 1] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                >
+                  <Phone size={28} />
+                </motion.div>
                 <div>
                   <h4>Telefon</h4>
                   <p>+998 88 001 67 77</p>
                 </div>
               </motion.a>
 
-              <motion.div className="contact-item" variants={fadeInUp}>
-                <MapPin size={28} />
+              <motion.div 
+                className="contact-item" 
+                variants={fadeInLeft}
+                whileHover={{ x: 10, scale: 1.02 }}
+              >
+                <motion.div
+                  animate={{ y: [0, -5, 0] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                >
+                  <MapPin size={28} />
+                </motion.div>
                 <div>
                   <h4>Manzil</h4>
                   <p>Toshkent shahri, O'zbekiston</p>
@@ -736,17 +1150,53 @@ function App() {
               </motion.div>
 
               <div className="social-links">
-                <motion.a href="https://instagram.com/otbk.uz" target="_blank" rel="noopener noreferrer" variants={fadeInUp} title="Instagram">
+                <motion.a 
+                  href="https://instagram.com/otbk.uz" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  variants={scaleIn}
+                  whileHover={{ 
+                    scale: 1.2, 
+                    rotate: 10,
+                    boxShadow: "0 0 30px rgba(212, 175, 55, 0.5)"
+                  }}
+                  whileTap={{ scale: 0.9 }}
+                  title="Instagram"
+                >
                   <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
                     <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
                   </svg>
                 </motion.a>
-                <motion.a href="https://t.me/otabek_avazbekovich" target="_blank" rel="noopener noreferrer" variants={fadeInUp} title="Telegram">
+                <motion.a 
+                  href="https://t.me/otabek_avazbekovich" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  variants={scaleIn}
+                  whileHover={{ 
+                    scale: 1.2, 
+                    rotate: -10,
+                    boxShadow: "0 0 30px rgba(212, 175, 55, 0.5)"
+                  }}
+                  whileTap={{ scale: 0.9 }}
+                  title="Telegram"
+                >
                   <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
                     <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.479.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z" />
                   </svg>
                 </motion.a>
-                <motion.a href="https://github.com/otabekxoff-creator" target="_blank" rel="noopener noreferrer" variants={fadeInUp} title="GitHub">
+                <motion.a 
+                  href="https://github.com/otabekxoff-creator" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  variants={scaleIn}
+                  whileHover={{ 
+                    scale: 1.2, 
+                    rotate: 10,
+                    boxShadow: "0 0 30px rgba(212, 175, 55, 0.5)"
+                  }}
+                  whileTap={{ scale: 0.9 }}
+                  title="GitHub"
+                >
                   <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
                     <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
                   </svg>
@@ -754,15 +1204,54 @@ function App() {
               </div>
             </motion.div>
 
-            <motion.form className="contact-form" variants={staggerContainer}>
-              <input type="text" placeholder="Ismingiz" required />
-              <input type="email" placeholder="Email manzilingiz" required />
-              <input type="text" placeholder="Mavzu" />
-              <textarea placeholder="Xabaringiz..." rows="6" required />
-              <button type="submit" className="btn-primary">
-                <Rocket size={20} />
+            <motion.form className="contact-form" variants={staggerContainerSlow}>
+              <motion.input 
+                type="text" 
+                placeholder="Ismingiz" 
+                required 
+                variants={fadeInRight}
+                whileFocus={{ scale: 1.02, borderColor: "var(--accent-gold)" }}
+                transition={{ type: "spring", stiffness: 200 }}
+              />
+              <motion.input 
+                type="email" 
+                placeholder="Email manzilingiz" 
+                required 
+                variants={fadeInRight}
+                whileFocus={{ scale: 1.02, borderColor: "var(--accent-gold)" }}
+                transition={{ type: "spring", stiffness: 200 }}
+              />
+              <motion.input 
+                type="text" 
+                placeholder="Mavzu" 
+                variants={fadeInRight}
+                whileFocus={{ scale: 1.02, borderColor: "var(--accent-gold)" }}
+                transition={{ type: "spring", stiffness: 200 }}
+              />
+              <motion.textarea 
+                placeholder="Xabaringiz..." 
+                rows="6" 
+                required 
+                variants={fadeInRight}
+                whileFocus={{ scale: 1.02, borderColor: "var(--accent-gold)" }}
+                transition={{ type: "spring", stiffness: 200 }}
+              />
+              <motion.button 
+                type="submit" 
+                className="btn-primary"
+                variants={bounceIn}
+                whileHover={{ scale: 1.05, y: -3 }}
+                whileTap={{ scale: 0.95 }}
+                {...glowPulse}
+              >
+                <motion.div
+                  animate={{ x: [0, 5, 0] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                >
+                  <Rocket size={20} />
+                </motion.div>
                 Xabar yuborish
-              </button>
+              </motion.button>
             </motion.form>
           </motion.div>
         </motion.div>
