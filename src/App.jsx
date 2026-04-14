@@ -409,7 +409,6 @@ function App() {
                   <span className="yellow" />
                   <span className="green" />
                 </div>
-                <span className="window-title">otbek_ravshanov.jpg</span>
               </div>
               <div className="window-content">
                 <img src={photoMain} alt="Otabek Ravshanov" className="profile-photo" />
