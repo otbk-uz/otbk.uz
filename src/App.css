@@ -164,18 +164,20 @@
 }
 
 .hero-content h1 {
-  font-size: 3.5rem;
+  font-size: 3.2rem;
   font-weight: 800;
-  line-height: 1.1;
-  margin-bottom: 1rem;
+  line-height: 1.15;
+  margin-bottom: 1.25rem;
+  letter-spacing: -0.02em;
 }
 
 .greeting {
   display: block;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: 400;
   color: var(--text-secondary);
   margin-bottom: 0.5rem;
+  letter-spacing: 0.02em;
 }
 
 .name {
@@ -190,16 +192,18 @@
 }
 
 .subtitle {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   color: var(--text-secondary);
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
+  line-height: 1.5;
 }
 
 .description {
-  font-size: 1rem;
-  color: var(--text-muted);
-  line-height: 1.6;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
   margin-bottom: 2rem;
+  max-width: 600px;
 }
 
 .hero-buttons {
@@ -389,10 +393,11 @@
 
 /* Section Titles */
 .section-title {
-  font-size: 2.5rem;
+  font-size: 2.25rem;
   font-weight: 800;
   text-align: center;
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.01em;
 }
 
 .section-title .accent {
@@ -404,8 +409,8 @@
 
 .section-subtitle {
   text-align: center;
-  color: var(--text-secondary);
-  font-size: 1.1rem;
+  color: var(--text-muted);
+  font-size: 1rem;
   margin-bottom: 3rem;
 }
 
@@ -422,9 +427,10 @@
 }
 
 .about-text p {
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.15rem;
   color: var(--text-secondary);
-  line-height: 1.7;
+  line-height: 1.75;
+  font-size: 0.95rem;
 }
 
 .about-text strong {
@@ -441,13 +447,13 @@
   background: var(--bg-card);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-lg);
-  padding: 1.5rem;
+  padding: 1.25rem 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: 0.75rem;
-  transition: all 0.3s;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
 }
 
 .info-card:hover {
@@ -460,13 +466,15 @@
 }
 
 .info-card h3 {
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: var(--text-primary);
+  font-weight: 600;
 }
 
 .info-card p {
-  font-size: 0.85rem;
-  color: var(--text-muted);
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
 }
 
 /* Services Section */

@@ -135,7 +135,7 @@ function App() {
   const projects = [
     {
       title: 'Rare Flowers Agro-turizm',
-      description: '5 gektar maydonni egallagan premium klassdagi agro-turizm kompleksi. Lyuks brending, zamonaviy oyna konstruksiyalari, quyosh energiyasi integratsiyasi va yuqori darajadagi peyzaj dizayni. Loyihaning to\'liq arxitekturasi va vizualizatsiyasiga boshchilik qilgan.',
+      description: '5 gektar maydonni egallagan premium klassdagi agro-turizm kompleksi. Lyuks brending, zamonaviy oyna konstruksiyalari, quyosh energiyasi integratsiyasi va yuqori darajadagi peyzaj dizayni. Loyihaning to\'liq arxitekturasi va vizualizatsiyasini boshqarganman.',
       tech: ['React', 'Three.js', 'Python', 'PostgreSQL', 'Figma'],
       image: '🌺',
       link: '#',
@@ -159,7 +159,7 @@ function App() {
     },
     {
       title: 'InteliSoft Yechimlar',
-      description: 'Dasturiy yechimlar bo\'yicha bosh maslahatchi va texnik tayanch sifatida murakkab biznes tizimlarini ishlab chiqish. Mikroservis arxitektura, CI/CD pipeline va cloud deployment.',
+      description: 'Dasturiy yechimlar bo\'yicha bosh maslahatchi va texnik tayanch sifatida murakkab biznes tizimlarini ishlab chiqdim. Mikroservis arxitektura, CI/CD pipeline va cloud deployment.',
       tech: ['Full-stack', 'Cloud', 'AI', 'Microservices', 'Kubernetes'],
       image: '💼',
       link: '#',
@@ -167,7 +167,7 @@ function App() {
     },
     {
       title: 'AI Agent Tizimlari',
-      description: 'Mustaqil tahlil qila oladigan avtomatlashtirilgan tizimlar. Nafaqat xabarlarni qayta ishlaydigan, balki mustaqil qaror qabul qiluvchi AI agentlar. Vector database va RAG arxitektura.',
+      description: 'Mustaqil tahlil qila oladigan avtomatlashtirilgan tizimlar. Nafaqat xabarlarni qayta ishlaydi, balki mustaqil qaror qabul qiluvchi AI agentlar. Vector database va RAG arxitektura.',
       tech: ['LangChain', 'Gemini', 'Python', 'Vector DB', 'RAG'],
       image: '🧠',
       link: '#',
@@ -191,7 +191,7 @@ function App() {
     },
     {
       title: 'Smart Home Dashboard',
-      description: 'IoT qurilmalarini boshqarish uchun real-time dashboard. Sensor ma\'lumotlarini monitoring, automation rules va energy analytics. WebSocket orqali real-time yangilanish.',
+      description: 'IoT qurilmalarini boshqarish uchun real-time dashboard. Sensor ma\'lumotlarini monitoring qilish, automation rules va energy analytics. WebSocket orqali real-time yangilanish.',
       tech: ['Flutter', 'MQTT', 'Node-RED', 'InfluxDB', 'Grafana'],
       image: '🏠',
       link: '#',
@@ -388,8 +388,8 @@ function App() {
             >
               18 yosh. Toshkent. Murakkab tizimlarni noldan yaratish, AI-ekotizimlar rivojlantirish va
               yuqori darajadagi raqamli yechimlar taqdim etish — mening kundalik faoliyatim.
-              Full-stack arxitekt, 15+ dasturlash tilida ishlash tajribasi, murakkab biznes tizimlari va
-              korporativ ERP yechimlari bo'yicha ekspertiza.
+              Full-stack arxitekt. 15+ dasturlash tilida ishlayman. Murakkab biznes tizimlari va
+              korporativ ERP yechimlari bo'yicha ekspertman.
             </motion.p>
 
             <motion.div
@@ -492,53 +492,53 @@ function App() {
             <motion.div className="about-text" variants={fadeInUp}>
               <p>
                 <strong>Otabek Ravshanov Avazbekovich</strong> — Toshkent shahrida faoliyat yurituvchi, 18 yoshli yuqori malakali dasturiy ta'minot arxitektori.
-                22-fevralda tug'ilganman. Web va mobil ilovalarni noldan loyihalashtirish, murakkab tizimlarni yaratish va istalgan dasturlash tiliga tezkor moslasha olish qobiliyatiga ega.
-                Yoshligimdan kompyuter texnologiyalari va dasturlashga qiziqib kelganman, bu qiziqish menga professional yo'lni tanlashimda asos bo'ldi.
+                22-fevral kuni tug'ilganman. Web va mobil ilovalarni noldan loyihalashtirish, murakkab tizimlar yaratish va istalgan dasturlash tiliga tezkor moslashish qobiliyatiga egaman.
+                Yoshligimdan kompyuter texnologiyalari va dasturlashga qiziqib kelganman. Bu qiziqish menga professional yo'lni tanlashimda asos bo'ldi.
               </p>
               <p>
-                Mening dasturlashga bo'lgan sayohatim 2017-yilda boshlangan. Bir vaqtlar men takvando sporti bilan shug'ullanganman, lekin keyinchalik uni to'xtatib, 
+                Dasturlashga bo'lgan sayohatim 2017-yilda boshlangan. Bir vaqtlar takvando sporti bilan shug'ullanganman, lekin keyinchalik uni to'xtatib, 
                 dasturlashga qiziqishimga asosiy e'tibor qaratishga qaror qildim. 2018-yilda Qo'qon Innavations dasturlash kursida o'qishni boshlaganim bilan professional dasturchilik yo'liga qadam qo'ydim.
                 Bu kurslarda zamonaviy dasturlash asoslarini chuqur o'rgandim: HTML, CSS, JavaScript dan boshlab, murakkab backend texnologiyalarigacha.
-                Amaliy loyihalar ustida ishlash orqali tajriba orttirdim va real muammolarni yechish ko'nikmalarini rivojlantirdim.
+                Amaliy loyihalar ustida ishlash orqali tajriba to'pladim va real muammolarni yechish ko'nikmalarini rivojlantirdim.
               </p>
               <p>
-                Bugungi kunda men bir nechta muhim lavozimlarda ishlamoqda: Turon Beton MChJ da dasturiy ta'minotni ishlab chiqish bo'limi boshlig'i, 
+                Bugungi kunda bir nechta muhim lavozimlarda ishlamoqda: Turon Beton MChJ da dasturiy ta'minotni ishlab chiqish bo'limi boshlig'i, 
                 Ravshanov AI (RAI) asoschisi va bosh arxitektori, InteliSoft strategik a'zosi va bosh maslahatchi, 
                 shuningdek Sinergiya hamkorlik loyihalarida hammuassis va texnik direktor sifatida faoliyat yuritaman.
                 Ushbu lavozimlarda ERP tizimlari, AI-ekotizimlar, murakkab biznes tizimlari va platform arxitekturalarini loyihalash bilan shug'ullanaman.
               </p>
               <p>
-                Mening professional diapazonim faqatgina kod yozish bilan cheklanmaydi — men yirik biznes-loyihalar ekotizimini yaratish, jamoalarni boshqarish
-                va sun'iy intellekt texnologiyalarini reallikka tadbiq etish salohiyatiga egaman. Poliglot dasturchi sifatida har qandan murakkablikdagi loyihalarni
+                Professional faoliyatim faqatgina kod yozish bilan cheklanmaydi — yirik biznes-loyihalar ekotizimini yaratish, jamoalarni boshqarish
+                va sun'iy intellekt texnologiyalarini reallikka tadbiq etish salohiyatiga egaman. Poliglot dasturchi sifatida har qanday murakkablikdagi loyihalarni
                 bir nechta dasturlash tillarida amalga oshira olaman. React, Vue, Flutter, Python, JavaScript, TypeScript kabi texnologiyalarda chuqur tajribaga egaman.
-                Frontend dan tortib backend, mobil ilovalar, AI/ML loyihalar va DevOps jarayonlarigacha bo'lgan to'liq stack ishlab chiqish qobiliyatiga egaman.
+                Frontenddan tortib backend, mobil ilovalar, AI/ML loyihalar va DevOps jarayonlarigacha bo'lgan to'liq stack ishlab chiqish qobiliyatiga egaman.
                 Har bir loyihada eng yaxshi arxitektura patternlari, clean code tamoyillari va samarali algoritmlardan foydalanaman.
               </p>
               <p>
                 Qat'iy intizom, qorong'i va metall ranglar ustunlik qiluvchi <strong>"brutal"</strong> hamda yuqori texnologik estetika tarafdoriman.
-                Asosiy ish jarayonlarini, jumladan kod yozish va arxitektura chizishni tungi vaqtlarda, chuqur konsentratsiya holatida amalga oshirishni afzal ko'raman.
-                Bu yondashuv menga eng murakkab muammolarni ham hal qilish imkonini beradi. Tungi ish rejimi menga eng chuqur fikrlash va eng yaxshi yechimlarni topish imkonini beradi.
+                Asosiy ish jarayonlarini, jumladan kod yozish va arxitektura chizishni tungi soatlarida, chuqur konsentratsiya holatida amalga oshirishni afzal ko'raman.
+                Bu yondashuv menga eng murakkab muammolarni ham hal qilish imkonini beradi. Tungi ish rejimi chuqur fikrlash va eng yaxshi yechimlarni topish imkonini beradi.
               </p>
               <p>
-                Mening yondashuvim shunchaki vizual chiroyli dastur tuzish emas, balki <strong className="accent">"beast mode"</strong> darajasida qat'iy mantiq
-                va mukammal texnik dizayn asosida ishlovchi xatosiz mexanizmlarni yaratishdir. Har bir loyiha — bu san'at asari kabi mukammal bo'lishi kerak.
-                Doimiy o'z-o'zimni rivojlantirishga e'tibor beraman, yangi texnologiyalarni o'rganish va eng yaxshi amaliyotlarni qo'llash — mening asosiy tamoyilim.
-                Har kuni yangi narsalarni o'rganaman, har loyihada o'zimni yaxshilashga harakat qilaman.
+                Yondashuvim shunchaki vizual chiroyli dastur tuzish emas, balki <strong className="accent">"beast mode"</strong> darajasida qat'iy mantiq
+                va mukammal texnik dizayn asosida ishlaydigan xatosiz mexanizmlarni yaratishdir. Har bir loyiha san'at asari kabi mukammal bo'lishi kerak.
+                Doimiy o'z-o'zimni rivojlantirishga e'tibor beraman. Yangi texnologiyalarni o'rganish va eng yaxshi amaliyotlarni qo'llash — mening asosiy tamoyilim.
+                Har kuni yangi narsalar o'rganaman, har loyihada o'zimni takomillashtirishga harakat qilaman.
               </p>
               <p>
-                Men kelajakda global miqyosdagi loyihalarda ishlash, o'z startaplarini yaratish va O'zbekiston IT sektorida inqilob qilishni maqsad qilganman.
+                Kelajakda global miqyosdagi loyihalarda ishlash, o'z startaplarini yaratish va O'zbekiston IT sektorida inqilob qilishni maqsad qilganman.
                 Sun'iy intellekt, blockchain va IoT kabi rivojlanayotgan texnologiyalarga katta e'tibor beraman.
                 Jamoalar bilan ishlashni, bilimlarni baham ko'rishni va yosh dasturchilarga yo'l ko'rsatishni yaxshi ko'raman.
               </p>
               <p>
-                <strong>Asosiy erishilgan natijalarim:</strong> 5+ yillik professional tajriba, 20+ muvaffaqiyatli loyiha, 10+ doimiy mijoz, 
-                15+ o'zlashtirilgan texnologiya. ERP tizimlarini joriy etish, AI-ekotizimlarni yaratish va murakkab platformalar ishlab chiqish bo'yicha katta tajribaga egaman.
-                Har bir loyiha menga yangi bilim va ko'nikmalar olib keladi, men esa ularni keyingi loyihalarda qo'llayman.
+                <strong>Asosiy erishilgan natijalarim:</strong> 5+ yillik professional tajriba, 20+ muvaffaqiyatli loyiha, 10+ doimiy mijoz 
+                va 15+ o'zlashtirilgan texnologiya. ERP tizimlarini joriy etish, AI-ekotizimlarni yaratish va murakkab platformalar ishlab chiqish bo'yicha katta tajribaga egaman.
+                Har bir loyiha yangi bilim va ko'nikmalar olib keladi, ularni keyingi loyihalarda qo'llayman.
               </p>
               <p>
-                <strong>Shaxsiyat xususiyatlarim:</strong> Chuqur o'ylash qobiliyati, muammolarni hal qilish mahorati, o'z-o'zini tashkil etish, 
+                <strong>Shaxsiyat xususiyatlarim:</strong> chuqur o'ylash qobiliyati, muammolarni hal qilish mahorati, o'z-o'zini tashkil etish, 
                 vazifalarni aniq bajarish, innovatsion yechimlar topish, yangi texnologiyalarga tezkor moslashish. 
-                Men har doim o'zimni takomillashtirishga intilaman va eng yuqori natijalarga erishishga harakat qilaman.
+                Har doim o'zimni takomillashtirishga intilaman va eng yuqori natijalarga erishishga harakat qilaman.
               </p>
             </motion.div>
 
