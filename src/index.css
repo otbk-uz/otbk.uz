@@ -5,33 +5,35 @@
 }
 
 :root {
-  --bg-primary: #000000;
-  --bg-secondary: #0a0a0a;
-  --bg-card: #111111;
-  --bg-hover: #1a1a1a;
+  /* OQ-QORA RANGLAR */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f5f5f5;
+  --bg-card: #ffffff;
+  --bg-hover: #eeeeee;
 
-  --text-primary: #ffffff;
-  --text-secondary: #c9c9c9;
-  --text-muted: #8a8a8a;
+  --text-primary: #000000;
+  --text-secondary: #333333;
+  --text-muted: #666666;
 
-  --accent-gold: #D4AF37;
-  --accent-gold-dark: #B8860B;
-  --accent-gold-light: #E6C87C;
-  --accent-gold-dim: #8B7355;
+  /* AKTSENT RANGLAR - QORA */
+  --accent-gold: #000000;
+  --accent-gold-dark: #111111;
+  --accent-gold-light: #333333;
+  --accent-gold-dim: #555555;
 
-  --border-color: #1a1a1a;
-  --border-hover: #2a2a2a;
-  --border-gold: #B8860B;
+  --border-color: #e0e0e0;
+  --border-hover: #cccccc;
+  --border-gold: #000000;
 
-  --gradient-primary: linear-gradient(135deg, #D4AF37 0%, #B8860B 50%, #8B7355 100%);
-  --gradient-dark: linear-gradient(180deg, #000000 0%, #0a0a0a 100%);
-  --gradient-gold: linear-gradient(135deg, #D4AF37 0%, #B8860B 100%);
+  --gradient-primary: linear-gradient(135deg, #000000 0%, #333333 50%, #666666 100%);
+  --gradient-dark: linear-gradient(180deg, #ffffff 0%, #f5f5f5 100%);
+  --gradient-gold: linear-gradient(135deg, #000000 0%, #222222 100%);
 
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.8);
-  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.9);
-  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.95);
-  --shadow-gold: 0 0 40px rgba(212, 175, 55, 0.25);
-  --shadow-gold-glow: 0 0 20px rgba(212, 175, 55, 0.4);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.15);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.2);
+  --shadow-gold: 0 0 40px rgba(0, 0, 0, 0.1);
+  --shadow-gold-glow: 0 0 20px rgba(0, 0, 0, 0.15);
 
   --radius-sm: 8px;
   --radius-md: 12px;
@@ -47,13 +49,13 @@
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 html {
   scroll-behavior: smooth;
   scrollbar-width: thin;
-  scrollbar-color: var(--accent-gold) var(--bg-secondary);
+  scrollbar-color: #000000 #f5f5f5;
 }
 
 ::-webkit-scrollbar {
@@ -61,11 +63,11 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--bg-secondary);
+  background: #f5f5f5;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--accent-gold);
+  background: #000000;
   border-radius: 4px;
 }
 
@@ -75,14 +77,108 @@ body {
   overflow-x: hidden;
 }
 
+/* SIM ANIMATSIYALAR - SHRIFTLARDA */
+@keyframes wireFlow {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes electricPulse {
+  0%, 100% {
+    opacity: 1;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  }
+  50% {
+    opacity: 0.8;
+    text-shadow: 0 0 15px rgba(0, 0, 0, 0.6), 0 0 30px rgba(0, 0, 0, 0.3);
+  }
+}
+
+@keyframes circuitMove {
+  0% {
+    clip-path: inset(0 100% 0 0);
+  }
+  50% {
+    clip-path: inset(0 0 0 0);
+  }
+  100% {
+    clip-path: inset(0 0 0 100%);
+  }
+}
+
+@keyframes signalTravel {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+.wire-text {
+  position: relative;
+  background: linear-gradient(
+    90deg,
+    #000000 0%,
+    #000000 40%,
+    #666666 50%,
+    #000000 60%,
+    #000000 100%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: wireFlow 3s linear infinite;
+}
+
+.electric-text {
+  animation: electricPulse 2s ease-in-out infinite;
+}
+
+.circuit-border {
+  position: relative;
+}
+
+.circuit-border::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(90deg, transparent, #000000, transparent);
+  z-index: -1;
+  animation: signalTravel 2s linear infinite;
+}
+
+.signal-line {
+  position: absolute;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #000000, transparent);
+  animation: signalTravel 1.5s linear infinite;
+}
+
 #root {
   width: 100%;
   min-height: 100vh;
 }
 
 ::selection {
-  background: var(--accent-gold);
-  color: var(--bg-primary);
+  background: #000000;
+  color: #ffffff;
 }
 
 a {

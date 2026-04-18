@@ -354,7 +354,7 @@ function App() {
               transition={{ delay: 0.3, duration: 0.8, ease: "easeOut" }}
             >
               <motion.span 
-                className="greeting"
+                className="greeting electric-text"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.4, duration: 0.5 }}
@@ -367,12 +367,12 @@ function App() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.5, duration: 0.5 }}
               >
-                Otabek <span className="accent">Ravshanov</span>
+                <span className="wire-gradient-text">Otabek</span> <span className="accent">Ravshanov</span>
               </motion.span>
             </motion.h1>
 
             <motion.p
-              className="subtitle"
+              className="subtitle electric-text"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6, duration: 0.6 }}
@@ -484,7 +484,7 @@ function App() {
           viewport={{ once: true, amount: 0.2 }}
           variants={staggerContainer}
         >
-          <motion.h2 variants={fadeInUp} className="section-title">
+          <motion.h2 variants={fadeInUp} className="section-title wire-gradient-text">
             Men <span className="accent">Haqimda</span>
           </motion.h2>
 
@@ -604,7 +604,7 @@ function App() {
           viewport={{ once: true, amount: 0.1 }}
           variants={staggerContainer}
         >
-          <motion.h2 variants={fadeInUp} className="section-title">
+          <motion.h2 variants={fadeInUp} className="section-title wire-gradient-text">
             Mening <span className="accent">Xizmatlarim</span>
           </motion.h2>
           <motion.p variants={fadeInUp} className="section-subtitle">
@@ -662,7 +662,7 @@ function App() {
           viewport={{ once: true, amount: 0.1 }}
           variants={staggerContainer}
         >
-          <motion.h2 variants={fadeInUp} className="section-title">
+          <motion.h2 variants={fadeInUp} className="section-title wire-gradient-text">
             Asosiy <span className="accent">Loyihalar</span>
           </motion.h2>
           <motion.p variants={fadeInUp} className="section-subtitle">
@@ -731,7 +731,7 @@ function App() {
           viewport={{ once: true, amount: 0.1 }}
           variants={staggerContainer}
         >
-          <motion.h2 variants={fadeInUp} className="section-title">
+          <motion.h2 variants={fadeInUp} className="section-title wire-gradient-text">
             Ish <span className="accent">Tajribasi</span>
           </motion.h2>
 
@@ -785,7 +785,7 @@ function App() {
           viewport={{ once: true, amount: 0.1 }}
           variants={staggerContainer}
         >
-          <motion.h2 variants={fadeInUp} className="section-title">
+          <motion.h2 variants={fadeInUp} className="section-title wire-gradient-text">
             Foto <span className="accent">Galereya</span>
           </motion.h2>
           <motion.p variants={fadeInUp} className="section-subtitle">
@@ -817,7 +817,7 @@ function App() {
           viewport={{ once: true, amount: 0.1 }}
           variants={staggerContainer}
         >
-          <motion.h2 variants={fadeInUp} className="section-title">
+          <motion.h2 variants={fadeInUp} className="section-title wire-gradient-text">
             Texnologik <span className="accent">Stek</span>
           </motion.h2>
           <motion.p variants={fadeInUp} className="section-subtitle">
@@ -867,7 +867,7 @@ function App() {
           viewport={{ once: true, amount: 0.2 }}
           variants={staggerContainer}
         >
-          <motion.h2 variants={fadeInUp} className="section-title">
+          <motion.h2 variants={fadeInUp} className="section-title wire-gradient-text">
             Men bilan <span className="accent">Bog'laning</span>
           </motion.h2>
           <motion.p variants={fadeInUp} className="section-subtitle">
