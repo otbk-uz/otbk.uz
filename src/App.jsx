@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { Code2, Smartphone, Globe, Brain, Server, Shield, Database, Cloud, Layers, Terminal, Cpu, Rocket, ChevronDown, Menu, X, Mail, Phone, MapPin, ExternalLink, Star, Award, Users, Zap, ArrowRight } from 'lucide-react'
+import { SpeedInsights } from '@vercel/speed-insights/react'
 import photoMain from './assets/photo_main.jpg'
 import photo1 from './assets/photo1.jpg'
 import photo2 from './assets/photo2.jpg'
@@ -975,6 +976,7 @@ function App() {
           </div>
         </div>
       </footer>
+      <SpeedInsights />
     </div>
   )
 }
