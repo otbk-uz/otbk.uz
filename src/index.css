@@ -1,245 +1,261 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,300;0,400;0,500;0,600;0,700;0,900;1,300;1,400&family=Orbitron:wght@400;700;900&family=Inter:wght@400;500&display=swap');
 
-:root {
-  /* THE GODFATHER - KINEMATOGRAFIK USLUB */
-  --bg-primary: #0a0a0a;
-  --bg-secondary: #050505;
-  --bg-card: #111111;
-  --bg-hover: #1a1a1a;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-  --text-primary: #f5f5f5;
-  --text-secondary: #c9c9c9;
-  --text-muted: #888888;
-
-  /* THE GODFATHER OLTIN RANGLAR */
-  --accent-gold: #D4A574;
-  --accent-gold-dark: #B8856E;
-  --accent-gold-light: #E8C9A0;
-  --accent-gold-dim: #8B7355;
-
-  --border-color: #2a2a2a;
-  --border-hover: #3a3a3a;
-  --border-gold: #D4A574;
-
-  --gradient-primary: linear-gradient(135deg, #D4A574 0%, #B8856E 50%, #8B7355 100%);
-  --gradient-dark: linear-gradient(180deg, #0a0a0a 0%, #050505 100%);
-  --gradient-gold: linear-gradient(135deg, #D4A574 0%, #B8856E 100%);
-
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.8);
-  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.9);
-  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.95);
-  --shadow-gold: 0 0 40px rgba(212, 165, 116, 0.25);
-  --shadow-gold-glow: 0 0 20px rgba(212, 165, 116, 0.4);
-
-  --radius-sm: 8px;
-  --radius-md: 12px;
-  --radius-lg: 16px;
-  --radius-xl: 24px;
-
-  /* THE GODFATHER SHRIFTI */
-  --font-sans: 'Times New Roman', Georgia, serif;
-  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
-
-  font-family: var(--font-sans);
-  background: var(--bg-primary);
-  color: var(--text-primary);
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color-scheme: dark;
-}
-
-html {
-  scroll-behavior: smooth;
-  scrollbar-width: thin;
-  scrollbar-color: #D4A574 #0a0a0a;
-}
-
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: #0a0a0a;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #D4A574;
-  border-radius: 4px;
-}
-
-body {
-  background: var(--bg-primary);
-  color: var(--text-primary);
-  overflow-x: hidden;
-}
-
-/* SIM ANIMATSIYALAR - SHRIFTLARDA */
-@keyframes wireFlow {
-  0% {
-    background-position: -200% 0;
+@layer base {
+  :root {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
+    --card: 0 0% 6.7%;
+    --card-foreground: 0 0% 100%;
+    --popover: 0 0% 0%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 275 100% 57%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 6.7%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 0 0% 6.7%;
+    --muted-foreground: 0 0% 53%;
+    --accent: 275 100% 57%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 13%;
+    --input: 0 0% 13%;
+    --ring: 275 100% 57%;
+    --radius: 0px;
+    --neon-purple: #D4AF37;
+    --deep-black: #000000;
+    --surface: #111111;
+    --text-secondary: #888888;
   }
-  100% {
-    background-position: 200% 0;
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: auto;
+    background: #000000;
+  }
+
+  body {
+    font-family: 'Exo 2', 'Inter', sans-serif;
+    background: #000000;
+    color: #FFFFFF;
+    overflow-x: hidden;
+    cursor: auto;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Exo 2', sans-serif;
+    word-break: keep-all;
+  }
+
+  a, button {
+    cursor: pointer;
+  }
+
+  ::selection {
+    background: rgba(212, 175, 55, 0.4);
+    color: #FFFFFF;
   }
 }
 
-@keyframes electricPulse {
+@layer components {
+  .text-3d {
+    color: transparent;
+    -webkit-text-stroke: 1px #FFFFFF;
+    text-shadow:
+      4px 4px 0px #D4AF37,
+      -1px -1px 0px rgba(255,255,255,0.3);
+  }
+
+  .text-3d-solid {
+    text-shadow:
+      3px 3px 0px #D4AF37,
+      6px 6px 0px rgba(212, 175, 55, 0.3);
+  }
+
+  .gold-glow {
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.5),
+                0 0 40px rgba(212, 175, 55, 0.2),
+                0 0 60px rgba(212, 175, 55, 0.1);
+  }
+
+  .gold-border {
+    border: 1px solid rgba(212, 175, 55, 0.6);
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.3),
+                inset 0 0 15px rgba(212, 175, 55, 0.1);
+  }
+
+  .glass-card {
+    background: rgba(17, 17, 17, 0.8);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .grid-bg {
+    background-image:
+      linear-gradient(rgba(212, 175, 55, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(212, 175, 55, 0.05) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  .diagonal-clip-left {
+    clip-path: polygon(0 0, 100% 0, 0 100%);
+  }
+
+  .diagonal-clip-right {
+    clip-path: polygon(0 0, 100% 0, 100% 100%);
+  }
+
+  .triangle-clip-tl {
+    clip-path: polygon(0 0, 100% 0, 0 100%);
+  }
+
+  .triangle-clip-tr {
+    clip-path: polygon(0 0, 100% 0, 100% 100%);
+  }
+
+  .triangle-clip-bl {
+    clip-path: polygon(0 0, 100% 100%, 0 100%);
+  }
+
+  .triangle-clip-br {
+    clip-path: polygon(100% 0, 100% 100%, 0 100%);
+  }
+
+  .font-orbitron {
+    font-family: 'Orbitron', sans-serif;
+  }
+
+  .font-exo {
+    font-family: 'Exo 2', sans-serif;
+  }
+
+  .vertical-text {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+  }
+}
+
+@layer utilities {
+  .animate-pulse-glow {
+    animation: pulseGlow 3s ease-in-out infinite;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-gradient-shift {
+    animation: gradientShift 8s ease infinite;
+    background-size: 200% 200%;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@keyframes pulseGlow {
   0%, 100% {
-    opacity: 1;
-    text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.4),
+                0 0 40px rgba(212, 175, 55, 0.15);
   }
   50% {
-    opacity: 0.8;
-    text-shadow: 0 0 15px rgba(0, 0, 0, 0.6), 0 0 30px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.7),
+                0 0 60px rgba(212, 175, 55, 0.3);
   }
 }
 
-@keyframes circuitMove {
-  0% {
-    clip-path: inset(0 100% 0 0);
-  }
-  50% {
-    clip-path: inset(0 0 0 0);
-  }
-  100% {
-    clip-path: inset(0 0 0 100%);
-  }
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
 }
 
-@keyframes signalTravel {
-  0% {
-    transform: translateX(-100%);
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes typewriter {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+@keyframes slideInLeft {
+  from {
     opacity: 0;
+    transform: translateX(-60px);
   }
-  10% {
+  to {
     opacity: 1;
+    transform: translateX(0);
   }
-  90% {
-    opacity: 1;
-  }
-  100% {
-    transform: translateX(100%);
+}
+
+@keyframes slideInUp {
+  from {
     opacity: 0;
+    transform: translateY(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-.wire-text {
-  position: relative;
-  background: linear-gradient(
-    90deg,
-    #D4A574 0%,
-    #8B7355 40%,
-    #D4A574 50%,
-    #8B7355 60%,
-    #D4A574 100%
-  );
-  background-size: 200% 100%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: wireFlow 3s linear infinite;
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
-.electric-text {
-  animation: titleGlow 3s ease-in-out infinite;
-}
-
-@keyframes titleGlow {
-  0%, 100% {
-    text-shadow: 0 0 10px rgba(212, 165, 116, 0.3);
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
   }
-  50% {
-    text-shadow: 0 0 30px rgba(212, 165, 116, 0.6), 0 0 60px rgba(212, 165, 116, 0.3);
+  to {
+    opacity: 1;
+    transform: scale(1);
   }
 }
 
-.circuit-border {
-  position: relative;
+@keyframes rotateIn {
+  from {
+    opacity: 0;
+    transform: rotateY(15deg) translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: rotateY(0) translateX(0);
+  }
 }
 
-.circuit-border::before {
-  content: '';
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  right: -2px;
-  bottom: -2px;
-  background: linear-gradient(90deg, transparent, #D4A574, transparent);
-  z-index: -1;
-  animation: signalTravel 2s linear infinite;
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-.signal-line {
-  position: absolute;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, #D4A574, transparent);
-  animation: signalTravel 1.5s linear infinite;
-}
-
-/* THE GODFATHER POSTER USLUBI */
-.godfather-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: 
-    radial-gradient(ellipse at top, rgba(10, 10, 10, 0.3) 0%, transparent 50%),
-    radial-gradient(ellipse at bottom, rgba(0, 0, 0, 0.8) 0%, transparent 50%);
-  pointer-events: none;
-  z-index: 1;
-}
-
-.photo-background {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-size: cover;
-  background-position: center;
-  opacity: 0.15;
-  filter: grayscale(100%) contrast(1.2);
-  z-index: 0;
-}
-
-.godfather-title {
-  font-family: 'Times New Roman', Georgia, serif;
-  font-weight: 400;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: #D4A574;
-  animation: titleGlow 4s ease-in-out infinite;
-}
-
-#root {
-  width: 100%;
-  min-height: 100vh;
-}
-
-::selection {
-  background: #D4A574;
-  color: #0a0a0a;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-button {
-  font-family: inherit;
-  cursor: pointer;
-  border: none;
-  background: none;
-}
-
-input,
-textarea {
-  font-family: inherit;
+@keyframes goldFlicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.85; }
+  52% { opacity: 1; }
+  54% { opacity: 0.9; }
+  56% { opacity: 1; }
 }
