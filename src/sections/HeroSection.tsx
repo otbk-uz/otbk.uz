@@ -7,10 +7,10 @@ const HeroSection = () => {
           <div className="order-2 lg:order-1 animate-fade-in">
             {/* Name tag */}
             <div className="mb-8">
-              <span className="text-sm tracking-[0.3em] uppercase text-stone-500 font-medium">
+              <span className="text-sm tracking-[0.3em] uppercase text-gold font-semibold">
                 Otabek Ravshanov
               </span>
-              <div className="gold-line-left w-16 mt-2" />
+              <div className="gold-line-left w-24 mt-3" />
             </div>
 
             {/* Main title */}
@@ -64,9 +64,9 @@ const HeroSection = () => {
           {/* Right: Portrait Image */}
           <div className="order-1 lg:order-2 flex justify-center lg:justify-end animate-fade-in-delay">
             <div className="relative">
-              {/* Subtle gold border frame */}
-              <div className="absolute -inset-3 border border-gold/20" />
-              <div className="absolute -inset-6 border border-gold/10" />
+              {/* Gold border frame */}
+              <div className="absolute -inset-3 border-2 border-gold/40" />
+              <div className="absolute -inset-6 border border-gold/20" />
               
               <div className="relative w-72 h-96 sm:w-80 sm:h-[28rem] lg:w-96 lg:h-[32rem] overflow-hidden bg-stone-100">
                 <img

@@ -26,9 +26,9 @@
     --input: 40 10% 90%;
     --ring: 45 90% 47%;
     --radius: 0.5rem;
-    --gold: #D4AF37;
-    --gold-light: #E8C547;
-    --gold-dark: #B8941F;
+    --gold: #B8860B;
+    --gold-light: #D4A84B;
+    --gold-dark: #8B6914;
   }
 
   * {
@@ -61,44 +61,48 @@
   }
 
   ::selection {
-    background: rgba(212, 175, 55, 0.25);
+    background: rgba(184, 134, 11, 0.3);
     color: #1C1917;
   }
 }
 
 @layer components {
   .text-gold {
-    color: #D4AF37;
+    color: #B8860B;
   }
 
   .text-gold-dark {
-    color: #B8941F;
+    color: #8B6914;
+  }
+
+  .text-gold-light {
+    color: #D4A84B;
   }
 
   .bg-gold {
-    background-color: #D4AF37;
+    background-color: #B8860B;
   }
 
   .bg-gold-light {
-    background-color: #E8C547;
+    background-color: #D4A84B;
   }
 
   .border-gold {
-    border-color: #D4AF37;
+    border-color: #B8860B;
   }
 
   .border-gold-light {
-    border-color: rgba(212, 175, 55, 0.3);
+    border-color: rgba(184, 134, 11, 0.3);
   }
 
   .gold-line {
     height: 1px;
-    background: linear-gradient(to right, transparent, #D4AF37, transparent);
+    background: linear-gradient(to right, transparent, #B8860B, transparent);
   }
 
   .gold-line-left {
-    height: 1px;
-    background: linear-gradient(to right, #D4AF37, transparent);
+    height: 2px;
+    background: linear-gradient(to right, #B8860B, transparent);
   }
 
   .section-padding {
@@ -107,13 +111,13 @@
 
   .elegant-card {
     background: #FFFFFF;
-    border: 1px solid rgba(212, 175, 55, 0.2);
+    border: 1px solid rgba(184, 134, 11, 0.25);
     transition: all 0.3s ease;
   }
 
   .elegant-card:hover {
-    border-color: rgba(212, 175, 55, 0.4);
-    box-shadow: 0 4px 20px rgba(212, 175, 55, 0.1);
+    border-color: rgba(184, 134, 11, 0.5);
+    box-shadow: 0 4px 20px rgba(184, 134, 11, 0.15);
   }
 
   .gold-accent {
@@ -125,9 +129,9 @@
     position: absolute;
     bottom: -4px;
     left: 0;
-    width: 40px;
-    height: 2px;
-    background: #D4AF37;
+    width: 50px;
+    height: 3px;
+    background: #B8860B;
   }
 }
 
