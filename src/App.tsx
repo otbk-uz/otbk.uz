@@ -8,7 +8,7 @@ import FooterSection from './sections/FooterSection';
 
 function App() {
   return (
-    <div className="relative min-h-screen bg-white text-stone-900 overflow-x-hidden">
+    <div className="relative min-h-screen bg-black text-white overflow-x-hidden">
       <Navigation />
       <main>
         <HeroSection />

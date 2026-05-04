@@ -26,21 +26,21 @@ const Navigation = () => {
   return (
     <>
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-white/95 border-b border-gray-100' : 'bg-transparent'
+        scrolled ? 'bg-black/95 border-b border-gold/20' : 'bg-transparent'
       }`}>
         <div className="max-w-6xl mx-auto px-6">
-          <div className="flex items-center justify-between h-14">
-            <a href="#hero" onClick={(e) => handleClick(e, '#hero')} className="text-sm font-bold text-gold">
+          <div className="flex items-center justify-between h-16">
+            <a href="#hero" onClick={(e) => handleClick(e, '#hero')} className="text-lg font-bold text-gold tracking-wider">
               OTABEK
             </a>
 
-            <div className="hidden md:flex items-center gap-6">
+            <div className="hidden md:flex items-center gap-8">
               {navItems.map((item) => (
                 <a
                   key={item.href}
                   href={item.href}
                   onClick={(e) => handleClick(e, item.href)}
-                  className="text-sm text-gray-600 hover:text-gold transition-colors"
+                  className="text-sm text-gray-400 hover:text-gold transition-colors uppercase tracking-wider"
                 >
                   {item.label}
                 </a>
@@ -52,30 +52,31 @@ const Navigation = () => {
               onClick={() => setMenuOpen(!menuOpen)}
               aria-label="Menu"
             >
-              <div className="w-5 h-0.5 bg-gold mb-1" />
-              <div className="w-5 h-0.5 bg-gold" />
+              <div className="w-6 h-0.5 bg-gold mb-1.5" />
+              <div className="w-6 h-0.5 bg-gold mb-1.5" />
+              <div className="w-6 h-0.5 bg-gold" />
             </button>
           </div>
         </div>
       </nav>
 
       {menuOpen && (
-        <div className="fixed inset-0 z-40 bg-white pt-20 px-6 md:hidden">
+        <div className="fixed inset-0 z-40 bg-black pt-24 px-6 md:hidden">
           <button
-            className="absolute top-4 right-6 p-2"
+            className="absolute top-6 right-6 p-2"
             onClick={() => setMenuOpen(false)}
             aria-label="Close"
           >
-            <div className="w-5 h-0.5 bg-black rotate-45 absolute" />
-            <div className="w-5 h-0.5 bg-black -rotate-45 absolute" />
+            <div className="w-6 h-0.5 bg-gold rotate-45 absolute" />
+            <div className="w-6 h-0.5 bg-gold -rotate-45 absolute" />
           </button>
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-6">
             {navItems.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
                 onClick={(e) => handleClick(e, item.href)}
-                className="text-lg py-2 border-b border-gray-100"
+                className="text-2xl py-3 border-b border-gold/20 text-white hover:text-gold transition-colors"
               >
                 {item.label}
               </a>
