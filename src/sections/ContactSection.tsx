@@ -9,30 +9,31 @@ const ContactSection = () => {
     <section id="contact" className="section bg-white">
       <div className="container-narrow">
         <div className="max-w-2xl">
-          <p className="text-sm text-muted mb-4">Bog'lanish</p>
+          <p className="text-sm text-gold font-medium mb-4">Bog'lanish</p>
           <h2 className="text-3xl md:text-4xl font-semibold mb-6">
             Birga ishlaylik
           </h2>
+          <div className="gold-line w-16 mb-6" />
           <p className="text-muted mb-8">
             Yangi loyihalar yoki hamkorlik uchun murojaat qiling.
           </p>
 
           <a
             href="mailto:otabekxoff@gmail.com"
-            className="inline-block px-6 py-3 bg-black text-white text-sm font-medium hover:bg-gray-800 transition-colors mb-12"
+            className="inline-block px-6 py-3 bg-gold text-white text-sm font-medium hover:bg-amber-600 transition-colors mb-12"
           >
             Xabar yuborish
           </a>
 
-          <div className="space-y-4 pt-8 border-t border-gray-200">
+          <div className="space-y-4 pt-8 border-t border-gold">
             {contacts.map((contact) => (
               <a
                 key={contact.label}
                 href={contact.href}
-                className="flex items-center justify-between py-2 hover:text-gray-600 transition-colors"
+                className="flex items-center justify-between py-2 hover:text-gold transition-colors"
               >
                 <span className="text-sm text-muted">{contact.label}</span>
-                <span className="font-medium">{contact.value}</span>
+                <span className="font-medium text-gold">{contact.value}</span>
               </a>
             ))}
           </div>

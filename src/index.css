@@ -8,7 +8,8 @@
   :root {
     --background: 0 0% 100%;
     --foreground: 0 0% 0%;
-    --accent: 221 83% 53%;
+    --gold: #D97706;
+    --gold-bright: #F59E0B;
     --muted: 0 0% 96%;
     --muted-foreground: 0 0% 45%;
     --border: 0 0% 90%;
@@ -50,15 +51,36 @@
   }
 
   .text-accent {
-    color: #2563eb;
+    color: #D97706;
+  }
+
+  .text-gold {
+    color: #D97706;
+  }
+
+  .text-gold-bright {
+    color: #F59E0B;
   }
 
   .bg-accent {
-    background-color: #2563eb;
+    background-color: #D97706;
+  }
+
+  .bg-gold {
+    background-color: #D97706;
   }
 
   .border-accent {
-    border-color: #2563eb;
+    border-color: #D97706;
+  }
+
+  .border-gold {
+    border-color: #D97706;
+  }
+
+  .gold-line {
+    height: 2px;
+    background: #D97706;
   }
 }
 

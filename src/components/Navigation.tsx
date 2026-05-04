@@ -30,8 +30,8 @@ const Navigation = () => {
       }`}>
         <div className="max-w-6xl mx-auto px-6">
           <div className="flex items-center justify-between h-14">
-            <a href="#hero" onClick={(e) => handleClick(e, '#hero')} className="text-sm font-medium">
-              Otabek
+            <a href="#hero" onClick={(e) => handleClick(e, '#hero')} className="text-sm font-bold text-gold">
+              OTABEK
             </a>
 
             <div className="hidden md:flex items-center gap-6">
@@ -40,7 +40,7 @@ const Navigation = () => {
                   key={item.href}
                   href={item.href}
                   onClick={(e) => handleClick(e, item.href)}
-                  className="text-sm text-gray-600 hover:text-black transition-colors"
+                  className="text-sm text-gray-600 hover:text-gold transition-colors"
                 >
                   {item.label}
                 </a>
@@ -52,8 +52,8 @@ const Navigation = () => {
               onClick={() => setMenuOpen(!menuOpen)}
               aria-label="Menu"
             >
-              <div className="w-5 h-0.5 bg-black mb-1" />
-              <div className="w-5 h-0.5 bg-black" />
+              <div className="w-5 h-0.5 bg-gold mb-1" />
+              <div className="w-5 h-0.5 bg-gold" />
             </button>
           </div>
         </div>
