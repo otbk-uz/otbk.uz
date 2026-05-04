@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -7,28 +7,11 @@
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 30 6% 10%;
-    --card: 40 20% 98%;
-    --card-foreground: 30 6% 10%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 30 6% 10%;
-    --primary: 45 90% 47%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 40 10% 96%;
-    --secondary-foreground: 30 6% 10%;
-    --muted: 40 10% 96%;
-    --muted-foreground: 30 5% 45%;
-    --accent: 45 90% 47%;
-    --accent-foreground: 0 0% 100%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 40 10% 90%;
-    --input: 40 10% 90%;
-    --ring: 45 90% 47%;
-    --radius: 0.5rem;
-    --gold: #B8860B;
-    --gold-light: #D4A84B;
-    --gold-dark: #8B6914;
+    --foreground: 0 0% 0%;
+    --accent: 221 83% 53%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+    --border: 0 0% 90%;
   }
 
   * {
@@ -37,140 +20,55 @@
 
   html {
     scroll-behavior: smooth;
-    background: #FFFFFF;
   }
 
   body {
-    font-family: 'Inter', sans-serif;
-    background: #FFFFFF;
-    color: #1C1917;
-    overflow-x: hidden;
-    cursor: auto;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #ffffff;
+    color: #000000;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Playfair Display', serif;
-    font-weight: 500;
-    letter-spacing: -0.02em;
-  }
-
-  a, button {
-    cursor: pointer;
-  }
-
-  ::selection {
-    background: rgba(184, 134, 11, 0.3);
-    color: #1C1917;
+    font-weight: 600;
+    letter-spacing: -0.03em;
   }
 }
 
 @layer components {
-  .text-gold {
-    color: #B8860B;
+  .section {
+    @apply px-6 md:px-12 lg:px-24 py-20 md:py-32;
   }
 
-  .text-gold-dark {
-    color: #8B6914;
+  .container-narrow {
+    @apply max-w-6xl mx-auto;
   }
 
-  .text-gold-light {
-    color: #D4A84B;
+  .text-muted {
+    color: #737373;
   }
 
-  .bg-gold {
-    background-color: #B8860B;
+  .text-accent {
+    color: #2563eb;
   }
 
-  .bg-gold-light {
-    background-color: #D4A84B;
+  .bg-accent {
+    background-color: #2563eb;
   }
 
-  .border-gold {
-    border-color: #B8860B;
-  }
-
-  .border-gold-light {
-    border-color: rgba(184, 134, 11, 0.3);
-  }
-
-  .gold-line {
-    height: 1px;
-    background: linear-gradient(to right, transparent, #B8860B, transparent);
-  }
-
-  .gold-line-left {
-    height: 2px;
-    background: linear-gradient(to right, #B8860B, transparent);
-  }
-
-  .section-padding {
-    @apply px-6 md:px-12 lg:px-20 xl:px-32;
-  }
-
-  .elegant-card {
-    background: #FFFFFF;
-    border: 1px solid rgba(184, 134, 11, 0.25);
-    transition: all 0.3s ease;
-  }
-
-  .elegant-card:hover {
-    border-color: rgba(184, 134, 11, 0.5);
-    box-shadow: 0 4px 20px rgba(184, 134, 11, 0.15);
-  }
-
-  .gold-accent {
-    position: relative;
-  }
-
-  .gold-accent::after {
-    content: '';
-    position: absolute;
-    bottom: -4px;
-    left: 0;
-    width: 50px;
-    height: 3px;
-    background: #B8860B;
+  .border-accent {
+    border-color: #2563eb;
   }
 }
 
 @layer utilities {
-  .animate-fade-in {
-    animation: fadeIn 0.6s ease-out forwards;
-  }
-
-  .animate-fade-in-up {
-    animation: fadeInUp 0.6s ease-out forwards;
-  }
-
-  .animate-fade-in-delay {
-    animation: fadeIn 0.6s ease-out 0.2s forwards;
-    opacity: 0;
-  }
-
-  .scrollbar-hide {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-
-  .scrollbar-hide::-webkit-scrollbar {
-    display: none;
+  .animate-fade {
+    animation: fadeIn 0.5s ease-out forwards;
   }
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
