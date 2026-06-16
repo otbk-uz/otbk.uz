@@ -15,42 +15,42 @@ interface Photo {
 const photos: Photo[] = [
   {
     src: '/images/photo_2026-04-14_16-21-21.jpg',
-    alt: 'Otabek Ravshanov',
+    alt: 'Otabek Ravshanov - Dasturchi va IT mutaxassis, Qishki kunning soya portreti',
     caption: 'Qishki kunning soya portreti',
   },
   {
     src: '/images/photo_2026-04-14_16-21-23.jpg',
-    alt: 'Otabek Ravshanov',
+    alt: 'Otabek Ravshanov - Kodlash jarayonida, dasturlash ishlari',
     caption: 'Kodlash jarayonida',
   },
   {
     src: '/images/photo_2026-04-14_16-21-40.jpg',
-    alt: 'Otabek Ravshanov',
+    alt: 'Otabek Ravshanov - Ish stolida, web va mobil ilovalar yaratish jarayoni',
     caption: 'Ish stolida',
   },
   {
     src: '/images/photo_2026-04-14_16-21-40 (2).jpg',
-    alt: 'Otabek Ravshanov',
+    alt: 'Otabek Ravshanov - Dam olish vaqti',
     caption: 'Dam olish',
   },
   {
     src: '/images/photo_2026-04-14_16-21-43.jpg',
-    alt: 'Otabek Ravshanov',
+    alt: 'Otabek Ravshanov - Jamo bilan, IT mutaxassislari',
     caption: 'Jamo bilan',
   },
   {
     src: '/images/photo_2026-04-14_16-21-44.jpg',
-    alt: 'Otabek Ravshanov',
+    alt: 'Otabek Ravshanov - Loyiha ustida ishlash jarayoni, Playnation.uz va floraholding.uz ustida ishlash',
     caption: 'Loyiha ustida ishlash',
   },
   {
     src: '/images/photo_2026-04-14_16-21-47.jpg',
-    alt: 'Otabek Ravshanov',
+    alt: 'Otabek Ravshanov - Texnik direktor va IT boshqaruvchi',
     caption: 'Texnik direktor',
   },
   {
     src: '/images/photo_2026-04-14_16-21-49.jpg',
-    alt: 'Otabek Ravshanov',
+    alt: 'Otabek Ravshanov - Maslahatchi, IT yechimlar va sun\'iy intellekt',
     caption: 'Maslahatchi',
   },
 ];
@@ -137,31 +137,17 @@ const GallerySection = () => {
       />
 
       <div className="max-w-[1920px] mx-auto px-6 md:px-12 lg:px-20 relative z-10">
-        {/* Section header */}
-        <div className="flex items-center gap-4 mb-12">
-          <span className="text-[#D4AF37] text-xs tracking-[0.3em] uppercase font-bold font-mono">
-            <TextScramble text="06 / RASMLARIM" scrambleOnMount={true} scrambleOnHover={true} duration={0.8} />
-          </span>
-          <div className="flex-1 h-px bg-gradient-to-r from-[#D4AF37]/50 to-transparent" />
+        <div className="flex items-center justify-between border-b-2 border-gold pb-3 mb-6">
+          <div className="flex items-center gap-3">
+            <div className="w-2 h-6 bg-gold"></div>
+            <h2 ref={titleRef} className="text-2xl font-bold text-white uppercase tracking-wider">
+              Fotogalereya
+            </h2>
+          </div>
+          <a href="#gallery" className="text-gold text-sm hover:underline">
+            Barcha rasmlar
+          </a>
         </div>
-
-        <h2
-          ref={titleRef}
-          className="text-4xl md:text-5xl lg:text-7xl font-bold text-3d-solid mb-6"
-        >
-          <span className="text-white">Meni</span>
-          <br />
-          <span className="text-[#D4AF37]">tanishing</span>
-        </h2>
-
-        <p className="text-lg text-[#888888] max-w-xl mb-16 font-mono">
-          <TextScramble
-            text="Ish jarayoni, jamoaviy loyihalar va shaxsiy lahzalardan lavhalar."
-            scrambleOnMount={true}
-            scrambleOnHover={true}
-            duration={1.5}
-          />
-        </p>
 
         {/* Photo grid */}
         <div
@@ -175,6 +161,8 @@ const GallerySection = () => {
                 <img
                   src={photo.src}
                   alt={photo.alt}
+                  title={photo.caption}
+                  loading="lazy"
                   className="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700"
                 />
 

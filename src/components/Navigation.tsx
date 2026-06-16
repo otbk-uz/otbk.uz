@@ -23,26 +23,41 @@ const Navigation = () => {
     setMenuOpen(false);
   };
 
+  const today = new Date().toLocaleDateString('uz-UZ', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+
   return (
     <>
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-black/95 border-b border-gold/20' : 'bg-transparent'
+        scrolled ? 'bg-[#0a0a0a]/95 border-b border-gold/20 shadow-lg' : 'bg-[#0a0a0a] border-b border-white/5'
       }`}>
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="flex items-center justify-between h-16">
-            <a href="#hero" onClick={(e) => handleClick(e, '#hero')} className="text-lg font-bold text-gold tracking-wider">
-              OTABEK
+        {/* Top Info Bar */}
+        <div className="hidden md:block border-b border-white/5 bg-black">
+          <div className="max-w-7xl mx-auto px-4 h-10 flex items-center justify-between text-xs text-gray-400">
+            <div>Otabek Ravshanov rasmiy web-sahifasi</div>
+            <div className="flex gap-4">
+              <span>{today}</span>
+              <a href="https://t.me/otbk_uz" target="_blank" rel="noreferrer" className="hover:text-gold transition-colors">Telegram</a>
+            </div>
+          </div>
+        </div>
+
+        {/* Main Header */}
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="flex items-center justify-between h-16 md:h-20">
+            <a href="#hero" onClick={(e) => handleClick(e, '#hero')} className="text-2xl md:text-3xl font-black text-white tracking-tight flex items-center gap-2">
+              OTBK<span className="text-gold">.UZ</span>
             </a>
 
-            <div className="hidden md:flex items-center gap-8">
+            <div className="hidden md:flex items-center gap-6 lg:gap-10">
               {navItems.map((item) => (
                 <a
                   key={item.href}
                   href={item.href}
                   onClick={(e) => handleClick(e, item.href)}
-                  className="text-sm text-gray-400 hover:text-gold transition-colors uppercase tracking-wider"
+                  className="text-sm font-semibold text-white hover:text-gold transition-colors uppercase tracking-wider relative group"
                 >
                   {item.label}
+                  <span className="absolute -bottom-2 left-0 w-0 h-0.5 bg-gold transition-all duration-300 group-hover:w-full"></span>
                 </a>
               ))}
             </div>

@@ -1,7 +1,7 @@
 const ContactSection = () => {
   const contacts = [
     { label: 'Email', value: 'otabekxoff@gmail.com', href: 'mailto:otabekxoff@gmail.com' },
-    { label: 'Telegram', value: '@otabek_avazbekovich', href: 'https://t.me/otabek_avazbekovich' },
+    { label: 'Telegram', value: '@otbk_uz', href: 'https://t.me/otbk_uz' },
     { label: 'Telefon', value: '+998 88 001 67 77', href: 'tel:+998880016777' },
   ];
 
