@@ -6,40 +6,39 @@ const ContactSection = () => {
   ];
 
   return (
-    <section id="contact" className="section bg-gray-dark relative overflow-hidden">
+    <section id="contact" className="relative overflow-hidden bg-gray-900 border border-white/5 rounded p-6">
       {/* Background decoration */}
-      <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-gold/5 to-transparent" />
+      <div className="absolute top-0 right-0 w-full h-1/2 bg-gradient-to-l from-gold/5 to-transparent" />
       
-      <div className="container-narrow relative z-10">
-        <div className="max-w-2xl mx-auto text-center">
-          <p className="text-sm text-gold font-semibold tracking-[0.3em] uppercase mb-4">
+      <div className="relative z-10">
+        <div className="mb-6">
+          <p className="text-xs text-gold font-bold tracking-[0.2em] uppercase mb-2">
             Bog'lanish
           </p>
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            <span className="text-white">Birga</span>
-            <span className="gold-gradient"> ishlaylik</span>
+          <h2 className="text-2xl font-bold mb-4 leading-tight">
+            <span className="text-white">Birga ishlaylik</span>
           </h2>
-          <div className="divider-gold mx-auto mb-8" />
-          <p className="text-gray-400 text-lg mb-10">
-            Yangi loyihalar yoki hamkorlik uchun murojaat qiling.
-            <br />
-            <span className="text-gold">Har qanday murakkablikdagi</span> loyihalarga tayyorman.
+          <div className="w-10 h-1 bg-gold mb-4" />
+          
+          <p className="text-gray-400 text-sm mb-6 leading-relaxed">
+            Yangi loyihalar yoki hamkorlik uchun murojaat qiling. 
+            <span className="text-gold block mt-1">Har qanday murakkablikdagi</span> loyihalarga tayyorman.
           </p>
 
-          <a href="mailto:otabekxoff@gmail.com" className="btn-gold inline-block mb-16">
+          <a href="mailto:otabekxoff@gmail.com" className="w-full block text-center py-2.5 bg-gold hover:bg-gold-light text-black font-bold text-sm uppercase tracking-wider rounded transition-colors mb-8">
             Xabar yuborish
           </a>
 
           {/* Contact cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-8 border-t border-gold/30">
+          <div className="flex flex-col gap-3">
             {contacts.map((contact) => (
               <a
                 key={contact.label}
                 href={contact.href}
-                className="p-6 border border-gold/20 rounded-lg bg-black/30 hover:border-gold hover:bg-gold/5 transition-all group"
+                className="p-4 border border-white/5 rounded bg-black/30 hover:border-gold/50 hover:bg-white/5 transition-all group flex flex-col justify-center items-center text-center"
               >
-                <p className="text-sm text-gold mb-2 uppercase tracking-wider">{contact.label}</p>
-                <p className="text-white font-medium group-hover:text-gold transition-colors">{contact.value}</p>
+                <p className="text-[10px] text-gold mb-1 uppercase tracking-wider">{contact.label}</p>
+                <p className="text-white text-sm font-medium group-hover:text-gold transition-colors">{contact.value}</p>
               </a>
             ))}
           </div>
