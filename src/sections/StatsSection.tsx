@@ -1,35 +1,35 @@
 const StatsSection = () => {
   const stats = [
     { value: '5+', label: 'Yil tajriba' },
-    { value: '20+', label: 'Loyiha' },
-    { value: '10+', label: 'Mijoz' },
+    { value: '20+', label: 'Muvaffaqiyatli Loyiha' },
+    { value: '10+', label: 'Mamnun Mijoz' },
     { value: '15+', label: 'Texnologiya' },
   ];
 
   return (
-    <section className="relative overflow-hidden bg-gray-900 border border-white/5 rounded p-6">
+    <section className="section bg-black relative overflow-hidden">
       {/* Background glow */}
-      <div className="absolute inset-0 bg-gradient-to-br from-gold/5 via-transparent to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-r from-gold/5 via-transparent to-gold/5" />
       
-      <div className="relative z-10">
-        <div className="mb-6">
-          <p className="text-xs text-gold font-bold tracking-[0.2em] uppercase mb-2">
+      <div className="container-narrow relative z-10">
+        <div className="text-center mb-16">
+          <p className="text-gold text-sm tracking-[0.3em] uppercase font-semibold mb-4">
             Natijalar
           </p>
-          <h2 className="text-2xl font-bold text-white mb-4 leading-tight">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
             Raqamlar gapiradi
           </h2>
-          <div className="w-10 h-1 bg-gold" />
+          <div className="divider-gold mx-auto" />
         </div>
 
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
           {stats.map((stat) => (
             <div 
               key={stat.label} 
-              className="text-center p-4 border border-white/5 rounded bg-black/30 hover:border-gold/50 hover:bg-white/5 transition-all duration-300"
+              className="text-center p-8 border border-white/5 rounded-lg bg-gray-900/40 hover:border-gold/50 hover:bg-gold/5 transition-all duration-500 transform hover:-translate-y-1"
             >
-              <p className="text-3xl font-bold text-gold mb-1">{stat.value}</p>
-              <p className="text-xs text-gray-400 uppercase tracking-wider">{stat.label}</p>
+              <p className="text-4xl md:text-5xl font-black text-gold mb-3">{stat.value}</p>
+              <p className="text-sm text-gray-400 uppercase tracking-widest">{stat.label}</p>
             </div>
           ))}
         </div>

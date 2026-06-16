@@ -17,7 +17,7 @@ const ProjectsSection = () => {
     },
     {
       title: 'AirVarvoz',
-      description: 'Aviabiletlarni qulay qidirish, band qilish va xarid qilish portali.',
+      description: 'Aviabiletlarni qulay qidirish, band booking va xarid qilish portali.',
       tags: ['Vue.js', 'Firebase', 'Mobile App'],
     },
   ];
@@ -28,49 +28,60 @@ const ProjectsSection = () => {
       <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-gold/5 to-transparent" />
       
       <div className="container-narrow relative z-10">
-        <div className="flex items-center gap-3 border-b-2 border-gold pb-3 mb-6">
-          <div className="w-2 h-6 bg-gold"></div>
-          <h2 className="text-2xl font-bold text-white uppercase tracking-wider">
-            So'nggi loyihalar
+        <div className="text-center mb-16">
+          <p className="text-gold text-sm tracking-[0.3em] uppercase font-semibold mb-4">
+            Loyihalar
+          </p>
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            Mening loyihalarim
           </h2>
+          <div className="divider-gold mx-auto" />
         </div>
 
-        <div className="flex flex-col gap-6">
-          {projects.map((project) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {projects.map((project, index) => (
             <div
               key={project.title}
-              className="group cursor-pointer flex flex-col md:flex-row gap-6 border-b border-white/10 pb-6 hover:bg-white/5 transition-all p-2 -mx-2 rounded"
+              className="card-gold p-8 rounded-lg group cursor-pointer flex flex-col justify-between"
             >
-              <div className="w-full md:w-1/3 aspect-video bg-gray-900 rounded overflow-hidden relative border border-white/5">
-                {/* News thumbnail placeholder since we don't have project images easily mapped, we use gradient */}
-                <div className="absolute inset-0 bg-gradient-to-br from-gold/20 to-black/80 group-hover:scale-105 transition-transform duration-500" />
-                <div className="absolute inset-0 flex items-center justify-center text-gold/30 font-bold text-4xl">
-                  {project.title.charAt(0)}
-                </div>
-              </div>
-              
-              <div className="w-full md:w-2/3 flex flex-col justify-center">
-                <div className="flex gap-2 mb-2">
-                  <span className="text-gold text-xs font-bold uppercase tracking-wider">
-                    {project.tags[0]}
+              <div>
+                <div className="flex items-start justify-between mb-6">
+                  <span className="text-5xl font-bold text-gold/20 group-hover:text-gold/40 transition-colors">
+                    0{index + 1}
                   </span>
-                  <span className="text-gray-500 text-xs">| {project.tags[1] || 'Web'}</span>
+                  <div className="w-12 h-12 rounded-full border border-gold/30 flex items-center justify-center group-hover:border-gold group-hover:bg-gold/10 transition-all">
+                    <svg className="w-5 h-5 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                  </div>
                 </div>
                 
-                <h3 className="text-xl md:text-2xl font-bold text-white mb-3 group-hover:text-gold transition-colors leading-tight">
+                <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-gold transition-colors">
                   {project.title}
                 </h3>
                 
-                <p className="text-gray-400 text-sm leading-relaxed mb-4 line-clamp-2">
+                <p className="text-gray-400 mb-6 leading-relaxed text-sm">
                   {project.description}
                 </p>
+              </div>
+              
+              <div className="flex flex-wrap gap-2">
+                {project.tags.map((tag) => (
+                  <span 
+                    key={tag} 
+                    className="px-3 py-1 text-xs border border-gold/30 text-gold/70 rounded-full group-hover:border-gold/50 group-hover:text-gold transition-all"
+                  >
+                    {tag}
+                  </span>
+                ))}
               </div>
             </div>
           ))}
         </div>
 
-        <div className="mt-8">
-          <a href="#contact" className="w-full block text-center py-3 bg-white/5 hover:bg-gold hover:text-black transition-colors font-bold text-sm uppercase tracking-wider border border-white/10">
+        <div className="text-center mt-16">
+          <p className="text-gray-500 mb-6">Va boshqa ko'plab muvaffaqiyatli loyihalar</p>
+          <a href="#contact" className="btn-outline-gold inline-block">
             Barcha loyihalarni ko'rish
           </a>
         </div>
