@@ -16,8 +16,8 @@ const ProjectsSection = () => {
       tags: ['Python', 'AI/ML', 'React', 'FastAPI'],
     },
     {
-      title: 'AirVarvoz',
-      description: 'Aviabiletlarni qulay qidirish, band booking va xarid qilish portali.',
+      title: 'AirParvoz',
+      description: 'Aviabiletlarni qulay qidirish, band qilish va xarid qilish portali.',
       tags: ['Vue.js', 'Firebase', 'Mobile App'],
     },
   ];
