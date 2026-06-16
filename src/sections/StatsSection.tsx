@@ -26,10 +26,10 @@ const StatsSection = () => {
           {stats.map((stat) => (
             <div 
               key={stat.label} 
-              className="text-center p-8 border border-white/5 rounded-lg bg-gray-900/40 hover:border-gold/50 hover:bg-gold/5 transition-all duration-500 transform hover:-translate-y-1"
+              className="text-center p-4 md:p-8 border border-white/5 rounded-lg bg-gray-900/40 hover:border-gold/50 hover:bg-gold/5 transition-all duration-500 transform hover:-translate-y-1"
             >
-              <p className="text-4xl md:text-5xl font-black text-gold mb-3">{stat.value}</p>
-              <p className="text-sm text-gray-400 uppercase tracking-widest">{stat.label}</p>
+              <p className="text-3xl md:text-5xl font-black text-gold mb-2 md:mb-3">{stat.value}</p>
+              <p className="text-[10px] md:text-sm text-gray-400 uppercase tracking-wider md:tracking-widest leading-snug">{stat.label}</p>
             </div>
           ))}
         </div>

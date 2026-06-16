@@ -9,7 +9,7 @@ import FooterSection from './sections/FooterSection';
 
 function App() {
   return (
-    <div className="relative min-h-screen bg-[#0a0a0a] text-white overflow-x-hidden font-sans">
+    <div className="relative min-h-screen bg-[#0a0a0a] text-white font-sans">
       <Navigation />
       
       <main>

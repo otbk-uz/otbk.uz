@@ -51,7 +51,7 @@ const ContactSection = () => {
                 )}
               </div>
               <p className="text-xs text-gold uppercase tracking-widest mb-2 font-semibold">{contact.label}</p>
-              <p className="text-white text-base font-bold group-hover:text-gold transition-colors font-sans">{contact.value}</p>
+              <p className="text-white text-sm md:text-base font-bold group-hover:text-gold transition-colors font-sans break-all">{contact.value}</p>
             </a>
           ))}
         </div>
