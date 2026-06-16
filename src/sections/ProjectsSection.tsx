@@ -36,7 +36,7 @@ const ProjectsSection = () => {
         </div>
 
         <div className="flex flex-col gap-6">
-          {projects.map((project, index) => (
+          {projects.map((project) => (
             <div
               key={project.title}
               className="group cursor-pointer flex flex-col md:flex-row gap-6 border-b border-white/10 pb-6 hover:bg-white/5 transition-all p-2 -mx-2 rounded"

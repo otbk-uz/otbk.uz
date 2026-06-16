@@ -2,7 +2,6 @@ import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import TiltCard from '../components/TiltCard';
-import TextScramble from '../components/TextScramble';
 
 gsap.registerPlugin(ScrollTrigger);
 
