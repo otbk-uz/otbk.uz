@@ -14,42 +14,42 @@ interface Photo {
 const photos: Photo[] = [
   {
     src: '/images/photo_2026-04-14_16-21-21.jpg',
-    alt: 'Otabek Ravshanov - Dasturchi va IT mutaxassis, Qishki kunning soya portreti',
+    alt: 'Otabek Ravshanov (Otabek Avazbekovich) - Dasturchi va IT mutaxassis, Qishki kunning soya portreti',
     caption: 'Qishki kunning soya portreti',
   },
   {
     src: '/images/photo_2026-04-14_16-21-23.jpg',
-    alt: 'Otabek Ravshanov - Kodlash jarayonida, dasturlash ishlari',
+    alt: 'Otabek Ravshanov (Otabek Avazbekovich) - Kodlash jarayonida, dasturlash ishlari',
     caption: 'Kodlash jarayonida',
   },
   {
     src: '/images/photo_2026-04-14_16-21-40.jpg',
-    alt: 'Otabek Ravshanov - Ish stolida, web va mobil ilovalar yaratish jarayoni',
+    alt: 'Otabek Ravshanov (Otabek Avazbekovich) - Ish stolida, web va mobil ilovalar yaratish jarayoni',
     caption: 'Ish stolida',
   },
   {
     src: '/images/photo_2026-04-14_16-21-40 (2).jpg',
-    alt: 'Otabek Ravshanov - Dam olish vaqti',
+    alt: 'Otabek Ravshanov (Otabek Avazbekovich) - Dam olish vaqti',
     caption: 'Dam olish',
   },
   {
     src: '/images/photo_2026-04-14_16-21-43.jpg',
-    alt: 'Otabek Ravshanov - Jamo bilan, IT mutaxassislari',
+    alt: 'Otabek Ravshanov (Otabek Avazbekovich) - Jamo bilan, IT mutaxassislari',
     caption: 'Jamo bilan',
   },
   {
     src: '/images/photo_2026-04-14_16-21-44.jpg',
-    alt: 'Otabek Ravshanov - Loyiha ustida ishlash jarayoni, Playnation.uz va floraholding.uz ustida ishlash',
+    alt: 'Otabek Ravshanov (Otabek Avazbekovich) - Loyiha ustida ishlash jarayoni',
     caption: 'Loyiha ustida ishlash',
   },
   {
     src: '/images/photo_2026-04-14_16-21-47.jpg',
-    alt: 'Otabek Ravshanov - Texnik direktor va IT boshqaruvchi',
+    alt: 'Otabek Ravshanov (Otabek Avazbekovich) - Texnik direktor va IT boshqaruvchi',
     caption: 'Texnik direktor',
   },
   {
     src: '/images/photo_2026-04-14_16-21-49.jpg',
-    alt: 'Otabek Ravshanov - Maslahatchi, IT yechimlar va sun\'iy intellekt',
+    alt: 'Otabek Ravshanov (Otabek Avazbekovich) - Maslahatchi, IT yechimlar va sun\'iy intellekt',
     caption: 'Maslahatchi',
   },
 ];

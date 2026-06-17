@@ -75,7 +75,8 @@ const HeroSection = () => {
             <div className="relative w-80 h-[28rem] md:w-96 md:h-[32rem] rounded-lg overflow-hidden gold-border">
               <img
                 src="/images/photo_2026-04-14_16-21-21.jpg"
-                alt="Otabek Ravshanov"
+                alt="Otabek Ravshanov (Otabek Avazbekovich)"
+                title="Otabek Avazbekovich"
                 className="w-full h-full object-cover"
               />
               {/* Overlay gradient */}

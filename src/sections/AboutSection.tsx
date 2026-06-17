@@ -62,7 +62,8 @@ const AboutSection = () => {
             <div className="relative rounded overflow-hidden border border-gold/30 shadow-2xl">
               <img
                 src="/images/photo_2026-04-14_16-21-23.jpg"
-                alt="Otabek Ravshanov - Ish jarayoni"
+                alt="Otabek Ravshanov (Otabek Avazbekovich) - Ish jarayoni va dasturlash tajribasi"
+                title="Otabek Avazbekovich"
                 loading="lazy"
                 className="w-full h-[400px] object-cover hover:scale-105 transition-transform duration-700"
               />
