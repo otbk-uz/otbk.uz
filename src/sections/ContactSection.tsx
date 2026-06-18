@@ -1,8 +1,9 @@
 const ContactSection = () => {
   const contacts = [
-    { label: 'Email', value: 'otabekxoff@gmail.com', href: 'mailto:otabekxoff@gmail.com' },
-    { label: 'Telegram', value: '@otbk_uz', href: 'https://t.me/otbk_uz' },
     { label: 'Telefon', value: '+998 88 001 67 77', href: 'tel:+998880016777' },
+    { label: 'Telegram', value: '@otbk_uz', href: 'https://t.me/otbk_uz' },
+    { label: 'Instagram', value: '@otbk.uz', href: 'https://instagram.com/otbk.uz' },
+    { label: 'Email', value: 'otabekxoff@gmail.com', href: 'mailto:otabekxoff@gmail.com' },
   ];
 
   return (
@@ -18,7 +19,7 @@ const ContactSection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto mb-12">
           {contacts.map((contact) => (
             <a
               key={contact.label}
