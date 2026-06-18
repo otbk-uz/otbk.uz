@@ -13,7 +13,7 @@ function App() {
   return (
     <div className="min-h-screen bg-gray-50 text-gray-900 font-sans antialiased selection:bg-blue-200">
       <Navigation />
-      <main className="pt-20">
+      <main className="flex-1 w-full relative">
         <HeroSection />
         <AboutSection />
         <StatsSection />

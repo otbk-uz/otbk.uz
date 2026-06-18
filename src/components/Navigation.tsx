@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 const Navigation = () => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [domain, setDomain] = useState('OR7.UZ');
+  const [domain, setDomain] = useState('Or7.uz');
 
   const navItems = [
     { label: 'Asosiy', href: '#hero' },
@@ -21,9 +21,9 @@ const Navigation = () => {
     if (typeof window !== 'undefined') {
       const hostname = window.location.hostname;
       if (hostname.includes('otbk.uz')) {
-        setDomain('OTBK.UZ');
+        setDomain('Otbk.uz');
       } else {
-        setDomain('OR7.UZ');
+        setDomain('Or7.uz');
       }
     }
     
@@ -40,35 +40,35 @@ const Navigation = () => {
 
   // Function to render domain with highlight
   const renderLogo = () => {
-    if (domain === 'OR7.UZ') {
-      return <>OR<span className="text-yellow-400">7</span>.UZ</>;
+    if (domain === 'Or7.uz') {
+      return <>Or<span className="text-blue-600">7</span>.uz</>;
     }
-    return <>O<span className="text-yellow-400">TBK</span>.UZ</>;
+    return <>O<span className="text-blue-600">tbk</span>.uz</>;
   };
 
   return (
     <>
-      <header className="w-full bg-[#0e3a75] shadow-lg">
+      <header className="w-full bg-white shadow-sm border-b border-gray-200">
         {/* Top bar */}
-        <div className="bg-[#0b2d5c] text-white/80 text-xs py-2 hidden md:block">
+        <div className="bg-gray-50 border-b border-gray-200 text-gray-500 text-xs py-2 hidden md:block">
           <div className="container-narrow px-4 mx-auto flex justify-between items-center">
             <div className="flex items-center gap-6 font-medium">
               <span>{today}</span>
-              <span className="w-1 h-1 bg-white/30 rounded-full"></span>
-              <span className="uppercase text-yellow-400 tracking-wider">Texnologiya va Biznes</span>
+              <span className="w-1 h-1 bg-gray-300 rounded-full"></span>
+              <span className="uppercase text-blue-600 tracking-wider font-bold">Texnologiya va Biznes</span>
             </div>
             <div className="flex gap-4 items-center">
-              <a href="https://t.me/otbk_uz" target="_blank" rel="noreferrer" className="hover:text-white transition-colors">Telegram kanal</a>
-              <a href="mailto:otabekxoff@gmail.com" className="hover:text-white transition-colors">Email</a>
+              <a href="https://t.me/otbk_uz" target="_blank" rel="noreferrer" className="hover:text-blue-600 transition-colors">Telegram kanal</a>
+              <a href="mailto:otabekxoff@gmail.com" className="hover:text-blue-600 transition-colors">Email</a>
             </div>
           </div>
         </div>
 
         {/* Main Nav */}
-        <div className={`transition-all duration-300 ${scrolled ? 'fixed top-0 left-0 right-0 z-50 bg-[#0e3a75] shadow-md' : 'relative z-50'}`}>
+        <div className={`transition-all duration-300 ${scrolled ? 'fixed top-0 left-0 right-0 z-50 bg-white shadow-md' : 'relative z-50'}`}>
           <div className="container-narrow px-4 mx-auto flex items-center justify-between h-16 md:h-20">
             {/* Logo */}
-            <a href="#hero" onClick={(e) => handleClick(e, '#hero')} className="text-3xl md:text-4xl font-black text-white tracking-tighter flex items-center gap-1 group">
+            <a href="#hero" onClick={(e) => handleClick(e, '#hero')} className="text-3xl md:text-4xl font-black text-gray-900 tracking-tighter flex items-center gap-1 group">
               {renderLogo()}
             </a>
 
@@ -79,7 +79,7 @@ const Navigation = () => {
                   key={item.href}
                   href={item.href}
                   onClick={(e) => handleClick(e, item.href)}
-                  className="text-[15px] font-bold text-white hover:text-yellow-400 transition-colors uppercase tracking-wide"
+                  className="text-[15px] font-bold text-gray-700 hover:text-blue-600 transition-colors uppercase tracking-wide"
                 >
                   {item.label}
                 </a>
@@ -88,21 +88,21 @@ const Navigation = () => {
 
             {/* CTA button (Desktop) */}
             <div className="hidden md:block">
-              <a href="#contact" onClick={(e) => handleClick(e, '#contact')} className="bg-yellow-400 text-[#0e3a75] px-6 py-2 rounded-sm font-bold text-sm uppercase tracking-wider hover:bg-yellow-300 transition-colors">
+              <a href="#contact" onClick={(e) => handleClick(e, '#contact')} className="bg-blue-600 text-white px-6 py-2 rounded-sm font-bold text-sm uppercase tracking-wider hover:bg-blue-700 transition-colors">
                 Bog'lanish
               </a>
             </div>
 
             {/* Mobile Menu Toggle */}
             <button
-              className="md:hidden p-2 relative w-10 h-10 text-white focus:outline-none"
+              className="md:hidden p-2 relative w-10 h-10 text-gray-900 focus:outline-none"
               onClick={() => setMenuOpen(!menuOpen)}
               aria-label="Menu"
             >
               <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-6 h-5 flex flex-col justify-between">
-                <div className={`w-full h-0.5 bg-white transition-all duration-300 ${menuOpen ? 'rotate-45 translate-y-2' : ''}`} />
-                <div className={`w-full h-0.5 bg-white transition-all duration-300 ${menuOpen ? 'opacity-0' : ''}`} />
-                <div className={`w-full h-0.5 bg-white transition-all duration-300 ${menuOpen ? '-rotate-45 -translate-y-2.5' : ''}`} />
+                <div className={`w-full h-0.5 bg-gray-900 transition-all duration-300 ${menuOpen ? 'rotate-45 translate-y-2' : ''}`} />
+                <div className={`w-full h-0.5 bg-gray-900 transition-all duration-300 ${menuOpen ? 'opacity-0' : ''}`} />
+                <div className={`w-full h-0.5 bg-gray-900 transition-all duration-300 ${menuOpen ? '-rotate-45 -translate-y-2.5' : ''}`} />
               </div>
             </button>
           </div>
@@ -110,19 +110,19 @@ const Navigation = () => {
       </header>
 
       {/* Mobile Menu Dropdown */}
-      <div className={`fixed inset-0 z-40 bg-[#0e3a75] transition-all duration-300 md:hidden flex flex-col pt-24 px-6 ${menuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
+      <div className={`fixed inset-0 z-40 bg-white transition-all duration-300 md:hidden flex flex-col pt-24 px-6 ${menuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
         <div className="flex flex-col gap-6 w-full">
           {navItems.map((item) => (
             <a
               key={item.href}
               href={item.href}
               onClick={(e) => handleClick(e, item.href)}
-              className="text-xl font-bold text-white border-b border-white/10 pb-4 hover:text-yellow-400 transition-colors uppercase tracking-wide"
+              className="text-xl font-bold text-gray-900 border-b border-gray-100 pb-4 hover:text-blue-600 transition-colors uppercase tracking-wide"
             >
               {item.label}
             </a>
           ))}
-          <a href="#contact" onClick={(e) => handleClick(e, '#contact')} className="mt-4 bg-yellow-400 text-[#0e3a75] px-6 py-4 text-center rounded-sm font-bold text-lg uppercase tracking-wider">
+          <a href="#contact" onClick={(e) => handleClick(e, '#contact')} className="mt-4 bg-blue-600 text-white px-6 py-4 text-center rounded-sm font-bold text-lg uppercase tracking-wider">
             Bog'lanish
           </a>
         </div>

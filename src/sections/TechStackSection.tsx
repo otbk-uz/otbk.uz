@@ -1,16 +1,24 @@
 const TechStackSection = () => {
   const techCategories = [
     {
-      title: "Frontend",
-      skills: ["React", "Next.js", "Vue.js", "TypeScript", "Tailwind CSS"]
+      title: "Frontend Development",
+      skills: ["React", "Next.js", "Vue.js", "TypeScript", "JavaScript (ES6+)", "Tailwind CSS", "Sass/SCSS", "Redux", "Zustand"]
     },
     {
-      title: "Backend",
-      skills: ["Node.js", "Python", "FastAPI", "Express", "PostgreSQL", "Supabase"]
+      title: "Backend & APIs",
+      skills: ["Node.js", "Python", "FastAPI", "Express.js", "NestJS", "RESTful APIs", "GraphQL", "WebSockets"]
+    },
+    {
+      title: "Database & Storage",
+      skills: ["PostgreSQL", "MongoDB", "Redis", "MySQL", "Supabase", "Firebase", "Prisma ORM"]
     },
     {
       title: "DevOps & Cloud",
-      skills: ["Docker", "AWS", "Firebase", "CI/CD", "Nginx", "Linux"]
+      skills: ["Docker", "Kubernetes", "AWS (EC2, S3, RDS)", "Nginx", "Linux/Ubuntu", "CI/CD (GitHub Actions)", "Vercel", "Netlify"]
+    },
+    {
+      title: "Tools & Others",
+      skills: ["Git & GitHub", "Figma", "Postman", "Jest", "Vitest", "Webpack", "Vite", "Agile/Scrum"]
     }
   ];
 
