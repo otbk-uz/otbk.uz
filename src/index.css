@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=SF+Pro+Display:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&family=Inter:wght@300;400;500;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,14 +6,13 @@
 
 @layer base {
   :root {
-    --gold: #D4AF37;
-    --gold-light: #E8C568;
-    --gold-dark: #B8962E;
-    --black: #050505;
-    --black-light: #0a0a0a;
-    --gray: #111111;
-    --neon-blue: #00f3ff;
-    --neon-purple: #b026ff;
+    --primary-blue: #0052cc;
+    --primary-blue-hover: #0043a6;
+    --bg-light: #ffffff;
+    --bg-gray: #f9fafb;
+    --text-main: #111827;
+    --text-muted: #4b5563;
+    --border-light: #e5e7eb;
   }
 
   html {
@@ -21,194 +20,61 @@
   }
 
   body {
-    font-family: 'SF Pro Display', 'Inter', sans-serif;
-    background: var(--black);
-    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-main);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'SF Pro Display', 'Inter', sans-serif;
-    letter-spacing: -0.02em;
+    font-family: 'Merriweather', serif;
+    letter-spacing: -0.01em;
+    color: var(--text-main);
+  }
+
+  p {
+    line-height: 1.7;
   }
 
   ::selection {
-    background: rgba(0, 243, 255, 0.3);
+    background: var(--primary-blue);
     color: #fff;
   }
 }
 
 @layer components {
   .section {
-    @apply px-6 md:px-12 lg:px-24 py-24 md:py-32;
+    @apply px-4 md:px-8 lg:px-16 py-12 md:py-20;
   }
 
   .container-narrow {
-    @apply max-w-7xl mx-auto;
+    @apply max-w-6xl mx-auto;
   }
 
-  .text-gold {
-    color: var(--neon-blue); /* Replaced with neon blue for modern look */
+  .news-card {
+    @apply bg-white border border-gray-200 rounded-md overflow-hidden hover:shadow-md transition-shadow duration-200;
   }
 
-  .text-gold-light {
-    color: #fff;
+  .news-title {
+    @apply font-bold text-gray-900 hover:text-blue-700 transition-colors duration-200;
   }
 
-  .bg-gold {
-    background-color: var(--neon-blue);
+  .news-meta {
+    @apply text-xs font-medium text-gray-500 uppercase tracking-wide;
   }
 
-  .border-gold {
-    border-color: rgba(255,255,255,0.1);
+  .btn-primary {
+    @apply bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded transition-colors duration-200 inline-block;
   }
 
-  .bg-black {
-    background-color: var(--black);
+  .btn-outline {
+    @apply bg-transparent border border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-gray-400 font-medium py-3 px-6 rounded transition-colors duration-200 inline-block;
   }
 
-  .bg-gray-dark {
-    background-color: var(--gray);
-  }
-
-  .gold-gradient {
-    background: linear-gradient(135deg, #fff 0%, #a1a1aa 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .gold-border {
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-  }
-
-  .gold-line {
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-  }
-
-  .gold-glow {
-    box-shadow: 0 0 30px rgba(0, 243, 255, 0.2);
-  }
-
-  .card-gold {
-    background: rgba(15, 15, 15, 0.6);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  .card-gold:hover {
-    border-color: rgba(255, 255, 255, 0.2);
-    box-shadow: 0 0 30px rgba(0, 243, 255, 0.1), inset 0 0 20px rgba(255,255,255,0.02);
-    transform: translateY(-4px);
-  }
-
-  .btn-gold {
-    background: #fff;
-    color: #000;
-    font-weight: 600;
-    padding: 14px 32px;
-    border: 1px solid transparent;
-    border-radius: 9999px;
-    transition: all 0.3s ease;
-    font-size: 0.875rem;
-    letter-spacing: 0.02em;
-  }
-
-  .btn-gold:hover {
-    background: transparent;
-    color: #fff;
-    border-color: rgba(255,255,255,0.2);
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
-  }
-
-  .btn-outline-gold {
-    background: rgba(255,255,255,0.03);
-    color: #fff;
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 9999px;
-    padding: 14px 32px;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    font-size: 0.875rem;
-    backdrop-filter: blur(8px);
-  }
-
-  .btn-outline-gold:hover {
-    background: rgba(255,255,255,0.1);
-    border-color: rgba(255,255,255,0.3);
-    transform: translateY(-1px);
-  }
-
-  .text-muted-gold {
-    color: rgba(255, 255, 255, 0.5);
-  }
-
-  .divider-gold {
-    width: 60px;
-    height: 2px;
-    background: var(--neon-blue);
-    margin: 24px 0;
-    box-shadow: 0 0 15px rgba(0, 243, 255, 0.5);
+  .divider {
+    @apply w-full h-[1px] bg-gray-200 my-8;
   }
 }
 
-@layer utilities {
-  .animate-glow {
-    animation: glow 2s ease-in-out infinite alternate;
-  }
-
-  .animate-fade-up {
-    animation: fadeUp 0.8s ease-out forwards;
-  }
-
-  .animate-shine {
-    animation: shine 3s infinite;
-  }
-  
-  .glass-panel {
-    background: rgba(10, 10, 10, 0.4);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-  }
-  
-  .text-gradient {
-    background: linear-gradient(to right, #fff, #888);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-}
-
-@keyframes glow {
-  from {
-    box-shadow: 0 0 20px rgba(0, 243, 255, 0.1);
-  }
-  to {
-    box-shadow: 0 0 40px rgba(0, 243, 255, 0.3);
-  }
-}
-
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes shine {
-  0% {
-    background-position: -200% center;
-  }
-  100% {
-    background-position: 200% center;
-  }
-}

@@ -1,32 +1,27 @@
 const FooterSection = () => {
   return (
-    <footer className="py-12 section bg-transparent border-t border-white/5 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-neon-blue/5 pointer-events-none" />
-      <div className="container-narrow relative z-10">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+    <footer className="py-12 bg-gray-50 border-t border-gray-200">
+      <div className="container-narrow px-4">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6 border-b border-gray-200 pb-8">
           <div className="text-center md:text-left">
-            <p className="text-2xl font-black text-white mb-2 tracking-tighter">
-              O<span className="text-neon-blue">TBK</span>
+            <p className="text-2xl font-black text-gray-900 mb-1 tracking-tight">
+              Or<span className="text-blue-600">7</span>.uz
             </p>
-            <p className="text-xs text-white/50 font-mono tracking-widest uppercase">System Architect</p>
+            <p className="text-sm text-gray-500 font-serif">Texnologiyalar va Biznes</p>
           </div>
           
-          <div className="flex items-center gap-3">
-            <span className="w-2 h-2 rounded-full bg-neon-green shadow-[0_0_10px_#00ff66] animate-pulse" />
-            <span className="text-xs font-mono text-neon-green tracking-widest uppercase">Tizim Ishlamoqda</span>
+          <div className="flex gap-4">
+            <a href="https://t.me/otbk_uz" className="text-gray-500 hover:text-blue-600 transition-colors">Telegram</a>
+            <a href="mailto:otabekxoff@gmail.com" className="text-gray-500 hover:text-blue-600 transition-colors">Email</a>
           </div>
-          
-          <p className="text-sm text-white/40 font-light">
-            © 2026 <span className="text-white/80">Otabek Ravshanov</span>
-          </p>
         </div>
         
-        <div className="mt-8 pt-8 border-t border-white/5 text-center flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-white/30 text-xs font-mono">
-            SYS.VER: 2.0.26
+        <div className="mt-8 text-center flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-gray-500 text-sm">
+            © 2026 Or7.uz Tahririyati. Barcha huquqlar himoyalangan.
           </p>
-          <p className="text-white/30 text-xs font-mono">
-            CONNECTION: SECURE
+          <p className="text-gray-400 text-xs">
+            Saytdagi ma'lumotlardan foydalanilganda manba ko'rsatilishi shart.
           </p>
         </div>
       </div>

@@ -11,7 +11,7 @@ export const portfolioData = {
   },
   article: {
     headline: "Maktab partasidan xalqaro bozorlarga: 18 yoshida yirik IT loyihalar va ko'p millionli eksportni boshqarayotgan Otabek Ravshanov fenomeni",
-    intro: "Bugungi globallashuv va axborot texnologiyalari shiddat bilan rivojlanayotgan davrda, muvaffaqiyat yosh tanlamasligi hech kimga sir emas. O'zbekistonda ham an'anaviy qoliplarni buzib, juda yosh bo'lishiga qaramay ulkan marralarni zabt etayotgan yoshlar yetishib chiqmoqda. Ana shunday yorqin namoyandalardan biri — asli qo'qonlik, bugungi kunda poytaxt Toshkent va Farg'ona vodiysi o'rtasida yirik loyihalarni tebratib kelayotgan 18 yoshli IT-mutaxassis, dizayner va tadbirkor Otabek Ravshanov Avazbek o'g'lidir.",
+    intro: "Bugungi globallashuv va axborot texnologiyalari shiddat bilan rivojlanayotgan davrda, muvaffaqiyat yosh tanlamasligi hech kimga sir emas. O'zbekistonda ham an'anaviy qoliplarni buzib, juda yosh bo'lishiga qaramay ulkan marralarni zabt etayotgan yoshlar yetishib chiqmoqda. Ana shunday yorqin namoyandalardan biri — asli qo'qonlik, bugungi kunda poytaxt Toshkent va Farg'ona vodiysi o'rtasida yirik loyihalarni tebratib kelayotgan 18 yoshli IT-mutaxassis, dizayner va tadbirkor Otabek Ravshanov Avazbek o'g'lidir. Or7.uz Tahririyati",
     sections: [
       {
         title: "Nazariyadan amaliyotga: Diplomi uchun emas, natija va real daromad uchun o'qish",

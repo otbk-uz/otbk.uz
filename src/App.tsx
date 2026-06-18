@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import Navigation from './components/Navigation';
 import HeroSection from './sections/HeroSection';
 import AboutSection from './sections/AboutSection';
@@ -10,43 +9,21 @@ import GallerySection from './sections/GallerySection';
 import ContactSection from './sections/ContactSection';
 import FooterSection from './sections/FooterSection';
 
-// Extra visual components
-import LoadingScreen from './components/LoadingScreen';
-import CustomCursor from './components/CustomCursor';
-import GridBackground from './components/GridBackground';
-import MatrixRain from './components/MatrixRain';
-
 function App() {
-  const [loading, setLoading] = useState(true);
-
   return (
-    <div className="relative min-h-screen bg-black text-white font-sans selection:bg-neon-blue/30 overflow-x-hidden">
-      {loading && <LoadingScreen onComplete={() => setLoading(false)} />}
-      
-      {!loading && (
-        <>
-          <CustomCursor />
-          <GridBackground />
-          <div className="fixed inset-0 z-0 opacity-20 mix-blend-screen pointer-events-none">
-             <MatrixRain />
-          </div>
-          
-          <div className="relative z-10">
-            <Navigation />
-            <main>
-              <HeroSection />
-              <AboutSection />
-              <StatsSection />
-              <TechStackSection />
-              <SpecialtiesSection />
-              <ProjectsSection />
-              <GallerySection />
-              <ContactSection />
-            </main>
-            <FooterSection />
-          </div>
-        </>
-      )}
+    <div className="min-h-screen bg-gray-50 text-gray-900 font-sans antialiased selection:bg-blue-200">
+      <Navigation />
+      <main className="pt-20">
+        <HeroSection />
+        <AboutSection />
+        <StatsSection />
+        <TechStackSection />
+        <SpecialtiesSection />
+        <ProjectsSection />
+        <GallerySection />
+        <ContactSection />
+      </main>
+      <FooterSection />
     </div>
   );
 }
