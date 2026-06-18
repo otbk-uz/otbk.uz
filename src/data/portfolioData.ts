@@ -84,9 +84,9 @@ export const portfolioData = {
     },
     {
       src: '/images/photo_2026-04-14_16-21-40 (2).jpg',
-      alt: 'Otabek Ravshanov - Dam olish',
-      title: 'Balansni saqlash',
-      caption: 'Intensiv mehnat va yirik IT loyihalar boshqaruvidan so\'ng, tabiat qo\'ynida ruhiy xotirjamlik va kuch yig\'ish vaqti.'
+      alt: 'Otabek Ravshanov - Qishki sayr',
+      title: 'Xotirjamlik va ilhom',
+      caption: 'Intensiv mehnat va yirik loyihalar boshqaruvidan so\'ng, qishki shahar ko\'chalarida sayr va ruhiy quvvat yig\'ish.'
     },
     {
       src: '/images/photo_2026-04-14_16-21-43.jpg',

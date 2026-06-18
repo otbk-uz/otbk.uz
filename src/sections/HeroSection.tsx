@@ -58,7 +58,7 @@ const HeroSection = () => {
                 />
               </div>
               <p className="text-xs text-gray-500 mt-3 text-right italic">
-                Suratda: Otabek Ravshanov ish jarayonida
+                Suratda: Otabek Ravshanov qishki sayohat chog'ida
               </p>
             </div>
           </div>
