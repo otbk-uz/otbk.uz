@@ -52,7 +52,7 @@ const HeroSection = () => {
             <div className="w-full max-w-md">
               <div className="relative aspect-[4/5] rounded shadow-lg overflow-hidden border border-gray-100">
                 <img
-                  src="/images/photo_2026-04-14_16-21-21.jpg"
+                  src="/images/photo_2026-04-14_16-21-40 (2).jpg"
                   alt="Otabek Ravshanov"
                   className="w-full h-full object-cover"
                 />

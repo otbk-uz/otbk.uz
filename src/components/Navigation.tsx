@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 const Navigation = () => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [domain, setDomain] = useState('OR7.UZ');
 
   const navItems = [
     { label: 'Bosh sahifa', href: '#hero' },
@@ -14,6 +15,17 @@ const Navigation = () => {
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll, { passive: true });
+    
+    // Set domain dynamically based on hostname
+    if (typeof window !== 'undefined') {
+      const hostname = window.location.hostname;
+      if (hostname.includes('otbk.uz')) {
+        setDomain('OTBK.UZ');
+      } else {
+        setDomain('OR7.UZ');
+      }
+    }
+    
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -24,6 +36,14 @@ const Navigation = () => {
   };
 
   const today = new Date().toLocaleDateString('uz-UZ', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+
+  // Function to render domain with highlight
+  const renderLogo = () => {
+    if (domain === 'OR7.UZ') {
+      return <>OR<span className="text-blue-600">7</span>.UZ</>;
+    }
+    return <>O<span className="text-blue-600">TBK</span>.UZ</>;
+  };
 
   return (
     <>
@@ -37,7 +57,7 @@ const Navigation = () => {
               <span>{today}</span>
             </div>
             <div className="flex gap-6">
-              <a href="https://t.me/otbk_uz" target="_blank" rel="noreferrer" className="hover:text-blue-600 transition-colors">Kanalga ulanish (Telegram)</a>
+              <a href="#contact" onClick={(e) => handleClick(e, '#contact')} className="hover:text-blue-600 transition-colors">Bog'lanish</a>
             </div>
           </div>
         </div>
@@ -46,7 +66,7 @@ const Navigation = () => {
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex items-center justify-between h-16 md:h-20">
             <a href="#hero" onClick={(e) => handleClick(e, '#hero')} className="text-2xl md:text-3xl font-black text-gray-900 tracking-tight flex items-center gap-1 group">
-              OR<span className="text-blue-600">7</span>.UZ
+              {renderLogo()}
             </a>
 
             <div className="hidden md:flex items-center gap-8 lg:gap-12">

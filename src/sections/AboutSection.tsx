@@ -1,7 +1,21 @@
 import { portfolioData } from '../data/portfolioData';
+import { useState, useEffect } from 'react';
 
 const AboutSection = () => {
   const { article } = portfolioData;
+  const [domain, setDomain] = useState('Or7.uz');
+
+  useEffect(() => {
+    // Set domain dynamically based on hostname
+    if (typeof window !== 'undefined') {
+      const hostname = window.location.hostname;
+      if (hostname.includes('otbk.uz')) {
+        setDomain('Otbk.uz');
+      } else {
+        setDomain('Or7.uz');
+      }
+    }
+  }, []);
 
   return (
     <section id="about" className="bg-white py-12 md:py-20 border-b border-gray-200">
@@ -22,10 +36,10 @@ const AboutSection = () => {
           
           <div className="flex items-center gap-4">
             <div className="w-12 h-12 rounded-full overflow-hidden bg-gray-100">
-              <img src="/images/photo_2026-04-14_16-21-47.jpg" alt="Or7.uz tahririyati" className="w-full h-full object-cover" />
+              <img src="/images/photo_2026-04-14_16-21-47.jpg" alt={`${domain} tahririyati`} className="w-full h-full object-cover" />
             </div>
             <div>
-              <p className="text-gray-900 font-bold">Or7.uz Tahririyati</p>
+              <p className="text-gray-900 font-bold">{domain} Tahririyati</p>
               <p className="text-gray-500 text-sm">19 Iyun, 2026</p>
             </div>
           </div>
