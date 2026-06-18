@@ -1,37 +1,71 @@
+import { useEffect, useRef } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { portfolioData } from '../data/portfolioData';
+
+gsap.registerPlugin(ScrollTrigger);
+
 const StatsSection = () => {
-  const stats = [
-    { value: '5+', label: 'Yil tajriba' },
-    { value: '20+', label: 'Muvaffaqiyatli Loyiha' },
-    { value: '10+', label: 'Mamnun Mijoz' },
-    { value: '15+', label: 'Texnologiya' },
-  ];
+  const sectionRef = useRef<HTMLElement>(null);
+  const { hero } = portfolioData;
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+
+    const ctx = gsap.context(() => {
+      const numbers = gsap.utils.toArray<HTMLElement>('.stat-number');
+      
+      numbers.forEach((number) => {
+        const targetValue = parseFloat(number.getAttribute('data-value') || '0');
+        const isPlus = number.getAttribute('data-value')?.includes('+');
+        const suffix = number.getAttribute('data-suffix') || '';
+        
+        gsap.to(number, {
+          innerHTML: targetValue,
+          duration: 2,
+          snap: { innerHTML: 1 },
+          scrollTrigger: {
+            trigger: section,
+            start: 'top 80%',
+          },
+          onUpdate: function() {
+            number.innerHTML = Math.round(Number(this.targets()[0].innerHTML)) + suffix + (isPlus ? '+' : '');
+          }
+        });
+      });
+    }, section);
+
+    return () => ctx.revert();
+  }, []);
 
   return (
-    <section className="section bg-black relative overflow-hidden">
+    <section ref={sectionRef} className="py-20 bg-transparent border-t border-b border-white/5 relative overflow-hidden">
       {/* Background glow */}
-      <div className="absolute inset-0 bg-gradient-to-r from-gold/5 via-transparent to-gold/5" />
-      
-      <div className="container-narrow relative z-10">
-        <div className="text-center mb-16">
-          <p className="text-gold text-sm tracking-[0.3em] uppercase font-semibold mb-4">
-            Natijalar
-          </p>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Raqamlar gapiradi
-          </h2>
-          <div className="divider-gold mx-auto" />
-        </div>
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-20">
+        <div className="w-full h-full max-w-4xl bg-neon-purple blur-[150px] rounded-full" />
+      </div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-          {stats.map((stat) => (
-            <div 
-              key={stat.label} 
-              className="text-center p-4 md:p-8 border border-white/5 rounded-lg bg-gray-900/40 hover:border-gold/50 hover:bg-gold/5 transition-all duration-500 transform hover:-translate-y-1"
-            >
-              <p className="text-3xl md:text-5xl font-black text-gold mb-2 md:mb-3">{stat.value}</p>
-              <p className="text-[10px] md:text-sm text-gray-400 uppercase tracking-wider md:tracking-widest leading-snug">{stat.label}</p>
-            </div>
-          ))}
+      <div className="container-narrow relative z-10">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+          {hero.stats.map((stat, i) => {
+            const hasK = stat.value.includes('K');
+            
+            return (
+              <div key={i} className="text-center group">
+                <div className="text-5xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-br from-white to-white/50 mb-4 stat-number font-sans" 
+                  data-value={stat.value} 
+                  data-suffix={hasK ? 'K' : ''}
+                >
+                  0
+                </div>
+                <div className="w-12 h-1 bg-neon-blue mx-auto mb-4 opacity-50 group-hover:opacity-100 transition-opacity" />
+                <p className="text-sm md:text-base text-white/60 uppercase tracking-widest font-mono">
+                  {stat.label}
+                </p>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

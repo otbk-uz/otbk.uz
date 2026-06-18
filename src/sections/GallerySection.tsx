@@ -2,57 +2,9 @@ import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import TiltCard from '../components/TiltCard';
+import { portfolioData } from '../data/portfolioData';
 
 gsap.registerPlugin(ScrollTrigger);
-
-interface Photo {
-  src: string;
-  alt: string;
-  caption: string;
-}
-
-const photos: Photo[] = [
-  {
-    src: '/images/photo_2026-04-14_16-21-21.jpg',
-    alt: 'Otabek Ravshanov (Otabek Avazbekovich) - Dasturchi va IT mutaxassis, Qishki kunning soya portreti',
-    caption: 'Qishki kunning soya portreti',
-  },
-  {
-    src: '/images/photo_2026-04-14_16-21-23.jpg',
-    alt: 'Otabek Ravshanov (Otabek Avazbekovich) - Kodlash jarayonida, dasturlash ishlari',
-    caption: 'Kodlash jarayonida',
-  },
-  {
-    src: '/images/photo_2026-04-14_16-21-40.jpg',
-    alt: 'Otabek Ravshanov (Otabek Avazbekovich) - Ish stolida, web va mobil ilovalar yaratish jarayoni',
-    caption: 'Ish stolida',
-  },
-  {
-    src: '/images/photo_2026-04-14_16-21-40 (2).jpg',
-    alt: 'Otabek Ravshanov (Otabek Avazbekovich) - Dam olish vaqti',
-    caption: 'Dam olish',
-  },
-  {
-    src: '/images/photo_2026-04-14_16-21-43.jpg',
-    alt: 'Otabek Ravshanov (Otabek Avazbekovich) - Jamo bilan, IT mutaxassislari',
-    caption: 'Jamo bilan',
-  },
-  {
-    src: '/images/photo_2026-04-14_16-21-44.jpg',
-    alt: 'Otabek Ravshanov (Otabek Avazbekovich) - Loyiha ustida ishlash jarayoni',
-    caption: 'Loyiha ustida ishlash',
-  },
-  {
-    src: '/images/photo_2026-04-14_16-21-47.jpg',
-    alt: 'Otabek Ravshanov (Otabek Avazbekovich) - Texnik direktor va IT boshqaruvchi',
-    caption: 'Texnik direktor',
-  },
-  {
-    src: '/images/photo_2026-04-14_16-21-49.jpg',
-    alt: 'Otabek Ravshanov (Otabek Avazbekovich) - Maslahatchi, IT yechimlar va sun\'iy intellekt',
-    caption: 'Maslahatchi',
-  },
-];
 
 const GallerySection = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -65,7 +17,6 @@ const GallerySection = () => {
     if (!section) return;
 
     const ctx = gsap.context(() => {
-      // Title reveal
       gsap.fromTo(
         titleRef.current,
         { y: 60, opacity: 0 },
@@ -81,7 +32,6 @@ const GallerySection = () => {
         }
       );
 
-      // Grid items stagger
       if (gridRef.current) {
         gsap.fromTo(
           gridRef.current.children,
@@ -101,7 +51,6 @@ const GallerySection = () => {
         );
       }
 
-      // Decorative parallax
       gsap.to(decorRef.current, {
         y: -100,
         scrollTrigger: {
@@ -117,74 +66,58 @@ const GallerySection = () => {
   }, []);
 
   return (
-    <section
-      id="gallery"
-      ref={sectionRef}
-      className="relative py-24 md:py-40 overflow-hidden"
-    >
+    <section id="gallery" ref={sectionRef} className="relative py-24 md:py-40 overflow-hidden bg-transparent">
       {/* Decorative text */}
-          <div
-        ref={decorRef}
-        className="absolute top-20 -right-20 font-orbitron text-[18vw] font-black text-white/[0.02] pointer-events-none select-none leading-none"
-      >
-        PHOTO
+      <div ref={decorRef} className="absolute top-20 -right-20 font-orbitron text-[18vw] font-black text-white/[0.01] pointer-events-none select-none leading-none">
+        MEMORIES
       </div>
 
-      {/* Scanline overlay */}
-      <div className="absolute inset-0 pointer-events-none opacity-[0.015]"
-        style={{ backgroundImage: 'repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(212, 175, 55, 0.03) 2px, rgba(212, 175, 55, 0.03) 4px)' }}
-      />
-
       <div className="max-w-[1920px] mx-auto px-6 md:px-12 lg:px-20 relative z-10">
-        <div className="flex items-center justify-between border-b-2 border-gold pb-3 mb-6">
-          <div className="flex items-center gap-3">
-            <div className="w-2 h-6 bg-gold"></div>
-            <h2 ref={titleRef} className="text-2xl font-bold text-white uppercase tracking-wider">
-              Fotogalereya
+        <div className="flex flex-col md:flex-row items-center justify-between border-b border-white/10 pb-6 mb-12">
+          <div className="flex items-center gap-4 mb-4 md:mb-0">
+            <div className="w-1.5 h-8 bg-neon-blue shadow-neon-blue rounded-full"></div>
+            <h2 ref={titleRef} className="text-3xl md:text-4xl font-black text-white tracking-tight">
+              Kadrlar Ortida
             </h2>
           </div>
-          <a href="#gallery" className="text-gold text-sm hover:underline">
-            Barcha rasmlar
-          </a>
+          <p className="text-white/40 text-sm font-mono uppercase tracking-widest text-center md:text-right">
+            Ish jarayoni va muhit
+          </p>
         </div>
 
         {/* Photo grid */}
-        <div
-          ref={gridRef}
-          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6"
-        >
-          {photos.map((photo, i) => (
-            <TiltCard key={i} maxTilt={8} scale={1.03}>
-              <div className="group relative aspect-[3/4] overflow-hidden border border-white/10 hover:border-[#D4AF37] transition-all duration-500">
+        <div ref={gridRef} className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          {portfolioData.gallery.map((photo, i) => (
+            <TiltCard key={i} maxTilt={8} scale={1.02}>
+              <div className="group relative aspect-[3/4] overflow-hidden glass-panel border border-white/10 hover:border-neon-blue/50 transition-all duration-500 rounded-2xl">
                 {/* Image */}
                 <img
                   src={photo.src}
                   alt={photo.alt}
-                  title={photo.caption}
+                  title={photo.title}
                   loading="lazy"
-                  className="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700"
+                  className="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700 opacity-80 group-hover:opacity-100"
                 />
 
-                {/* Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-100 transition-opacity duration-500" />
+                {/* Overlay Gradient */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500" />
 
-                {/* Caption */}
-                <div className="absolute bottom-0 left-0 right-0 p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500">
-                  <p className="text-sm text-[#D4AF37] font-mono tracking-wider">
-                    {photo.caption}
-                  </p>
+                {/* Content Block */}
+                <div className="absolute bottom-0 left-0 right-0 p-6 transform translate-y-8 group-hover:translate-y-0 transition-transform duration-500 flex flex-col justify-end h-full">
+                  <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                    <p className="text-xs text-neon-blue font-mono uppercase tracking-widest mb-2 border-b border-neon-blue/30 pb-2 inline-block">
+                      {photo.title}
+                    </p>
+                    <p className="text-sm text-white/90 leading-relaxed font-light mt-1">
+                      {photo.caption}
+                    </p>
+                  </div>
                 </div>
 
-                {/* Corner accents */}
-                <div className="absolute top-0 left-0 w-6 h-6 border-t border-l border-[#D4AF37]/0 group-hover:border-[#D4AF37] transition-all duration-300" />
-                <div className="absolute top-0 right-0 w-6 h-6 border-t border-r border-[#D4AF37]/0 group-hover:border-[#D4AF37] transition-all duration-300" />
-                <div className="absolute bottom-0 left-0 w-6 h-6 border-b border-l border-[#D4AF37]/0 group-hover:border-[#D4AF37] transition-all duration-300" />
-                <div className="absolute bottom-0 right-0 w-6 h-6 border-b border-r border-[#D4AF37]/0 group-hover:border-[#D4AF37] transition-all duration-300" />
-
-                {/* Gold glow on hover */}
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-                  style={{ boxShadow: 'inset 0 0 40px rgba(212, 175, 55, 0.1)' }}
-                />
+                {/* Top corner details */}
+                <div className="absolute top-4 right-4 text-neon-blue/50 font-mono text-[10px] tracking-widest">
+                  IMG_00{i + 1}
+                </div>
               </div>
             </TiltCard>
           ))}

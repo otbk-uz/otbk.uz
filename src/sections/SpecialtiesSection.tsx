@@ -92,34 +92,6 @@ const SpecialtiesSection = () => {
         );
       }
 
-      // Images parallax
-      if (imagesRef.current) {
-        const images = imagesRef.current.children;
-        gsap.fromTo(
-          images[0],
-          { y: 60, opacity: 0 },
-          {
-            y: 0,
-            opacity: 1,
-            duration: 1,
-            ease: 'power3.out',
-            scrollTrigger: { trigger: images[0], start: 'top 85%' },
-          }
-        );
-        gsap.fromTo(
-          images[1],
-          { y: 80, opacity: 0 },
-          {
-            y: 0,
-            opacity: 1,
-            duration: 1,
-            delay: 0.2,
-            ease: 'power3.out',
-            scrollTrigger: { trigger: images[1], start: 'top 85%' },
-          }
-        );
-      }
-
       // Decorative text
       gsap.to(decorRef.current, {
         x: -100,
@@ -136,37 +108,37 @@ const SpecialtiesSection = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative py-24 md:py-40 overflow-hidden">
+    <section ref={sectionRef} className="relative py-24 md:py-40 overflow-hidden bg-transparent">
       {/* Decorative text */}
       <div
         ref={decorRef}
-        className="absolute top-20 -right-20 font-orbitron text-[18vw] font-black text-white/[0.02] pointer-events-none select-none leading-none"
+        className="absolute top-20 -right-20 font-orbitron text-[18vw] font-black text-white/[0.01] pointer-events-none select-none leading-none"
       >
         SKILLS
       </div>
 
-      <div className="max-w-[1920px] mx-auto px-6 md:px-12 lg:px-20">
+      <div className="max-w-[1920px] mx-auto px-6 md:px-12 lg:px-20 relative z-10">
         {/* Section header */}
         <div className="flex items-center gap-4 mb-12">
-          <span className="text-[#D4AF37] text-xs tracking-[0.3em] uppercase font-bold">
+          <span className="text-neon-blue text-xs tracking-[0.4em] uppercase font-bold font-mono">
             04 / Ixtisosliklar
           </span>
-          <div className="flex-1 h-px bg-gradient-to-r from-[#D4AF37]/50 to-transparent" />
+          <div className="flex-1 h-px bg-gradient-to-r from-neon-blue/50 to-transparent" />
         </div>
 
         {/* Main title */}
         <h2
           ref={titleRef}
-          className="text-4xl md:text-5xl lg:text-7xl font-bold mb-6 text-3d-solid max-w-4xl"
+          className="text-4xl md:text-5xl lg:text-7xl font-black mb-6 text-white max-w-4xl tracking-tight"
         >
           Mobil, web, desktop
           <br />
-          <span className="text-[#D4AF37]">buyurtma asosida</span>
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-blue to-neon-purple">buyurtma asosida</span>
           <br />
           ishlab chiqish.
         </h2>
 
-        <p className="text-lg text-[#888888] max-w-2xl mb-16">
+        <p className="text-lg text-white/60 max-w-2xl mb-16 font-light">
           Har bir loyihada eng yaxshi arxitektura patternlari, clean code
           tamoyillari va samarali algoritmlardan foydalanaman.
         </p>
@@ -176,16 +148,16 @@ const SpecialtiesSection = () => {
           {/* Left column: Large image + 2 cards */}
           <div className="lg:col-span-7 space-y-8">
             {/* Large image */}
-            <div ref={imagesRef} className="relative overflow-hidden border border-white/10 group">
+            <div ref={imagesRef} className="relative overflow-hidden glass-panel group rounded-2xl">
               <img
-                src="/images/project_erp.jpg"
+                src="/images/photo_2026-04-14_16-21-49.jpg"
                 alt="Specialty"
-                className="w-full h-[300px] md:h-[400px] object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
+                className="w-full h-[300px] md:h-[400px] object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
               <div className="absolute bottom-6 left-6">
-                <span className="text-[#D4AF37] text-xs tracking-[0.2em] uppercase font-bold">
-                  Beast Mode Development
+                <span className="text-neon-blue text-xs tracking-[0.2em] uppercase font-bold font-mono">
+                  Enterprise Solutions
                 </span>
               </div>
             </div>
@@ -197,13 +169,13 @@ const SpecialtiesSection = () => {
                 return (
                   <div
                     key={i}
-                    className="group p-6 border border-white/10 hover:border-[#D4AF37]/50 transition-all duration-500 bg-[#111111]/50"
+                    className="group p-8 rounded-2xl border border-white/5 hover:border-neon-blue/50 transition-all duration-500 bg-black/40 backdrop-blur-xl"
                   >
-                    <Icon className="w-8 h-8 text-[#D4AF37] mb-4 group-hover:scale-110 transition-transform" />
-                    <h3 className="text-xl font-bold text-white mb-2 group-hover:text-[#D4AF37] transition-colors">
+                    <Icon className="w-8 h-8 text-neon-blue mb-4 group-hover:scale-110 transition-transform shadow-neon-blue rounded-full" />
+                    <h3 className="text-xl font-bold text-white mb-2 group-hover:text-neon-blue transition-colors">
                       {spec.titleUz}
                     </h3>
-                    <p className="text-sm text-[#888888]">{spec.descriptionUz}</p>
+                    <p className="text-sm text-white/50 leading-relaxed font-light">{spec.descriptionUz}</p>
                   </div>
                 );
               })}
@@ -219,28 +191,28 @@ const SpecialtiesSection = () => {
                 return (
                   <div
                     key={i}
-                    className="group p-6 border border-white/10 hover:border-[#D4AF37]/50 transition-all duration-500 bg-[#111111]/50"
+                    className="group p-8 rounded-2xl border border-white/5 hover:border-neon-blue/50 transition-all duration-500 bg-black/40 backdrop-blur-xl"
                   >
-                    <Icon className="w-8 h-8 text-[#D4AF37] mb-4 group-hover:scale-110 transition-transform" />
-                    <h3 className="text-xl font-bold text-white mb-2 group-hover:text-[#D4AF37] transition-colors">
+                    <Icon className="w-8 h-8 text-neon-purple mb-4 group-hover:scale-110 transition-transform shadow-neon-purple rounded-full" />
+                    <h3 className="text-xl font-bold text-white mb-2 group-hover:text-neon-purple transition-colors">
                       {spec.titleUz}
                     </h3>
-                    <p className="text-sm text-[#888888]">{spec.descriptionUz}</p>
+                    <p className="text-sm text-white/50 leading-relaxed font-light">{spec.descriptionUz}</p>
                   </div>
                 );
               })}
             </div>
 
             {/* Second image */}
-            <div className="relative overflow-hidden border border-white/10 group">
+            <div className="relative overflow-hidden glass-panel group rounded-2xl">
               <img
-                src="/images/project_ai.jpg"
+                src="/images/photo_2026-04-14_16-21-43.jpg"
                 alt="Teamwork"
-                className="w-full h-[250px] md:h-[300px] object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
+                className="w-full h-[250px] md:h-[300px] object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
               <div className="absolute bottom-6 left-6 right-6">
-                <p className="text-white/80 text-sm italic">
+                <p className="text-white/80 text-sm font-light italic border-l-2 border-neon-blue pl-4">
                   "Jamoalar bilan ishlashni, bilimlarni baham ko'rishni va yosh dasturchilarga yo'l ko'rsatishni yaxshi ko'raman."
                 </p>
               </div>
