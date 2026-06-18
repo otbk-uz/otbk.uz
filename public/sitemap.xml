@@ -3,63 +3,46 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://otbk.uz/</loc>
-    <lastmod>2026-06-16</lastmod>
+    <lastmod>2026-06-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://otbk.uz/images/photo_2026-04-14_16-21-21.jpg</image:loc>
-      <image:title>Otabek Ravshanov (Otabek Avazbekovich) - Dasturchi</image:title>
-      <image:caption>Qishki kunning soya portreti, Otabek Avazbekovich</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://otbk.uz/images/photo_2026-04-14_16-21-23.jpg</image:loc>
-      <image:title>Otabek Ravshanov (Otabek Avazbekovich) - Ish jarayonida</image:title>
-      <image:caption>Kodlash jarayonida, Otabek Avazbekovich</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://otbk.uz/images/photo_2026-04-14_16-21-30.jpg</image:loc>
-      <image:title>Otabek Ravshanov (Otabek Avazbekovich)</image:title>
-      <image:caption>Otabek Avazbekovichning ishdagi lavhalari</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://otbk.uz/images/photo_2026-04-14_16-21-40.jpg</image:loc>
-      <image:title>Otabek Ravshanov (Otabek Avazbekovich) - Ish stolida</image:title>
-      <image:caption>Ish stolida, Otabek Avazbekovich</image:caption>
-    </image:image>
-    <image:image>
       <image:loc>https://otbk.uz/images/photo_2026-04-14_16-21-40%20(2).jpg</image:loc>
-      <image:title>Otabek Ravshanov (Otabek Avazbekovich) - Dam olish</image:title>
-      <image:caption>Dam olish vaqti, Otabek Avazbekovich</image:caption>
+      <image:title>Otabek Ravshanov qishki sayohat chog'ida</image:title>
+      <image:caption>Otabek Ravshanov - 18 yoshli dasturchi va menejer</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://otbk.uz/images/photo_2026-04-14_16-21-43.jpg</image:loc>
-      <image:title>Otabek Ravshanov (Otabek Avazbekovich) - Jamoa</image:title>
-      <image:caption>Jamoa bilan, Otabek Avazbekovich</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://otbk.uz/images/photo_2026-04-14_16-21-44.jpg</image:loc>
-      <image:title>Otabek Ravshanov (Otabek Avazbekovich) - Loyiha</image:title>
-      <image:caption>Loyiha ustida ishlash jarayoni, Otabek Avazbekovich</image:caption>
+      <image:loc>https://otbk.uz/images/photo_2026-04-14_16-21-21.jpg</image:loc>
+      <image:title>Otabek Ravshanov ofisda</image:title>
+      <image:caption>Flora Holding menejeri Otabek Ravshanov ish faoliyati</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://otbk.uz/images/photo_2026-04-14_16-21-47.jpg</image:loc>
-      <image:title>Otabek Ravshanov (Otabek Avazbekovich) - Texnik direktor</image:title>
-      <image:caption>Texnik direktor, Otabek Avazbekovich</image:caption>
+      <image:title>Otabek Ravshanov dasturlash jarayonida</image:title>
+      <image:caption>Otabek Ravshanov - IT mutaxassis va programmist</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://otbk.uz/images/photo_2026-04-14_16-21-23.jpg</image:loc>
+      <image:title>Otabek Ravshanov kompyuter qarshisida</image:title>
+      <image:caption>Yosh dasturchi bola Otabek</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://otbk.uz/images/photo_2026-04-14_16-21-30.jpg</image:loc>
+      <image:title>Otabek Ravshanov xalqaro loyihalar</image:title>
+      <image:caption>Otabek yirik loyihalar arxitektori</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://otbk.uz/images/photo_2026-04-14_16-21-43.jpg</image:loc>
+      <image:title>Otabek Ravshanov va hamkasblari</image:title>
+      <image:caption>IT mutaxassis Otabek Avazbekovich</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://otbk.uz/images/photo_2026-04-14_16-21-44.jpg</image:loc>
+      <image:title>Otabek Ravshanov uchrashuvda</image:title>
     </image:image>
     <image:image>
       <image:loc>https://otbk.uz/images/photo_2026-04-14_16-21-49.jpg</image:loc>
-      <image:title>Otabek Ravshanov (Otabek Avazbekovich) - Maslahatchi</image:title>
-      <image:caption>Maslahatchi, Otabek Avazbekovich</image:caption>
+      <image:title>Otabek Ravshanov intervyuda</image:title>
     </image:image>
-  </url>
-  <url>
-    <loc>https://otbk.uz/#projects</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://otbk.uz/#gallery</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
   </url>
 </urlset>
