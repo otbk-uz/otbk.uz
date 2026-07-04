@@ -11,7 +11,7 @@ import FooterSection from './sections/FooterSection';
 
 function App() {
   return (
-    <div className="min-h-screen bg-gray-50 text-gray-900 font-sans antialiased selection:bg-blue-200">
+    <div className="min-h-screen bg-black text-gray-200 font-sans antialiased selection:bg-[#00f3ff]/30">
       <Navigation />
       <main className="flex-1 w-full relative">
         <HeroSection />

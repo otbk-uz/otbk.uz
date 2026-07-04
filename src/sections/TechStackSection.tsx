@@ -1,3 +1,5 @@
+import PremiumCard from '../components/PremiumCard';
+
 const TechStackSection = () => {
   const techCategories = [
     {
@@ -22,34 +24,37 @@ const TechStackSection = () => {
     }
   ];
 
+  const colors: ('blue' | 'purple' | 'green' | 'pink')[] = ['blue', 'purple', 'green', 'pink', 'blue'];
+
   return (
-    <section id="tech-stack" className="bg-gray-50 py-12 md:py-20 border-b border-gray-200">
-      <div className="container-narrow px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">
+    <section id="tech-stack" className="bg-black py-16 md:py-24 border-b border-white/5 relative z-10">
+      <div className="container-narrow px-4 relative">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 tracking-tight">
             Qo'llaniladigan Texnologiyalar
           </h2>
-          <div className="w-16 h-1 bg-blue-600 mx-auto" />
+          <div className="w-24 h-1 bg-gradient-to-r from-[#00f3ff] to-transparent mx-auto" />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {techCategories.map((category, idx) => (
-            <div key={idx} className="bg-white p-6 rounded shadow-sm border border-gray-200 hover:shadow-md transition-shadow">
-              <h3 className="text-xl font-bold text-gray-900 mb-4 border-b border-gray-100 pb-2">
-                {category.title}
-              </h3>
-              
-              <div className="flex flex-wrap gap-2">
+            <PremiumCard 
+              key={idx}
+              title={category.title}
+              description=""
+              glowColor={colors[idx % colors.length]}
+            >
+              <div className="flex flex-wrap gap-2 mt-4">
                 {category.skills.map((skill) => (
                   <span 
                     key={skill}
-                    className="px-3 py-1.5 bg-gray-100 text-gray-700 rounded text-sm font-medium"
+                    className="px-3 py-1.5 bg-white/5 border border-white/10 text-gray-300 rounded-md text-xs font-medium tracking-wide hover:bg-white/10 hover:text-white transition-colors"
                   >
                     {skill}
                   </span>
                 ))}
               </div>
-            </div>
+            </PremiumCard>
           ))}
         </div>
       </div>

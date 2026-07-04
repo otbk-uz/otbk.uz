@@ -17,33 +17,33 @@ const FooterSection = () => {
 
   const renderLogo = () => {
     if (domain === 'Or7.uz') {
-      return <>Or<span className="text-blue-600">7</span>.uz</>;
+      return <>Or<span className="text-[#00f3ff]">7</span>.uz</>;
     }
-    return <>O<span className="text-blue-600">tbk</span>.uz</>;
+    return <>O<span className="text-[#00f3ff]">tbk</span>.uz</>;
   };
 
   return (
-    <footer className="py-12 bg-gray-50 border-t border-gray-200">
+    <footer className="py-12 bg-black border-t border-white/10 relative z-10">
       <div className="container-narrow px-4">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6 border-b border-gray-200 pb-8">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6 border-b border-white/5 pb-8">
           <div className="text-center md:text-left">
-            <p className="text-2xl font-black text-gray-900 mb-1 tracking-tight">
+            <p className="text-2xl font-bold text-white mb-1 tracking-tight drop-shadow-md">
               {renderLogo()}
             </p>
-            <p className="text-sm text-gray-500 font-serif">Texnologiyalar va Biznes</p>
+            <p className="text-sm text-gray-400 font-light tracking-wide uppercase">Texnologiyalar va Biznes</p>
           </div>
           
-          <div className="flex gap-4">
-            <a href="https://t.me/otbk_uz" className="text-gray-500 hover:text-blue-600 transition-colors">Telegram</a>
-            <a href="mailto:otabekxoff@gmail.com" className="text-gray-500 hover:text-blue-600 transition-colors">Email</a>
+          <div className="flex gap-6">
+            <a href="https://t.me/otbk_uz" className="text-sm font-medium text-gray-400 hover:text-[#00f3ff] transition-colors uppercase tracking-widest">Telegram</a>
+            <a href="mailto:otabekxoff@gmail.com" className="text-sm font-medium text-gray-400 hover:text-[#00f3ff] transition-colors uppercase tracking-widest">Email</a>
           </div>
         </div>
         
         <div className="mt-8 text-center flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-gray-500 text-sm">
+          <p className="text-gray-500 text-xs tracking-wider">
             © 2026 {domain} Tahririyati. Barcha huquqlar himoyalangan.
           </p>
-          <p className="text-gray-400 text-xs">
+          <p className="text-gray-600 text-xs tracking-wider">
             Saytdagi ma'lumotlardan foydalanilganda manba ko'rsatilishi shart.
           </p>
         </div>

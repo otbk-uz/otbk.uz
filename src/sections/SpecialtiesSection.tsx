@@ -1,4 +1,6 @@
 import { Monitor, Smartphone, Palette, Zap } from 'lucide-react';
+import PremiumCard from '../components/PremiumCard';
+import { motion } from 'framer-motion';
 
 interface Specialty {
   title: string;
@@ -40,65 +42,99 @@ const specialties: Specialty[] = [
 ];
 
 const SpecialtiesSection = () => {
+  const Icon0 = specialties[0].icon;
+  const Icon1 = specialties[1].icon;
+  const Icon2 = specialties[2].icon;
+  const Icon3 = specialties[3].icon;
+
   return (
-    <section className="bg-white py-12 md:py-20 border-b border-gray-200">
-      <div className="container-narrow px-4">
-        <div className="mb-12 border-b border-gray-200 pb-4">
-          <h2 className="text-3xl md:text-4xl font-black text-gray-900">
+    <section className="bg-[#050505] py-16 md:py-24 border-b border-white/5 relative z-10">
+      <div className="container-narrow px-4 relative">
+        <div className="mb-16 pb-4">
+          <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight mb-4">
             Ixtisosliklar
           </h2>
-          <p className="text-gray-600 mt-2 text-lg font-serif max-w-2xl">
+          <p className="text-gray-400 mt-4 text-lg font-light max-w-2xl leading-relaxed">
             Har bir loyihada eng yaxshi arxitektura patternlari, clean code
             tamoyillari va samarali algoritmlardan foydalanaman.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {specialties.map((spec, i) => {
-            const Icon = spec.icon;
-            return (
-              <div
-                key={i}
-                className="bg-gray-50 p-6 rounded border border-gray-200 hover:shadow-md transition-shadow"
-              >
-                <div className="w-12 h-12 bg-blue-100 text-blue-600 flex items-center justify-center rounded-full mb-4">
-                  <Icon className="w-6 h-6" />
+        {/* New Staggered Layout for Specialties and Images */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          
+          {/* Left Column: 2 Specialties */}
+          <div className="flex flex-col gap-6">
+            <PremiumCard 
+              title={specialties[0].titleUz}
+              description={specialties[0].descriptionUz}
+              glowColor="blue"
+              icon={<Icon0 className="w-8 h-8 text-[#00f3ff]" />}
+            />
+            <PremiumCard 
+              title={specialties[1].titleUz}
+              description={specialties[1].descriptionUz}
+              glowColor="purple"
+              icon={<Icon1 className="w-8 h-8 text-[#b026ff]" />}
+            />
+          </div>
+
+          {/* Middle Column: Featured Image with Glassmorphism Overlay */}
+          <div className="lg:col-span-1 flex flex-col">
+            <motion.div 
+              whileHover={{ scale: 1.02 }}
+              className="relative w-full h-full min-h-[300px] rounded-2xl overflow-hidden p-[1px] bg-gradient-to-b from-white/20 to-transparent group"
+            >
+              <div className="absolute inset-0 bg-[#00f3ff]/20 opacity-0 group-hover:opacity-100 blur-2xl transition-opacity duration-500" />
+              <div className="relative h-full w-full rounded-2xl overflow-hidden bg-black">
+                <img
+                  src="/images/photo_2026-04-14_16-21-49.jpg"
+                  alt="Enterprise Solutions"
+                  className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500"
+                />
+                <div className="absolute bottom-0 left-0 right-0 bg-black/60 backdrop-blur-md p-5 border-t border-white/10">
+                  <p className="text-sm font-bold text-white uppercase tracking-wider">Enterprise Solutions</p>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">
-                  {spec.titleUz}
-                </h3>
-                <p className="text-sm text-gray-600 leading-relaxed font-serif">
-                  {spec.descriptionUz}
-                </p>
               </div>
-            );
-          })}
+            </motion.div>
+          </div>
+
+          {/* Right Column: 2 Specialties */}
+          <div className="flex flex-col gap-6">
+            <PremiumCard 
+              title={specialties[2].titleUz}
+              description={specialties[2].descriptionUz}
+              glowColor="pink"
+              icon={<Icon2 className="w-8 h-8 text-[#ff003c]" />}
+            />
+            <PremiumCard 
+              title={specialties[3].titleUz}
+              description={specialties[3].descriptionUz}
+              glowColor="green"
+              icon={<Icon3 className="w-8 h-8 text-[#00ff66]" />}
+            />
+          </div>
         </div>
 
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="relative aspect-video rounded overflow-hidden border border-gray-200">
-            <img
-              src="/images/photo_2026-04-14_16-21-49.jpg"
-              alt="Enterprise Solutions"
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute bottom-0 left-0 right-0 bg-white/90 backdrop-blur p-3">
-              <p className="text-sm font-bold text-gray-900">Enterprise Solutions</p>
-            </div>
-          </div>
-          <div className="relative aspect-video rounded overflow-hidden border border-gray-200">
+        {/* Bottom Full-width Image Restructured */}
+        <motion.div 
+          whileHover={{ scale: 1.01 }}
+          className="mt-6 relative w-full h-[250px] md:h-[350px] rounded-2xl overflow-hidden p-[1px] bg-gradient-to-b from-white/15 to-transparent group"
+        >
+          <div className="absolute inset-0 bg-[#b026ff]/10 opacity-0 group-hover:opacity-100 blur-2xl transition-opacity duration-500" />
+          <div className="relative h-full w-full rounded-2xl overflow-hidden bg-black/90 flex items-center justify-center">
             <img
               src="/images/photo_2026-04-14_16-21-43.jpg"
               alt="Teamwork"
-              className="w-full h-full object-cover"
+              className="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-60 transition-opacity duration-700"
             />
-            <div className="absolute bottom-0 left-0 right-0 bg-white/90 backdrop-blur p-3">
-              <p className="text-sm text-gray-800 italic font-serif">
+            <div className="relative z-10 max-w-3xl text-center px-6">
+              <p className="text-xl md:text-3xl text-white font-light italic leading-relaxed drop-shadow-lg">
                 "Jamoalar bilan ishlashni, bilimlarni baham ko'rishni va yosh dasturchilarga yo'l ko'rsatishni yaxshi ko'raman."
               </p>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -1,56 +1,53 @@
 import { portfolioData } from '../data/portfolioData';
+import PremiumCard from '../components/PremiumCard';
 
 const ProjectsSection = () => {
   const { projects } = portfolioData;
 
+  const glowColors: ('blue' | 'purple' | 'pink' | 'green')[] = ['blue', 'purple', 'pink', 'green'];
+
   return (
-    <section id="projects" className="bg-white py-12 md:py-20 border-b border-gray-200">
-      <div className="container-narrow px-4">
-        <div className="mb-12 border-b border-gray-200 pb-4">
-          <h2 className="text-3xl md:text-4xl font-black text-gray-900">
+    <section id="projects" className="bg-black py-16 md:py-24 border-b border-white/5 relative z-10">
+      <div className="container-narrow px-4 relative">
+        <div className="mb-16 border-b border-white/10 pb-6">
+          <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight">
             Tanlangan Loyihalar
           </h2>
-          <p className="text-gray-600 mt-2 text-lg font-serif">
+          <p className="text-gray-400 mt-4 text-lg font-light max-w-2xl leading-relaxed">
             B2B va B2C segmentlar uchun ishlab chiqilgan, xalqaro miqyosdagi yuqori yuklamali loyihalar.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {projects.map((project, index) => (
-            <div
+            <PremiumCard 
               key={project.title}
-              className="news-card p-6 md:p-8 flex flex-col justify-between"
+              title={project.title}
+              description={project.description}
+              glowColor={glowColors[index % glowColors.length]}
+              className="h-full flex flex-col"
             >
-              <div>
-                <div className="text-blue-600 font-bold mb-3 text-sm tracking-widest uppercase">
+              <div className="mb-4">
+                <span className="text-[#00f3ff] text-xs font-bold tracking-widest uppercase">
                   Loyiha #{index + 1}
-                </div>
-                
-                <h3 className="news-title text-2xl mb-3">
-                  {project.title}
-                </h3>
-                
-                <p className="text-gray-700 leading-relaxed font-serif mb-6">
-                  {project.description}
-                </p>
+                </span>
               </div>
-              
-              <div className="flex flex-wrap gap-2 mt-auto pt-4 border-t border-gray-100">
+              <div className="flex flex-wrap gap-2 mt-auto pt-6 border-t border-white/5">
                 {project.tags.map((tag) => (
                   <span 
                     key={tag} 
-                    className="px-3 py-1 bg-gray-100 text-gray-600 text-xs font-semibold rounded"
+                    className="px-3 py-1 bg-white/5 border border-white/10 text-gray-300 text-xs font-medium tracking-wide rounded-md hover:bg-white/10 transition-colors"
                   >
                     {tag}
                   </span>
                 ))}
               </div>
-            </div>
+            </PremiumCard>
           ))}
         </div>
 
-        <div className="mt-12 text-center">
-          <a href="#contact" className="btn-outline">
+        <div className="mt-16 text-center">
+          <a href="#contact" className="inline-block bg-transparent border border-white/20 text-white px-8 py-3 rounded-md font-medium tracking-wide hover:bg-white/5 transition-colors">
             Barcha loyihalar bilan tanishish
           </a>
         </div>
