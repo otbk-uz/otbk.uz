@@ -88,8 +88,8 @@ const Navigation = () => {
 
             {/* CTA button (Desktop) */}
             <div className="hidden md:block">
-              <a href="#contact" onClick={(e) => handleClick(e, '#contact')} className="bg-white/5 border border-white/10 text-white px-6 py-2.5 rounded text-xs font-bold uppercase tracking-widest hover:bg-white/10 transition-colors">
-                Bog'lanish
+              <a href="#contact" onClick={(e) => handleClick(e, '#contact')} className="btn-primary" style={{ padding: '0.6rem 1.5rem', fontSize: '0.75rem' }}>
+                <span>Bog'lanish</span>
               </a>
             </div>
 

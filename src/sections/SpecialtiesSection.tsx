@@ -48,17 +48,23 @@ const SpecialtiesSection = () => {
   const Icon3 = specialties[3].icon;
 
   return (
-    <section className="bg-[#050505] py-16 md:py-24 border-b border-white/5 relative z-10">
+    <section className="bg-transparent py-20 md:py-32 border-b border-white/5 relative z-10">
       <div className="container-narrow px-4 relative">
-        <div className="mb-16 pb-4">
-          <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight mb-4">
-            Ixtisosliklar
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mb-20 pb-4"
+        >
+          <h2 className="text-4xl md:text-6xl font-black tracking-tighter mb-6">
+            <span className="text-gradient">Ixtisosliklar</span>
           </h2>
-          <p className="text-gray-400 mt-4 text-lg font-light max-w-2xl leading-relaxed">
+          <p className="text-gray-400 mt-4 text-lg md:text-xl font-light max-w-2xl leading-relaxed tracking-wide">
             Har bir loyihada eng yaxshi arxitektura patternlari, clean code
             tamoyillari va samarali algoritmlardan foydalanaman.
           </p>
-        </div>
+        </motion.div>
 
         {/* New Staggered Layout for Specialties and Images */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">

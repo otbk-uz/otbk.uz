@@ -16,11 +16,11 @@ const ContactSection = () => {
     <section id="contact" className="bg-black py-16 md:py-24 border-b border-white/5 relative z-10">
       <div className="container-narrow px-4 relative">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 tracking-tight">
-            Bog'lanish
+          <h2 className="text-3xl md:text-5xl font-black text-white mb-6 tracking-tighter">
+            <span className="text-gradient">Bog'lanish</span>
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-[#00f3ff] to-[#b026ff] mx-auto mb-6" />
-          <p className="text-gray-400 text-lg max-w-xl mx-auto leading-relaxed font-light">
+          <div className="w-24 h-1 bg-gradient-to-r from-[#00f3ff] to-[#b026ff] mx-auto mb-6 opacity-50" />
+          <p className="text-gray-400 text-lg max-w-xl mx-auto leading-relaxed font-light tracking-wide">
             Yangi loyihalar, hamkorlik yoki shunchaki fikr almashish uchun murojaat qiling. 
           </p>
         </div>
@@ -34,7 +34,7 @@ const ContactSection = () => {
             >
               <div className={`absolute inset-0 ${glowColors[contact.color] || glowColors.blue} opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500`} />
               
-              <div className="relative h-full w-full bg-black/80 backdrop-blur-xl p-8 border border-white/5 flex flex-col justify-center items-center text-center rounded-2xl transition-all group-hover:bg-black/90">
+              <div className="relative h-full w-full bg-[#080808]/90 backdrop-blur-xl p-8 border border-white/5 flex flex-col justify-center items-center text-center rounded-2xl transition-all group-hover:bg-[#0c0c0c]/90">
                 <p className="text-xs text-[#00f3ff] uppercase tracking-widest mb-3 font-bold drop-shadow-md">{contact.label}</p>
                 <p className="text-white text-lg font-medium tracking-wide">{contact.value}</p>
               </div>
@@ -43,9 +43,8 @@ const ContactSection = () => {
         </div>
 
         <div className="text-center">
-          <a href="mailto:otabekxoff@gmail.com" className="inline-block relative overflow-hidden group bg-white text-black px-10 py-4 rounded-md font-medium tracking-wider transition-all hover:scale-[1.02]">
-            <div className="absolute inset-0 bg-[#00f3ff]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            <span className="relative z-10">Xabar yuborish</span>
+          <a href="mailto:otabekxoff@gmail.com" className="btn-primary" style={{ padding: '1rem 3rem' }}>
+            <span>Xabar yuborish</span>
           </a>
         </div>
       </div>
