@@ -30,7 +30,6 @@ const FooterSection = () => {
             <p className="text-2xl font-bold text-white mb-1 tracking-tight drop-shadow-md">
               {renderLogo()}
             </p>
-            <p className="text-sm text-gray-400 font-light tracking-wide uppercase">Texnologiyalar va Biznes</p>
           </div>
           
           <div className="flex gap-6">

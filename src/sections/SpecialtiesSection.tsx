@@ -67,7 +67,7 @@ const SpecialtiesSection = () => {
         </motion.div>
 
         {/* New Staggered Layout for Specialties and Images */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           
           {/* Left Column: 2 Specialties */}
           <div className="flex flex-col gap-6">
@@ -83,26 +83,6 @@ const SpecialtiesSection = () => {
               glowColor="purple"
               icon={<Icon1 className="w-8 h-8 text-[#b026ff]" />}
             />
-          </div>
-
-          {/* Middle Column: Featured Image with Glassmorphism Overlay */}
-          <div className="lg:col-span-1 flex flex-col">
-            <motion.div 
-              whileHover={{ scale: 1.02 }}
-              className="relative w-full h-full min-h-[300px] rounded-2xl overflow-hidden p-[1px] bg-gradient-to-b from-white/20 to-transparent group"
-            >
-              <div className="absolute inset-0 bg-[#00f3ff]/20 opacity-0 group-hover:opacity-100 blur-2xl transition-opacity duration-500" />
-              <div className="relative h-full w-full rounded-2xl overflow-hidden bg-black">
-                <img
-                  src="/images/photo_2026-04-14_16-21-49.jpg"
-                  alt="Enterprise Solutions"
-                  className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500"
-                />
-                <div className="absolute bottom-0 left-0 right-0 bg-black/60 backdrop-blur-md p-5 border-t border-white/10">
-                  <p className="text-sm font-bold text-white uppercase tracking-wider">Enterprise Solutions</p>
-                </div>
-              </div>
-            </motion.div>
           </div>
 
           {/* Right Column: 2 Specialties */}
