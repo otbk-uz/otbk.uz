@@ -28,8 +28,9 @@ body>*:not(#bg-canvas){position:relative;z-index:1}
 .nav.scrolled{border-color:var(--line);background:rgba(10,10,11,.85)}
 .nav-inner{display:flex;align-items:center;justify-content:space-between;height:72px}
 .brand{display:flex;align-items:center;gap:10px;font-family:var(--disp);font-weight:700;font-size:20px;letter-spacing:.5px}
-.brand-mark{width:34px;height:34px;border-radius:9px;display:grid;place-items:center;
-  background:var(--ink);color:var(--bg);font-family:var(--disp);font-weight:700;font-size:19px}
+.brand-img{width:34px;height:34px;border-radius:50%;object-fit:cover;border:1px solid var(--line);
+  transition:transform .3s ease}
+.brand:hover .brand-img{transform:scale(1.08)}
 .brand-text .dot{color:var(--accent)}
 .nav-links{display:flex;align-items:center;gap:34px}
 .nav-links a{font-size:14.5px;color:var(--mut);transition:color .2s;font-weight:500}
