@@ -2,316 +2,581 @@
 <html lang="uz">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>OTBK — Otabek Ravshanov | Raqamli olam arxitektori</title>
-  <meta name="description" content="Otabek Ravshanov (OTBK) — dasturchi, tizim arxitektori va IT tadbirkor. Veb, mobil, AI va avtomatlashtirish. Loyihalar: DAVOCHI, Maroqli, Flora Holding, InnoHub AI, Airparvoz." />
-  <meta name="keywords" content="OTBK, Otabek Ravshanov, dasturchi, IT, O'zbekiston, veb-dasturlash, DAVOCHI, Maroqli, Flora Holding, InnoHub, or7, arxitektor" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>OTBK — Otabek Ravshanov (0ta777) | Interactive 3D Digital Studio</title>
+  <meta name="description" content="Otabek Ravshanov (OTBK / 0ta777) — Tizim arxitektori, dasturchi va IT tadbirkor. Flora Holding menejeri, OTBK va or7 platformalari asoschisi. Veb, mobil, AI va yuqori yuklamali 3D tizimlar." />
+  <meta name="keywords" content="OTBK, 0ta777, Otabek Ravshanov, Dasturchi, Tizim arxitektori, Flora Holding, or7, DAVOCHI, Maroqli, InnoHub, Lusion style portfolio" />
   <meta name="author" content="Otabek Ravshanov" />
-  <meta name="theme-color" content="#0a0a0b" />
+  <meta name="theme-color" content="#f0f2f7" />
   <link rel="canonical" href="https://otbk.uz/" />
 
-  <meta property="og:title" content="OTBK — Otabek Ravshanov | Raqamli olam arxitektori" />
-  <meta property="og:description" content="Dasturchi, tizim arxitektori va IT tadbirkor. Veb, mobil, AI va avtomatlashtirish." />
+  <!-- Open Graph -->
+  <meta property="og:title" content="OTBK — Otabek Ravshanov (0ta777) | Digital Architecture" />
+  <meta property="og:description" content="Tizim arxitektori, dasturchi va IT tadbirkor. Yuqori yuklamali tizimlar, AI va raqamli innovatsiyalar." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://otbk.uz/" />
-  <meta property="og:image" content="https://otbk.uz/assets/img4.jpg" />
+  <meta property="og:image" content="https://otbk.uz/assets/img13.png" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <link rel="icon" href="assets/img4.jpg" type="image/jpeg" />
+  <link rel="icon" href="assets/favicon.png" type="image/png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
 
+  <!-- Schema.org JSON-LD -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Otabek Ravshanov",
-    "alternateName": "OTBK",
+    "alternateName": ["OTBK", "0ta777", "Otabek Avazbekovich"],
     "url": "https://otbk.uz",
-    "jobTitle": "Dasturchi, Tizim arxitektori, IT tadbirkor",
+    "jobTitle": "Tizim arxitektori, Dasturchi, IT tadbirkor",
     "worksFor": { "@type": "Organization", "name": "Flora Holding" },
     "telephone": "+998880016777",
-    "sameAs": ["https://t.me/otbk_uz", "https://instagram.com/otbk.uz", "https://github.com/otbk-uz", "https://or7.uz"]
+    "email": "otabekxoff@gmail.com",
+    "sameAs": [
+      "https://t.me/otbk_uz",
+      "https://instagram.com/0ta777",
+      "https://github.com/otbk-uz",
+      "https://or7.uz"
+    ]
   }
   </script>
 
+  <!-- Three.js CDN for real-time 3D spatial ribbons and devices -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
   <link rel="stylesheet" href="styles.css" />
 </head>
-<body>
-  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+<body class="lusion-theme">
 
-  <!-- ===== Nav ===== -->
-  <header class="nav">
-    <div class="wrap nav-inner">
-      <a href="#" class="brand">
-        <img src="assets/img4.jpg" alt="OTBK Logo" class="brand-img" />
-        <span class="brand-text">OTBK<span class="dot">.</span></span>
+  <!-- Interactive Lusion Cursor -->
+  <div id="cursor" aria-hidden="true">
+    <div id="cursor-dot"></div>
+    <div id="cursor-ring">
+      <span id="cursor-text"></span>
+    </div>
+  </div>
+
+  <!-- Real-time 3D Three.js WebGL Spatial Canvas (Ribbon & Physics) -->
+  <canvas id="lusion-canvas" aria-hidden="true"></canvas>
+
+  <!-- Floating Lusion Navigation Menu Stack (Exact Screenshot 1) -->
+  <div id="menu-overlay" class="menu-lusion-drawer" aria-hidden="true">
+    <div class="menu-drawer-backdrop"></div>
+    <div class="menu-drawer-stack">
+      <!-- Main Navigation Card (Screenshot 1) -->
+      <div class="menu-main-card">
+        <nav class="menu-nav-list">
+          <!-- Animated Magnetic Hover Pill Indicator -->
+          <div class="menu-hover-indicator" aria-hidden="true"></div>
+
+          <a href="#hero" class="menu-item active" data-index="0" data-cursor="BOSH">
+            <span class="mi-text">BOSH SAHIFA</span>
+            <span class="mi-dot"></span>
+          </a>
+          <a href="#approach" class="menu-item" data-index="1" data-cursor="YONDASHUV">
+            <span class="mi-text">BIZ HAQIMIZDA</span>
+            <span class="mi-dot"></span>
+          </a>
+          <a href="#work" class="menu-item" data-index="2" data-cursor="LOYIHALAR">
+            <span class="mi-text">LOYIHALAR</span>
+            <span class="mi-dot"></span>
+          </a>
+          <a href="#gallery" class="menu-item" data-index="3" data-cursor="777">
+            <span class="mi-text">777 GALEREYA</span>
+            <span class="mi-dot"></span>
+          </a>
+          <a href="#services" class="menu-item" data-index="4" data-cursor="XIZMATLAR">
+            <span class="mi-text">XIZMATLAR</span>
+            <span class="mi-dot"></span>
+          </a>
+          <a href="#contact" class="menu-item" data-index="5" data-cursor="ALOQA">
+            <span class="mi-text">BOG'LANISH</span>
+            <span class="mi-dot"></span>
+          </a>
+        </nav>
+      </div>
+
+      <!-- Newsletter / Updates Card (Screenshot 1) -->
+      <div class="menu-sub-card">
+        <h4 class="sub-card-title">Yangiliklardan xabardor bo'ling</h4>
+        <form class="sub-card-form" onsubmit="event.preventDefault(); window.open('https://t.me/otbk_uz', '_blank');">
+          <input type="text" placeholder="Telegram yoki email..." class="sub-input" />
+          <button type="submit" class="sub-btn" aria-label="Yuborish">→</button>
+        </form>
+      </div>
+
+      <!-- Bottom Badge: 777 or7.uz (Screenshot 1 LABS) -->
+      <a href="https://or7.uz" target="_blank" rel="noopener" class="menu-labs-btn" data-cursor="PLATFORMA">
+        <span class="labs-tag">777</span>
+        <span class="labs-title">or7.uz // PLATFORMA</span>
+        <span class="labs-arrow">↗</span>
       </a>
-      <nav class="nav-links" id="navLinks">
-        <a href="#about">Men haqimda</a>
-        <a href="#work">Loyihalar</a>
-        <a href="#gallery">Galereya</a>
-        <a href="#services">Xizmatlar</a>
-        <a href="#contact" class="nav-cta">Bog'lanish</a>
-      </nav>
-      <button class="nav-toggle" id="navToggle" aria-label="Menyu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+
+  <!-- ===== Header (Exact Lusion.co Style) ===== -->
+  <header id="header" class="header">
+    <div class="wrap header-inner">
+      <!-- Logo -->
+      <a href="#hero" class="brand" aria-label="OTBK Home">
+        <span class="brand-text">OTBK</span>
+      </a>
+
+      <!-- Center Pill: Our Approach -->
+      <div class="header-center">
+        <a href="#approach" class="btn-approach" data-cursor="APPROACH">
+          <span class="approach-dot"></span>
+          <span>BIZNING YONDASHUV</span>
+        </a>
+      </div>
+
+      <!-- Right Controls: Sound, Bog'lanish, Menyu -->
+      <div class="header-right">
+        <!-- Sound Toggle with Wavy Jazz Icon (Screenshot 1 & 2) -->
+        <button id="soundToggle" class="btn-sound-mini" aria-label="Jazz musiqani yoqish/o'chirish" title="Jazz Audio">
+          <svg class="sound-wave-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path class="wave-shape" d="M4 12 C 7 6, 9 18, 12 12 C 15 6, 17 18, 20 12" />
+          </svg>
+        </button>
+
+        <!-- Bog'lanish (Uzbek translation for Let's Talk) -->
+        <a href="#contact" class="btn-talk-lusion" data-cursor="TALK">
+          <span class="talk-text">BOG'LANISH</span>
+          <span class="talk-dot"></span>
+        </a>
+
+        <!-- Menyu / Yopish (Menu Toggle) -->
+        <button id="menuToggle" class="btn-menu-lusion" aria-label="Toggle Menu">
+          <span class="menu-text">MENYU</span>
+          <span class="menu-dots">
+            <span class="dot-1"></span>
+            <span class="dot-2"></span>
+          </span>
+        </button>
+      </div>
     </div>
   </header>
 
-  <!-- ===== Hero ===== -->
-  <section class="hero">
-    <div class="wrap hero-inner">
-      <div class="hero-left reveal">
-        <div class="eyebrow"><span class="pulse"></span> Raqamli olam arxitektori</div>
-        <h1 class="hero-name">Otabek<br>Ravshanov</h1>
-        <p class="hero-role">Dasturchi · Tizim arxitektori · IT tadbirkor</p>
-        <p class="hero-desc">
-          G'oyani ishlaydigan mahsulotga aylantiraman — veb, mobil, sun'iy intellekt
-          va avtomatlashtirish. OTBK ostida O'zbekiston uchun raqamli mahsulotlar quraman.
+  <main>
+    <!-- ===== Section 1: Hero with 3D Curved Showcase (Lusion Reel) ===== -->
+    <section class="hero-lusion" id="hero">
+      <div class="wrap hero-wrap">
+        <!-- Interactive 3D Curved Showcase Stage -->
+        <div class="hero-stage-container" data-tilt>
+          <div class="curved-screen-stage">
+            <div class="curved-screen-glow"></div>
+            
+            <!-- 3 Mockup Preview Screens inside the 3D Stage -->
+            <div class="curved-screen-inner">
+              <div class="screen-card card-left">
+                <img src="assets/img13.png" alt="DAVOCHI Health" />
+                <div class="screen-card-label">DAVOCHI // PWA</div>
+              </div>
+              <div class="screen-card card-center">
+                <img src="assets/img10.png" alt="Maroqli Gaming" />
+                <div class="screen-card-label">MAROQLI // REALTIME</div>
+              </div>
+              <div class="screen-card card-right">
+                <img src="assets/img14.png" alt="Flora Holding" />
+                <div class="screen-card-label">FLORA HOLDING // ERP</div>
+              </div>
+            </div>
+
+            <!-- Kinetic Play Reel Typography -->
+            <div class="reel-typography">
+              <span class="reel-word word-play">KO'RISH</span>
+              <span class="reel-word word-reel">REEL</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="scroll-cue">
+        <span>↓ PASTGA SURING</span>
+      </div>
+    </section>
+
+    <!-- ===== Section 2: Our Approach with Floating 3D Tablet Device (Lusion Screenshot 5) ===== -->
+    <section class="section section-approach" id="approach">
+      <div class="wrap approach-grid">
+        <!-- Left: Floating 3D iPad / Tablet Device in Space -->
+        <div class="approach-visual reveal" data-tilt>
+          <div class="tablet-device">
+            <!-- Tablet Bezel and Camera -->
+            <div class="tablet-bezel">
+              <div class="tablet-camera"></div>
+              
+              <!-- Screen with 3D Cosmos Astronaut / Visual Display -->
+              <div class="tablet-screen">
+                <img src="assets/img13.png" alt="Otabek Ravshanov Digital Cosmos" class="tablet-content-img" />
+                <div class="tablet-hud">
+                  <div class="hud-item">
+                    <span class="hud-dot"></span>
+                    <span>ACTIVE ECOSYSTEM</span>
+                  </div>
+                  <div class="hud-num">777</div>
+                </div>
+              </div>
+            </div>
+            <!-- Glass Specular Reflection -->
+            <div class="tablet-reflection"></div>
+          </div>
+        </div>
+
+        <!-- Right: Editorial Philosophy Typography with Lusion Highlights -->
+        <div class="approach-content reveal">
+          <p class="approach-lead">
+            Biz shunchaki trendlar ortidan quvmaymiz yoki boshqalar kabi bir xil qolipdagi ishlar qilmaymiz.
+            Biz sizning brendingizni aniq aks ettiruvchi, <span class="highlight-cyan">auditoriyani hayratga soladigan</span>
+            va odamlar ko'rgan zahoti yodida qoladigan <span class="highlight-cyan">betakror raqamli tajribalarni</span>
+            yaratishga e'tibor qaratamiz.
+          </p>
+          <p class="approach-sub">
+            Bizning jarayonimiz ijodiy g'oya, <span class="highlight-blue">3D mahorat</span> va ilg'or interaktiv
+            dasturlashni o'zaro birlashtirib, original, yuksak darajada sayqallangan va real natija beruvchi
+            raqamli mahsulotlarni barpo etadi.
+          </p>
+
+          <div class="approach-metrics">
+            <div class="app-metric">
+              <span class="am-val" data-count="25">0</span><span class="am-plus">+</span>
+              <span class="am-lbl">Muvaffaqiyatli loyihalar</span>
+            </div>
+            <div class="app-metric">
+              <span class="am-val" data-count="60">0</span><span class="am-plus">K+</span>
+              <span class="am-lbl">Flora Holding kunlik eksporti</span>
+            </div>
+            <div class="app-metric">
+              <span class="am-val" data-count="99">0</span><span class="am-plus">.9%</span>
+              <span class="am-lbl">Tizimlar barqarorligi</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Section 3: Selected Works (Lusion Portfolio) ===== -->
+    <section class="section section-works" id="work">
+      <div class="wrap">
+        <div class="section-top-lusion reveal">
+          <span class="sec-label">LOYIHALAR // SELECTED WORK</span>
+          <h2 class="sec-headline">MEN QURGAN MAHSULOTLAR.</h2>
+        </div>
+
+        <div class="works-lusion-list">
+          <!-- 01 DAVOCHI -->
+          <article class="work-row reveal" data-magnetic-card>
+            <div class="work-row-inner">
+              <div class="w-num">01 / 07</div>
+              <div class="w-info">
+                <div class="w-tags">
+                  <span>HEALTHCARE</span><span>PWA</span><span>SEARCH</span>
+                </div>
+                <h3 class="w-title">DAVOCHI</h3>
+                <p class="w-desc">O'zbekiston aptekalaridagi 100+ dorini nomi va tarkibi bo'yicha tezkor qidirish ekotizimi. 3 tilda qidiruv, aptekalar xaritasi, oflayn rejim.</p>
+              </div>
+              <div class="w-action">
+                <a href="https://davochi.uz" target="_blank" rel="noopener" class="w-btn" data-cursor="VISIT">
+                  <span>davochi.uz</span>
+                  <span class="w-arrow">↗</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 02 Maroqli -->
+          <article class="work-row reveal" data-magnetic-card>
+            <div class="work-row-inner">
+              <div class="w-num">02 / 07</div>
+              <div class="w-info">
+                <div class="w-tags">
+                  <span>GAMING</span><span>WEBSOCKET</span><span>PAYMENTS</span>
+                </div>
+                <h3 class="w-title">Maroqli</h3>
+                <p class="w-desc">O'yin-kulgi va gaming platformasi. Real-vaqt to'lov shlyuzlari, ko'p foydalanuvchili raqobat tizimi va yuqori tezlikdagi sinxronizatsiya.</p>
+              </div>
+              <div class="w-action">
+                <a href="https://maroqli.uz" target="_blank" rel="noopener" class="w-btn" data-cursor="VISIT">
+                  <span>maroqli.uz</span>
+                  <span class="w-arrow">↗</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 03 Flora Holding -->
+          <article class="work-row reveal" data-magnetic-card>
+            <div class="work-row-inner">
+              <div class="w-num">03 / 07</div>
+              <div class="w-info">
+                <div class="w-tags">
+                  <span>ENTERPRISE</span><span>LOGISTICS</span><span>ERP</span>
+                </div>
+                <h3 class="w-title">Flora Holding</h3>
+                <p class="w-desc">Xalqaro eksport va logistika korporatsiyasi platformasi. Kunlik 60,000 dan ortiq atirgul eksportini monitoring qiluvchi va avtomatlashtiruvchi boshqaruv panellari.</p>
+              </div>
+              <div class="w-action">
+                <a href="https://floraholding.uz" target="_blank" rel="noopener" class="w-btn" data-cursor="VISIT">
+                  <span>floraholding.uz</span>
+                  <span class="w-arrow">↗</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 04 InnoHub AI -->
+          <article class="work-row reveal" data-magnetic-card>
+            <div class="work-row-inner">
+              <div class="w-num">04 / 07</div>
+              <div class="w-info">
+                <div class="w-tags">
+                  <span>ARTIFICIAL INTELLIGENCE</span><span>LLM</span><span>INNOVATION</span>
+                </div>
+                <h3 class="w-title">InnoHub AI</h3>
+                <p class="w-desc">Sun'iy intellekt algoritmlari va generativ LLM modellarini biznes jarayonlariga integratsiya qiluvchi innovatsiya markazi platformasi.</p>
+              </div>
+              <div class="w-action">
+                <a href="https://innohub.ai" target="_blank" rel="noopener" class="w-btn" data-cursor="VISIT">
+                  <span>innohub.ai</span>
+                  <span class="w-arrow">↗</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 05 or7 -->
+          <article class="work-row reveal" data-magnetic-card>
+            <div class="work-row-inner">
+              <div class="w-num">05 / 07</div>
+              <div class="w-info">
+                <div class="w-tags">
+                  <span>CLOUD</span><span>DEVOPS</span><span>DOCKER</span>
+                </div>
+                <h3 class="w-title">or7</h3>
+                <p class="w-desc">OTBK bulut infratuzilmasi — o'z-o'zini boshqaruvchi serverlar, kiber-xavfsiz API shlyuzlar va barqaror backend xizmatlarini yagona boshqaruv markazi.</p>
+              </div>
+              <div class="w-action">
+                <a href="https://or7.uz" target="_blank" rel="noopener" class="w-btn" data-cursor="VISIT">
+                  <span>or7.uz</span>
+                  <span class="w-arrow">↗</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 06 Airparvoz -->
+          <article class="work-row reveal" data-magnetic-card>
+            <div class="work-row-inner">
+              <div class="w-num">06 / 07</div>
+              <div class="w-info">
+                <div class="w-tags">
+                  <span>TRAVEL</span><span>BOOKING</span><span>AIRLINE</span>
+                </div>
+                <h3 class="w-title">Airparvoz</h3>
+                <p class="w-desc">O'zbekiston va xalqaro turizm yo'nalishlari uchun zamonaviy sayohat, bron qilish va qulay aviachiptalar platformasi.</p>
+              </div>
+              <div class="w-action">
+                <a href="https://airparvoz.uz" target="_blank" rel="noopener" class="w-btn" data-cursor="VISIT">
+                  <span>airparvoz.uz</span>
+                  <span class="w-arrow">↗</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 07 OTBK Botlar -->
+          <article class="work-row reveal" data-magnetic-card>
+            <div class="work-row-inner">
+              <div class="w-num">07 / 07</div>
+              <div class="w-info">
+                <div class="w-tags">
+                  <span>TELEGRAM</span><span>AIOGRAM 3</span><span>AUTOMATION</span>
+                </div>
+                <h3 class="w-title">OTBK Botlar</h3>
+                <p class="w-desc">O'n minglab faol auditoriyaga ega media yuklovchi, to'lov qabul qiluvchi, guruhlarni intellektual boshqaruvchi va avtomatlashtirilgan savdo botlari.</p>
+              </div>
+              <div class="w-action">
+                <a href="https://t.me/otbk_uz" target="_blank" rel="noopener" class="w-btn" data-cursor="VISIT">
+                  <span>t.me/otbk_uz</span>
+                  <span class="w-arrow">↗</span>
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Section 4: 777 Visual Archive Gallery ===== -->
+    <section class="section section-gallery" id="gallery">
+      <div class="wrap">
+        <div class="section-top-lusion reveal">
+          <span class="sec-label">ARXIV // 777</span>
+          <h2 class="sec-headline">VIZUAL ARTEFAKTLAR.</h2>
+          <p class="sec-sub">Kadrlar ortidagi jarayonlar, intizom, liderlik va xotirjamlik onlari.</p>
+        </div>
+
+        <div class="gallery-lusion-grid">
+          <!-- 12 photo cards with 777 badge and lightbox -->
+          <div class="gal-card reveal" data-tilt data-img="assets/img13.png">
+            <div class="gal-img-wrap"><img src="assets/img13.png" alt="777" loading="lazy" /><div class="gal-zoom">+</div></div>
+            <div class="gal-footer"><span class="gal-tag-777">777</span></div>
+          </div>
+          <div class="gal-card reveal" data-tilt data-img="assets/img10.png">
+            <div class="gal-img-wrap"><img src="assets/img10.png" alt="777" loading="lazy" /><div class="gal-zoom">+</div></div>
+            <div class="gal-footer"><span class="gal-tag-777">777</span></div>
+          </div>
+          <div class="gal-card reveal" data-tilt data-img="assets/img14.png">
+            <div class="gal-img-wrap"><img src="assets/img14.png" alt="777" loading="lazy" /><div class="gal-zoom">+</div></div>
+            <div class="gal-footer"><span class="gal-tag-777">777</span></div>
+          </div>
+          <div class="gal-card reveal" data-tilt data-img="assets/img11.png">
+            <div class="gal-img-wrap"><img src="assets/img11.png" alt="777" loading="lazy" /><div class="gal-zoom">+</div></div>
+            <div class="gal-footer"><span class="gal-tag-777">777</span></div>
+          </div>
+          <div class="gal-card reveal" data-tilt data-img="assets/img12.jpg">
+            <div class="gal-img-wrap"><img src="assets/img12.jpg" alt="777" loading="lazy" /><div class="gal-zoom">+</div></div>
+            <div class="gal-footer"><span class="gal-tag-777">777</span></div>
+          </div>
+          <div class="gal-card reveal" data-tilt data-img="assets/img2.jpg">
+            <div class="gal-img-wrap"><img src="assets/img2.jpg" alt="777" loading="lazy" /><div class="gal-zoom">+</div></div>
+            <div class="gal-footer"><span class="gal-tag-777">777</span></div>
+          </div>
+          <div class="gal-card reveal" data-tilt data-img="assets/img5.jpg">
+            <div class="gal-img-wrap"><img src="assets/img5.jpg" alt="777" loading="lazy" /><div class="gal-zoom">+</div></div>
+            <div class="gal-footer"><span class="gal-tag-777">777</span></div>
+          </div>
+          <div class="gal-card reveal" data-tilt data-img="assets/img4.jpg">
+            <div class="gal-img-wrap"><img src="assets/img4.jpg" alt="777" loading="lazy" /><div class="gal-zoom">+</div></div>
+            <div class="gal-footer"><span class="gal-tag-777">777</span></div>
+          </div>
+          <div class="gal-card reveal" data-tilt data-img="assets/img6.jpg">
+            <div class="gal-img-wrap"><img src="assets/img6.jpg" alt="777" loading="lazy" /><div class="gal-zoom">+</div></div>
+            <div class="gal-footer"><span class="gal-tag-777">777</span></div>
+          </div>
+          <div class="gal-card reveal" data-tilt data-img="assets/img7.jpg">
+            <div class="gal-img-wrap"><img src="assets/img7.jpg" alt="777" loading="lazy" /><div class="gal-zoom">+</div></div>
+            <div class="gal-footer"><span class="gal-tag-777">777</span></div>
+          </div>
+          <div class="gal-card reveal" data-tilt data-img="assets/img8.jpg">
+            <div class="gal-img-wrap"><img src="assets/img8.jpg" alt="777" loading="lazy" /><div class="gal-zoom">+</div></div>
+            <div class="gal-footer"><span class="gal-tag-777">777</span></div>
+          </div>
+          <div class="gal-card reveal" data-tilt data-img="assets/img9.jpg">
+            <div class="gal-img-wrap"><img src="assets/img9.jpg" alt="777" loading="lazy" /><div class="gal-zoom">+</div></div>
+            <div class="gal-footer"><span class="gal-tag-777">777</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Section 5: Capabilities / Services ===== -->
+    <section class="section section-services" id="services">
+      <div class="wrap">
+        <div class="section-top-lusion reveal">
+          <span class="sec-label">XIZMATLAR // CAPABILITIES</span>
+          <h2 class="sec-headline">NIMALAR QILA OLAMAN.</h2>
+        </div>
+
+        <div class="serv-lusion-grid">
+          <div class="scard reveal">
+            <span class="scard-n">01</span>
+            <h3>Veb-saytlar va PWA</h3>
+            <p>React, Next.js va zamonaviy veb-arxitektura. 100/100 tezlik, SEO va oflayn qobiliyat.</p>
+          </div>
+          <div class="scard reveal">
+            <span class="scard-n">02</span>
+            <h3>Mobil Ilovalar</h3>
+            <p>iOS va Android uchun Flutter orqali bitta kod bazasida yuqori samaradorlikdagi ilovalar.</p>
+          </div>
+          <div class="scard reveal">
+            <span class="scard-n">03</span>
+            <h3>Telegram Botlar</h3>
+            <p>aiogram 3 asosida yaratilgan, to'lovlar, moderatsiya va yuqori yuklamali avtomat-botlar.</p>
+          </div>
+          <div class="scard reveal">
+            <span class="scard-n">04</span>
+            <h3>AI & LLM Integratsiya</h3>
+            <p>Sun'iy intellekt agentlari, aqlli yordamchilar va ma'lumotlarni tahlil qiluvchi neyrotarmoqlar.</p>
+          </div>
+          <div class="scard reveal">
+            <span class="scard-n">05</span>
+            <h3>Jarayonlarni Avtomatlashtirish</h3>
+            <p>Flora Holding tajribasidagi kabi xalqaro eksport va logistika boshqaruv tizimlari.</p>
+          </div>
+          <div class="scard reveal">
+            <span class="scard-n">06</span>
+            <h3>Tizim Arxitekturasi & or7</h3>
+            <p>Linux serverlar, Docker, xavfsiz backend va 99.9% uzluksiz ishlaydigan bulut tizimlari.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Section 6: Contact Section (Lusion Style Big Headline) ===== -->
+    <section class="section section-contact" id="contact">
+      <div class="wrap contact-lusion-box">
+        <span class="sec-label reveal">ALOQA // INITIATE CONTACT</span>
+        <h2 class="contact-headline reveal">
+          LOYIHANGIZ BORMI?<br />
+          <span class="contact-colored">GAPLASHAYLIK.</span>
+        </h2>
+        <p class="contact-desc reveal">
+          Yangi startap, tizim arxitekturasi yoki korporativ avtomatlashtirish bo'yicha maslahat — istalgan vaqtda yozing.
         </p>
-        <div class="hero-cta">
-          <a href="#work" class="btn btn-primary">Loyihalarni ko'rish</a>
-          <a href="#contact" class="btn btn-ghost">Bog'lanish</a>
-        </div>
-        <div class="hero-social">
-          <a href="https://t.me/otbk_uz" target="_blank" rel="noopener">Telegram</a>
-          <a href="https://instagram.com/otbk.uz" target="_blank" rel="noopener">Instagram</a>
-          <a href="https://github.com/otbk-uz" target="_blank" rel="noopener">GitHub</a>
-        </div>
-      </div>
-      <div class="hero-right reveal">
-        <div class="hero-photo">
-          <img src="assets/img1.jpg" alt="Otabek Ravshanov" loading="eager" />
-          <div class="hero-photo-tag">OTBK · 2026</div>
-        </div>
-      </div>
-    </div>
-    <div class="scroll-hint">↓ pastga suring</div>
-  </section>
 
-  <!-- ===== About ===== -->
-  <section class="section" id="about">
-    <div class="wrap about-grid">
-      <div class="about-photo reveal">
-        <img src="assets/img6.jpg" alt="Otabek ish jarayonida" loading="lazy" />
-      </div>
-      <div class="about-text reveal">
-        <div class="label">01 — Men haqimda</div>
-        <h2>Yosh, lekin natijaga qaratilgan.</h2>
-        <p>
-          Men Otabek Ravshanov — IT mutaxassisman. Bugungi kunda
-          <strong>Flora Holding</strong>da menejer sifatida xalqaro eksport va logistika
-          jarayonlarini avtomatlashtirish bilan shug'ullanaman.
-        </p>
-        <p>
-          <strong>OTBK</strong> — mening brendim. Uning ostida g'oyadan tayyor mahsulotgacha
-          bo'lgan yo'lni o'zim bosib o'taman: dizayn, kod, ishga tushirish va o'sish.
-          Telegram botlardan tortib PWA ilovalar, AI xizmatlar va korporativ platformalargacha.
-        </p>
-        <div class="stats">
-          <div class="stat"><b data-count="20">0</b><span>+ loyiha</span></div>
-          <div class="stat"><b data-count="6">0</b><span>+ jonli mahsulot</span></div>
-          <div class="stat"><b data-count="3">0</b><span>til (UZ/RU/EN)</span></div>
-        </div>
-        <div class="skills">
-          <span>React</span><span>Node.js</span><span>Python</span><span>TypeScript</span>
-          <span>Flutter</span><span>aiogram</span><span>PostgreSQL</span><span>Supabase</span>
-          <span>AI / LLM</span><span>Tizim arxitekturasi</span>
+        <div class="contact-links-grid reveal">
+          <a href="https://t.me/otbk_uz" target="_blank" rel="noopener" class="clink-lusion" data-cursor="CONNECT">
+            <div class="clink-meta"><span class="clink-sub">Telegram</span><span class="clink-name">@otbk_uz</span></div>
+            <span class="clink-arr">↗</span>
+          </a>
+          <a href="https://instagram.com/0ta777" target="_blank" rel="noopener" class="clink-lusion" data-cursor="CONNECT">
+            <div class="clink-meta"><span class="clink-sub">Instagram</span><span class="clink-name">@0ta777</span></div>
+            <span class="clink-arr">↗</span>
+          </a>
+          <a href="tel:+998880016777" class="clink-lusion" data-cursor="CONNECT">
+            <div class="clink-meta"><span class="clink-sub">Telefon</span><span class="clink-name">+998 88 001 67 77</span></div>
+            <span class="clink-arr">↗</span>
+          </a>
+          <a href="mailto:otabekxoff@gmail.com" class="clink-lusion" data-cursor="CONNECT">
+            <div class="clink-meta"><span class="clink-sub">Email</span><span class="clink-name">otabekxoff@gmail.com</span></div>
+            <span class="clink-arr">↗</span>
+          </a>
+          <a href="https://github.com/otbk-uz" target="_blank" rel="noopener" class="clink-lusion" data-cursor="CONNECT">
+            <div class="clink-meta"><span class="clink-sub">GitHub</span><span class="clink-name">github.com/otbk-uz</span></div>
+            <span class="clink-arr">↗</span>
+          </a>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <!-- ===== Projects ===== -->
-  <section class="section" id="work">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <div class="label">02 — Loyihalar</div>
-        <h2>Men qurgan mahsulotlar.</h2>
-        <p class="section-sub">G'oyadan jonli platformagacha — har biri real foydalanuvchilar uchun.</p>
+  <!-- ===== Footer ===== -->
+  <footer class="footer-lusion">
+    <div class="wrap footer-row">
+      <div class="f-brand">
+        <span class="f-logo">OTBK</span>
+        <span class="f-badge">777</span>
       </div>
-      <div class="work-grid">
-        <a href="https://davochi.uz" target="_blank" rel="noopener" class="work-card featured reveal">
-          <div class="work-top"><span class="work-tag">Health · PWA</span><span class="work-arrow">↗</span></div>
-          <h3>DAVOCHI</h3>
-          <p>O'zbekiston aptekalaridagi 100+ dorini nomi, tarkibi yoki shikoyat bo'yicha qidirish. 3 til, apteka xaritasi, oflayn ishlaydi.</p>
-          <div class="work-domain">davochi.uz</div>
-        </a>
-        <a href="https://maroqli.uz" target="_blank" rel="noopener" class="work-card reveal">
-          <div class="work-top"><span class="work-tag">Gaming</span><span class="work-arrow">↗</span></div>
-          <h3>Maroqli</h3>
-          <p>O'yin-kulgi va gaming platformasi — foydalanuvchilar, to'lovlar va real vaqt tizimlari bilan.</p>
-          <div class="work-domain">maroqli.uz</div>
-        </a>
-        <a href="https://floraholding.uz" target="_blank" rel="noopener" class="work-card reveal">
-          <div class="work-top"><span class="work-tag">Korporativ</span><span class="work-arrow">↗</span></div>
-          <h3>Flora Holding</h3>
-          <p>Xalqaro eksport va logistika kompaniyasi uchun veb-platforma va jarayon avtomatlashtirish.</p>
-          <div class="work-domain">floraholding.uz</div>
-        </a>
-        <a href="https://innohub.ai" target="_blank" rel="noopener" class="work-card reveal">
-          <div class="work-top"><span class="work-tag">AI</span><span class="work-arrow">↗</span></div>
-          <h3>InnoHub AI</h3>
-          <p>Sun'iy intellekt asosidagi xizmatlar va innovatsiya markazi platformasi.</p>
-          <div class="work-domain">innohub.ai</div>
-        </a>
-        <a href="https://or7.uz" target="_blank" rel="noopener" class="work-card reveal">
-          <div class="work-top"><span class="work-tag">Cloud · Infra</span><span class="work-arrow">↗</span></div>
-          <h3>or7</h3>
-          <p>OTBK bulut infratuzilmasi — o'z-o'zini boshqaruvchi backend va xizmatlar uchun.</p>
-          <div class="work-domain">or7.uz</div>
-        </a>
-        <a href="https://airparvoz.uz" target="_blank" rel="noopener" class="work-card reveal">
-          <div class="work-top"><span class="work-tag">Travel</span><span class="work-arrow">↗</span></div>
-          <h3>Airparvoz</h3>
-          <p>O'zbekiston uchun professional turizm va sayohat platformasi.</p>
-          <div class="work-domain">airparvoz.uz</div>
-        </a>
-        <a href="https://github.com/otbk-uz" target="_blank" rel="noopener" class="work-card reveal">
-          <div class="work-top"><span class="work-tag">Telegram Bots</span><span class="work-arrow">↗</span></div>
-          <h3>OTBK Botlar</h3>
-          <p>Downloader, moderatsiya va avtomat-sotuvchi botlar — aiogram asosida, minglab foydalanuvchi.</p>
-          <div class="work-domain">github.com/otbk-uz</div>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== Gallery ===== -->
-  <section class="section" id="gallery">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <div class="label">03 — Galereya</div>
-        <h2>Fotogalereya.</h2>
-        <p class="section-sub">Kadrlar ortidagi jarayonlar, ish muhiti va xotirjamlik onlari.</p>
-      </div>
-      <div class="gallery-grid">
-        <div class="gallery-item reveal">
-          <div class="gallery-img-wrap">
-            <img src="assets/img1.jpg" alt="Kreativ izlanish onlari" loading="lazy" />
-          </div>
-          <div class="gallery-info">
-            <h4>Kreativ izlanish onlari</h4>
-            <p>Har bir muvaffaqiyatli kod qatori chuqur mushohada va tinchlikni talab qiladi. Otabek yangi arxitektura yechimlarini o'ylamoqda.</p>
-          </div>
-        </div>
-        <div class="gallery-item reveal">
-          <div class="gallery-img-wrap">
-            <img src="assets/img2.jpg" alt="Raqamli reallikni yaratish" loading="lazy" />
-          </div>
-          <div class="gallery-info">
-            <h4>Raqamli reallikni yaratish</h4>
-            <p>Dell Pro 15 noutbuki orqali yirik startaplar tizimini avtomatlashtirish jarayoni. Bir vaqtning o'zida bir nechta serverlarni boshqarish.</p>
-          </div>
-        </div>
-        <div class="gallery-item reveal">
-          <div class="gallery-img-wrap">
-            <img src="assets/img5.jpg" alt="Tizimli yondashuv" loading="lazy" />
-          </div>
-          <div class="gallery-info">
-            <h4>Tizimli yondashuv</h4>
-            <p>Kundalik vazifalar, xalqaro qo'ng'iroqlar va dasturlash bir paytning o'zida. Multitasking Otabekning eng kuchli tomonlaridan biri.</p>
-          </div>
-        </div>
-        <div class="gallery-item reveal">
-          <div class="gallery-img-wrap">
-            <img src="assets/img4.jpg" alt="Xotirjamlik va ilhom" loading="lazy" />
-          </div>
-          <div class="gallery-info">
-            <h4>Xotirjamlik va ilhom</h4>
-            <p>Intensiv mehnat va yirik loyihalar boshqaruvidan so'ng, qishki shahar ko'chalarida sayr va ruhiy quvvat yig'ish.</p>
-          </div>
-        </div>
-        <div class="gallery-item reveal">
-          <div class="gallery-img-wrap">
-            <img src="assets/img6.jpg" alt="Sinergiya kuchi" loading="lazy" />
-          </div>
-          <div class="gallery-info">
-            <h4>Sinergiya kuchi</h4>
-            <p>Loyihalar muvaffaqiyati faqatgina texnologiyaga emas, balki to'g'ri yo'naltirilgan va ahil jamoaviy ishlashga ham bog'liq.</p>
-          </div>
-        </div>
-        <div class="gallery-item reveal">
-          <div class="gallery-img-wrap">
-            <img src="assets/img7.jpg" alt="Strategik rejalashtirish" loading="lazy" />
-          </div>
-          <div class="gallery-info">
-            <h4>Strategik rejalashtirish</h4>
-            <p>Flora Holding dagi kunlik 60,000 dan ortiq atirgul eksporti logistikasi raqamli boshqaruv panellari orqali tekshirilmoqda.</p>
-          </div>
-        </div>
-        <div class="gallery-item reveal">
-          <div class="gallery-img-wrap">
-            <img src="assets/img8.jpg" alt="Liderlik mas'uliyati" loading="lazy" />
-          </div>
-          <div class="gallery-info">
-            <h4>Liderlik mas'uliyati</h4>
-            <p>Murakkab masalalarda qaror qabul qilish, jamoani boshqarish va xalqaro hamkorlar bilan muzokaralar olib borish lahzasi.</p>
-          </div>
-        </div>
-        <div class="gallery-item reveal">
-          <div class="gallery-img-wrap">
-            <img src="assets/img9.jpg" alt="Bilim ulashish" loading="lazy" />
-          </div>
-          <div class="gallery-info">
-            <h4>Bilim ulashish</h4>
-            <p>Yosh mutaxassislarga va startap asoschilariga texnik va biznes-strategiya bo'yicha maslahatlar berish jarayoni.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== Services ===== -->
-  <section class="section" id="services">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <div class="label">03 — Xizmatlar</div>
-        <h2>Nimalar qila olaman.</h2>
-      </div>
-      <div class="serv-grid">
-        <div class="serv reveal"><span class="serv-n">01</span><h3>Veb-saytlar & ilovalar</h3><p>Zamonaviy, tez va SEO-ga tayyor veb-mahsulotlar. React, PWA, statik va full-stack.</p></div>
-        <div class="serv reveal"><span class="serv-n">02</span><h3>Mobil ilovalar</h3><p>iOS va Android uchun Flutter/React Native ilovalar — bitta kod bazasi.</p></div>
-        <div class="serv reveal"><span class="serv-n">03</span><h3>Telegram botlar</h3><p>Avtomatlashtirish, to'lovlar, moderatsiya va sotuv botlari — aiogram3.</p></div>
-        <div class="serv reveal"><span class="serv-n">04</span><h3>AI & LLM integratsiya</h3><p>Sun'iy intellekt asosidagi yordamchilar, avtomatlashtirish va tahlil.</p></div>
-        <div class="serv reveal"><span class="serv-n">05</span><h3>Avtomatlashtirish</h3><p>Biznes jarayonlarini raqamlashtirish — eksport, logistika, hisobot.</p></div>
-        <div class="serv reveal"><span class="serv-n">06</span><h3>Tizim arxitekturasi</h3><p>Bulut, backend va DevOps — o'sishga tayyor, barqaror tizimlar.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== Contact ===== -->
-  <section class="section contact" id="contact">
-    <div class="wrap contact-grid">
-      <div class="contact-text reveal">
-        <div class="label">04 — Bog'lanish</div>
-        <h2>Loyihangiz bormi?<br>Gaplashaylik.</h2>
-        <p>G'oya, hamkorlik yoki savol — istalgan vaqt yozing. Odatda tez javob beraman.</p>
-        <div class="contact-links">
-          <a href="https://t.me/otbk_uz" target="_blank" rel="noopener" class="clink"><span>Telegram</span><b>@otbk_uz ↗</b></a>
-          <a href="https://instagram.com/otbk.uz" target="_blank" rel="noopener" class="clink"><span>Instagram</span><b>@otbk.uz ↗</b></a>
-          <a href="tel:+998880016777" class="clink"><span>Telefon</span><b>+998 88 001 67 77 ↗</b></a>
-          <a href="mailto:otabekxoff@gmail.com" class="clink"><span>Email</span><b>otabekxoff@gmail.com ↗</b></a>
-          <a href="https://github.com/otbk-uz" target="_blank" rel="noopener" class="clink"><span>GitHub</span><b>github.com/otbk-uz ↗</b></a>
-        </div>
-      </div>
-      <div class="contact-photo reveal">
-        <img src="assets/img3.jpg" alt="Otabek Ravshanov" loading="lazy" />
-      </div>
-    </div>
-  </section>
-
-  <footer class="footer">
-    <div class="wrap footer-inner">
-      <div class="brand">
-        <img src="assets/img4.jpg" alt="OTBK Logo" class="brand-img" />
-        <span class="brand-text">OTBK<span class="dot">.</span></span>
-      </div>
-      <p>© 2026 Otabek Ravshanov · Barcha huquqlar himoyalangan</p>
-      <p class="footer-domains">otbk.uz · or7.uz</p>
+      <div class="f-center">41.2995° N, 69.2401° E // TASHKENT · otbk.uz · or7.uz</div>
+      <div class="f-right">© 2026 Otabek Ravshanov. Barcha huquqlar himoyalangan.</div>
     </div>
   </footer>
+
+  <!-- Lightbox Modal for 777 Gallery -->
+  <div id="lightbox" class="lightbox" aria-hidden="true">
+    <div class="lightbox-backdrop"></div>
+    <div class="lightbox-dialog">
+      <button class="lightbox-close" aria-label="Close">✕</button>
+      <div class="lightbox-content">
+        <img id="lightbox-img" src="" alt="777" />
+        <div class="lightbox-caption">OTBK · 777 VISUAL ARTIFACT</div>
+      </div>
+    </div>
+  </div>
 
   <script src="app.js"></script>
 </body>
