@@ -241,12 +241,22 @@
       scrollY = window.scrollY;
     }, { passive: true });
 
-    // HTML Elements for Parallax
+    // HTML Elements for Parallax and Monitor Zoom
     const stage = $(".curved-screen-stage");
-    const tablet = $(".tablet-device");
-    const approachSection = $("#approach");
+    const tablet = $("#approachTablet") || $(".tablet-device");
+    const tabletBezel = $("#tabletBezel");
+    const tabletHud = $("#tabletHud");
+    const approachContent = $("#approachContent");
+    const monitorPortal = $("#monitorPortal");
+    const approachTrack = $("#approach");
 
     let clock = new THREE.Clock();
+    let warpFactor = 0;
+
+    // Expose 3D camera warp trigger for menu & navigation transitions
+    window.__triggerWarp = function() {
+      warpFactor = 1.0;
+    };
 
     function animate() {
       requestAnimationFrame(animate);
@@ -254,35 +264,37 @@
       const delta = clock.getDelta();
       const time = clock.getElapsedTime();
 
-      // Lerp mouse and scroll
+      // Lerp mouse, scroll, and 3D warp
       mouseX = lerp(mouseX, targetMouseX, 0.05);
       mouseY = lerp(mouseY, targetMouseY, 0.05);
       smoothScroll = lerp(smoothScroll, scrollY, 0.06);
+      warpFactor = lerp(warpFactor, 0, 0.06);
 
       const maxScroll = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
       const scrollRatio = Math.min(1, Math.max(0, smoothScroll / maxScroll));
 
-      // 3D Camera Travel along Y & Z
+      // 3D Camera Travel along Y & Z with warp acceleration
       const targetCamY = -scrollRatio * 64;
       camera.position.y = lerp(camera.position.y, targetCamY, 0.08);
       camera.position.x = mouseX * 1.8 + Math.sin(scrollRatio * Math.PI * 2) * 2.0;
-      camera.position.z = 28 + Math.cos(scrollRatio * Math.PI) * 2.5;
-      camera.lookAt(camera.position.x * 0.2, camera.position.y, 0);
 
-      // Ribbon 1 (Hero Blue Tube) 3D Motion
-      blueRibbon.rotation.y = time * 0.12 + smoothScroll * 0.0018;
+      let targetCamZ = 28 + Math.cos(scrollRatio * Math.PI) * 2.5 - (warpFactor * 16);
+
+      // Ribbon 1 (Hero Blue Tube) 3D Motion (accelerates during 3D warp)
+      const warpSpeed = 1 + warpFactor * 3.5;
+      blueRibbon.rotation.y = time * 0.12 * warpSpeed + smoothScroll * 0.0018;
       blueRibbon.rotation.x = Math.sin(time * 0.2) * 0.12 + smoothScroll * 0.0006;
       blueRibbon.rotation.z = Math.cos(time * 0.15) * 0.08;
 
       // Ribbon 2 (Cyan Loop at Tablet) 3D Motion
-      cyanRibbon.rotation.z = time * 0.2 + smoothScroll * 0.0028;
+      cyanRibbon.rotation.z = time * 0.2 * warpSpeed + smoothScroll * 0.0028;
       cyanRibbon.rotation.y = Math.sin(time * 0.18) * 0.25 + smoothScroll * 0.0012;
       cyanRibbon.rotation.x = Math.cos(time * 0.2) * 0.15;
 
-      // Atmospheric Particles gentle float
-      particles.rotation.y = time * 0.03;
+      // Atmospheric Particles gentle float & warp streak
+      particles.rotation.y = time * 0.03 * warpSpeed;
 
-      // HTML Elements 3D Parallax on Scroll
+      // Hero Stage 3D Parallax on Scroll
       if (stage && smoothScroll < window.innerHeight * 1.5) {
         const tiltX = smoothScroll * 0.015;
         const scale = Math.max(0.9, 1 - smoothScroll * 0.00025);
@@ -290,14 +302,94 @@
         stage.style.transform = `perspective(1200px) rotateX(${tiltX.toFixed(2)}deg) scale(${scale.toFixed(3)}) translateY(${transY.toFixed(1)}px)`;
       }
 
-      if (tablet && approachSection) {
-        const rect = approachSection.getBoundingClientRect();
-        const progress = Math.max(0, Math.min(1, (window.innerHeight - rect.top) / (window.innerHeight + rect.height)));
-        const rotY = 12 - progress * 14;
-        const rotX = 5 - progress * 10;
-        const floatY = (0.5 - progress) * 35;
-        tablet.style.transform = `perspective(1400px) rotateY(${rotY.toFixed(2)}deg) rotateX(${rotX.toFixed(2)}deg) translateY(${floatY.toFixed(1)}px)`;
+      /* ----------------------------------------------------------
+         1:1 LUSI0N.CO SIGNATURE: ZOOM DIVE INTO TABLET MONITOR PHOTO
+         ---------------------------------------------------------- */
+      if (approachTrack && tablet) {
+        const trackRect = approachTrack.getBoundingClientRect();
+        const totalDist = trackRect.height - window.innerHeight;
+        const rawP = totalDist > 0 ? -trackRect.top / totalDist : 0;
+        const p = Math.max(0, Math.min(1, rawP));
+
+        if (p <= 0.02) {
+          // Initial resting 3D isometric tilt
+          tablet.style.transform = `perspective(1400px) rotateY(12deg) rotateX(4deg) translate3d(0, 0, 0) scale(1)`;
+          if (approachContent) {
+            approachContent.style.opacity = "1";
+            approachContent.style.transform = "none";
+          }
+          if (tabletBezel) {
+            tabletBezel.style.borderWidth = "";
+            tabletBezel.style.borderRadius = "";
+            tabletBezel.style.boxShadow = "";
+          }
+          if (tabletHud) tabletHud.style.opacity = "1";
+          if (monitorPortal) monitorPortal.style.opacity = "0";
+        } else if (p < 0.24) {
+          // Phase 1: Straighten tablet up to face camera
+          const alignP = p / 0.24;
+          const rotY = 12 * (1 - alignP);
+          const rotX = 4 * (1 - alignP);
+          tablet.style.transform = `perspective(1400px) rotateY(${rotY.toFixed(2)}deg) rotateX(${rotX.toFixed(2)}deg) translate3d(0, 0, 0) scale(1)`;
+          if (approachContent) {
+            approachContent.style.opacity = "1";
+            approachContent.style.transform = "none";
+          }
+          if (tabletHud) tabletHud.style.opacity = "1";
+          if (monitorPortal) monitorPortal.style.opacity = "0";
+        } else if (p < 0.88) {
+          // Phase 2: DIVE INTO THE MONITOR (Photo expands to full screen)
+          const diveP = (p - 0.24) / (0.88 - 0.24); // 0.0 -> 1.0
+          const easeZoom = Math.pow(diveP, 2.5);
+          const scale = 1 + easeZoom * 28; // Exponential scale from 1 to 29!
+
+          // Centering shift towards viewport center (offset grid on desktop)
+          const isWide = window.innerWidth > 960;
+          const shiftX = isWide ? (window.innerWidth * 0.22 * Math.min(1, diveP * 2.2)) : 0;
+
+          tablet.style.transform = `perspective(1400px) rotateY(0deg) rotateX(0deg) translate3d(${shiftX.toFixed(1)}px, 0, 0) scale(${scale.toFixed(3)})`;
+
+          // Editorial philosophy text fades away and slides out
+          if (approachContent) {
+            const fade = Math.max(0, 1 - diveP * 3.2);
+            approachContent.style.opacity = fade.toFixed(3);
+            approachContent.style.transform = `translateX(${(diveP * 110).toFixed(1)}px) scale(${(1 - diveP * 0.08).toFixed(3)})`;
+          }
+
+          // Fade bezel border, radius and HUD so photo takes over screen seamlessly
+          if (tabletBezel) {
+            const borderW = Math.max(0, 8 * (1 - diveP * 2.5));
+            const borderR = Math.max(0, 36 * (1 - diveP * 2.2));
+            tabletBezel.style.borderWidth = `${borderW.toFixed(1)}px`;
+            tabletBezel.style.borderRadius = `${borderR.toFixed(1)}px`;
+            tabletBezel.style.boxShadow = `0 35px 80px rgba(0,0,0,${Math.max(0, 0.45 * (1 - diveP * 2)).toFixed(2)})`;
+          }
+          if (tabletHud) {
+            tabletHud.style.opacity = Math.max(0, 1 - diveP * 4).toFixed(2);
+          }
+
+          // 3D WebGL Camera dives forward through the screen into the photo!
+          targetCamZ -= easeZoom * 20;
+          blueRibbon.scale.setScalar(1 + easeZoom * 1.6);
+          cyanLight.intensity = 2.5 + easeZoom * 5.0;
+
+          // Monitor portal tunnel glow
+          if (monitorPortal) {
+            const glow = Math.sin(diveP * Math.PI) * 0.85;
+            monitorPortal.style.opacity = glow.toFixed(3);
+          }
+        } else {
+          // Phase 3: Entered inside monitor, fully immersive portal
+          const exitP = (p - 0.88) / 0.12;
+          tablet.style.transform = `perspective(1400px) rotateY(0deg) rotateX(0deg) scale(29)`;
+          if (approachContent) approachContent.style.opacity = "0";
+          if (monitorPortal) monitorPortal.style.opacity = Math.max(0, 1 - exitP * 2).toFixed(3);
+          targetCamZ -= 20;
+        }
       }
+
+      camera.position.z = lerp(camera.position.z, targetCamZ, 0.09);
+      camera.lookAt(camera.position.x * 0.2, camera.position.y, 0);
 
       renderer.render(scene, camera);
     }
@@ -517,6 +609,8 @@
     const menuItems = $$(".menu-item");
     const hoverIndicator = $(".menu-hover-indicator");
 
+    const drawerStack = $(".menu-drawer-stack");
+
     if (!toggle || !overlay) return;
 
     function open() {
@@ -537,12 +631,55 @@
     // Click backdrop to close
     if (backdrop) backdrop.addEventListener("click", close);
 
-    // Menu items close on click and animate hover indicator
+    // 3D Spatial Transition on Menu Item Click
     menuItems.forEach((item) => {
-      item.addEventListener("click", () => {
-        menuItems.forEach(i => i.classList.remove("active"));
+      item.addEventListener("click", (e) => {
+        const href = item.getAttribute("href");
+        if (!href || !href.startsWith("#")) return;
+        e.preventDefault();
+
+        menuItems.forEach((i) => i.classList.remove("active"));
         item.classList.add("active");
-        close();
+
+        // 1. Trigger 3D Camera Warp in WebGL
+        if (typeof window.__triggerWarp === "function") {
+          window.__triggerWarp();
+        }
+
+        // 2. Add visual 3D cinematic flash overlay
+        document.body.classList.add("warp-transition-active");
+
+        // 3. 3D Menu Drawer Card Exit Animation
+        if (drawerStack) {
+          drawerStack.style.transition = "transform 0.4s cubic-bezier(0.7, 0, 0.3, 1), opacity 0.35s ease";
+          drawerStack.style.transform = "perspective(1200px) rotateY(-18deg) translateZ(-90px) scale(0.92)";
+          drawerStack.style.opacity = "0";
+        }
+
+        setTimeout(() => {
+          close();
+          if (drawerStack) {
+            drawerStack.style.transform = "";
+            drawerStack.style.transition = "";
+            drawerStack.style.opacity = "";
+          }
+
+          // 4. Smoothly scroll to the target section
+          const targetEl = document.querySelector(href);
+          if (targetEl) {
+            const headerHeight = 72;
+            const targetPos = targetEl.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+            window.scrollTo({
+              top: Math.max(0, targetPos),
+              behavior: "smooth"
+            });
+          }
+
+          // 5. Release 3D warp flash
+          setTimeout(() => {
+            document.body.classList.remove("warp-transition-active");
+          }, 650);
+        }, 280);
       });
 
       // Magnetic hover indicator follows the hovered item
@@ -555,6 +692,23 @@
         }
       });
     });
+
+    // Also wire up BIZNING YONDASHUV button in header to trigger 3D warp
+    const approachBtn = $(".btn-approach");
+    if (approachBtn) {
+      approachBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        if (typeof window.__triggerWarp === "function") window.__triggerWarp();
+        document.body.classList.add("warp-transition-active");
+        const target = $("#approach");
+        if (target) {
+          target.scrollIntoView({ behavior: "smooth" });
+        }
+        setTimeout(() => {
+          document.body.classList.remove("warp-transition-active");
+        }, 650);
+      });
+    }
 
     window.addEventListener("keydown", (e) => {
       if (e.key === "Escape" && document.body.classList.contains("menu-open")) close();

@@ -129,7 +129,7 @@ main, header, footer, #menu-overlay {
 .header {
   position: fixed;
   top: 0; left: 0; right: 0;
-  z-index: 100;
+  z-index: 99995;
   padding: 24px 0;
   transition: padding 0.35s, background 0.35s, border-color 0.35s;
 }
@@ -330,37 +330,46 @@ body.menu-open .menu-dots .dot-2 {
 .menu-lusion-drawer {
   position: fixed;
   inset: 0;
-  z-index: 95;
+  z-index: 99990;
   pointer-events: none;
+  visibility: hidden;
+  transition: visibility 0.4s;
+}
+
+body.menu-open .menu-lusion-drawer {
+  pointer-events: auto;
+  visibility: visible;
 }
 
 .menu-drawer-backdrop {
   position: absolute;
   inset: 0;
-  background: rgba(13, 14, 18, 0.45);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: rgba(8, 10, 14, 0.78);
+  backdrop-filter: blur(28px) saturate(180%);
+  -webkit-backdrop-filter: blur(28px) saturate(180%);
   opacity: 0;
-  transition: opacity 0.5s var(--ease-lusion);
+  transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 1;
 }
 
 body.menu-open .menu-drawer-backdrop {
   opacity: 1;
-  pointer-events: auto;
 }
 
 .menu-drawer-stack {
   position: absolute;
-  top: 80px;
+  top: 86px;
   right: 36px;
-  width: 380px;
+  width: 390px;
+  max-width: calc(100vw - 40px);
   display: flex;
   flex-direction: column;
   gap: 12px;
   opacity: 0;
-  transform: translateY(-30px) scale(0.96);
-  transition: opacity 0.45s var(--ease-lusion), transform 0.45s var(--ease-lusion);
+  transform: translateY(-25px) scale(0.96);
+  transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1), transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
   pointer-events: none;
+  z-index: 2;
 }
 
 body.menu-open .menu-drawer-stack {
@@ -693,10 +702,24 @@ body.menu-open .menu-labs-btn {
   color: var(--ink-muted);
 }
 
-/* ===== Section 2: Our Approach & Floating 3D Tablet (Screenshot 5) ===== */
-.section {
-  padding: 130px 0;
+/* ===== Section 2: Our Approach Track & 1:1 Lusion Monitor Scroll Zoom-in ===== */
+.section-approach-track {
   position: relative;
+  min-height: 240vh; /* Scroll track for monitor zoom dive */
+  background: transparent;
+}
+
+.approach-sticky-stage {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1400px;
 }
 
 .approach-grid {
@@ -704,6 +727,10 @@ body.menu-open .menu-labs-btn {
   grid-template-columns: 1.05fr 0.95fr;
   gap: 70px;
   align-items: center;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+  transition: transform 0.1s ease-out;
 }
 
 /* Hyper-realistic 3D iPad / Tablet Device */
@@ -712,13 +739,10 @@ body.menu-open .menu-labs-btn {
   width: 100%;
   max-width: 580px;
   margin: 0 auto;
-  perspective: 1400px;
-  transform: perspective(1400px) rotateY(12deg) rotateX(4deg);
-  transition: transform 0.35s var(--ease-lusion);
-}
-
-.tablet-device:hover {
-  transform: perspective(1400px) rotateY(0deg) rotateX(0deg) scale(1.02);
+  transform-style: preserve-3d;
+  transform-origin: center center;
+  will-change: transform;
+  transition: box-shadow 0.3s;
 }
 
 .tablet-bezel {
@@ -727,8 +751,10 @@ body.menu-open .menu-labs-btn {
   border: 8px solid #1c1d24;
   border-radius: 36px;
   padding: 10px;
-  box-shadow: 0 35px 80px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1);
+  box-shadow: 0 35px 80px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.12);
   overflow: hidden;
+  transition: border-radius 0.2s, border-width 0.2s;
+  will-change: transform, border-radius, border-width;
 }
 
 .tablet-camera {
@@ -811,10 +837,54 @@ body.menu-open .menu-labs-btn {
   border-radius: 36px;
 }
 
+/* Monitor Zoom Portal Tunnel Glow */
+.monitor-zoom-portal {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  z-index: 10;
+  background: radial-gradient(circle at center, rgba(59, 130, 246, 0.35) 0%, rgba(0, 240, 255, 0.18) 35%, rgba(13, 14, 18, 0.85) 80%);
+  mix-blend-mode: screen;
+  transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.portal-glare {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.4) 0%, transparent 60%);
+  opacity: 0.6;
+}
+
+/* 3D Spatial Warp Transition Flash Layer */
+.transition-3d-flash {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 99998;
+  opacity: 0;
+  background: radial-gradient(circle at center, rgba(59, 130, 246, 0.3) 0%, rgba(0, 240, 255, 0.15) 40%, rgba(13, 14, 18, 0.7) 100%);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  mix-blend-mode: screen;
+  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+body.warp-transition-active .transition-3d-flash {
+  opacity: 1;
+}
+
+body.warp-transition-active #lusion-canvas {
+  filter: contrast(130%) brightness(120%) saturate(135%);
+  transition: filter 0.3s ease;
+}
+
 /* Editorial Philosophy Content */
 .approach-content {
   display: flex;
   flex-direction: column;
+  transition: opacity 0.25s ease-out, transform 0.25s ease-out;
+  will-change: opacity, transform;
 }
 
 .approach-lead {

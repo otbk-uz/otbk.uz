@@ -199,61 +199,68 @@
       </div>
     </section>
 
-    <!-- ===== Section 2: Our Approach with Floating 3D Tablet Device (Lusion Screenshot 5) ===== -->
-    <section class="section section-approach" id="approach">
-      <div class="wrap approach-grid">
-        <!-- Left: Floating 3D iPad / Tablet Device in Space -->
-        <div class="approach-visual reveal" data-tilt>
-          <div class="tablet-device">
-            <!-- Tablet Bezel and Camera -->
-            <div class="tablet-bezel">
-              <div class="tablet-camera"></div>
-              
-              <!-- Screen with 3D Cosmos Astronaut / Visual Display -->
-              <div class="tablet-screen">
-                <img src="assets/img13.png" alt="Otabek Ravshanov Digital Cosmos" class="tablet-content-img" />
-                <div class="tablet-hud">
-                  <div class="hud-item">
-                    <span class="hud-dot"></span>
-                    <span>ACTIVE ECOSYSTEM</span>
+    <!-- ===== Section 2: Our Approach with Floating 3D Tablet Device & Monitor Zoom-In (Lusion 1:1) ===== -->
+    <section class="section-approach-track" id="approach">
+      <div class="approach-sticky-stage" id="approachStage">
+        <div class="wrap approach-grid" id="approachGrid">
+          <!-- Left: Floating 3D iPad / Tablet Device in Space -->
+          <div class="approach-visual">
+            <div class="tablet-device" id="approachTablet">
+              <!-- Tablet Bezel and Camera -->
+              <div class="tablet-bezel" id="tabletBezel">
+                <div class="tablet-camera"></div>
+                
+                <!-- Screen with Otabek's Photo Display -->
+                <div class="tablet-screen" id="tabletScreen">
+                  <img src="assets/img13.png" alt="Otabek Ravshanov Digital Ecosystem" class="tablet-content-img" id="tabletImg" />
+                  <div class="tablet-hud" id="tabletHud">
+                    <div class="hud-item">
+                      <span class="hud-dot"></span>
+                      <span>ACTIVE ECOSYSTEM</span>
+                    </div>
+                    <div class="hud-num">777</div>
                   </div>
-                  <div class="hud-num">777</div>
                 </div>
               </div>
+              <!-- Glass Specular Reflection -->
+              <div class="tablet-reflection"></div>
             </div>
-            <!-- Glass Specular Reflection -->
-            <div class="tablet-reflection"></div>
+          </div>
+
+          <!-- Right: Editorial Philosophy Typography with Lusion Highlights -->
+          <div class="approach-content" id="approachContent">
+            <p class="approach-lead">
+              Biz shunchaki trendlar ortidan quvmaymiz yoki boshqalar kabi bir xil qolipdagi ishlar qilmaymiz.
+              Biz sizning brendingizni aniq aks ettiruvchi, <span class="highlight-cyan">auditoriyani hayratga soladigan</span>
+              va odamlar ko'rgan zahoti yodida qoladigan <span class="highlight-cyan">betakror raqamli tajribalarni</span>
+              yaratishga e'tibor qaratamiz.
+            </p>
+            <p class="approach-sub">
+              Bizning jarayonimiz ijodiy g'oya, <span class="highlight-blue">3D mahorat</span> va ilg'or interaktiv
+              dasturlashni o'zaro birlashtirib, original, yuksak darajada sayqallangan va real natija beruvchi
+              raqamli mahsulotlarni barpo etadi.
+            </p>
+
+            <div class="approach-metrics">
+              <div class="app-metric">
+                <span class="am-val" data-count="25">0</span><span class="am-plus">+</span>
+                <span class="am-lbl">Muvaffaqiyatli loyihalar</span>
+              </div>
+              <div class="app-metric">
+                <span class="am-val" data-count="60">0</span><span class="am-plus">K+</span>
+                <span class="am-lbl">Flora Holding kunlik eksporti</span>
+              </div>
+              <div class="app-metric">
+                <span class="am-val" data-count="99">0</span><span class="am-plus">.9%</span>
+                <span class="am-lbl">Tizimlar barqarorligi</span>
+              </div>
+            </div>
           </div>
         </div>
 
-        <!-- Right: Editorial Philosophy Typography with Lusion Highlights -->
-        <div class="approach-content reveal">
-          <p class="approach-lead">
-            Biz shunchaki trendlar ortidan quvmaymiz yoki boshqalar kabi bir xil qolipdagi ishlar qilmaymiz.
-            Biz sizning brendingizni aniq aks ettiruvchi, <span class="highlight-cyan">auditoriyani hayratga soladigan</span>
-            va odamlar ko'rgan zahoti yodida qoladigan <span class="highlight-cyan">betakror raqamli tajribalarni</span>
-            yaratishga e'tibor qaratamiz.
-          </p>
-          <p class="approach-sub">
-            Bizning jarayonimiz ijodiy g'oya, <span class="highlight-blue">3D mahorat</span> va ilg'or interaktiv
-            dasturlashni o'zaro birlashtirib, original, yuksak darajada sayqallangan va real natija beruvchi
-            raqamli mahsulotlarni barpo etadi.
-          </p>
-
-          <div class="approach-metrics">
-            <div class="app-metric">
-              <span class="am-val" data-count="25">0</span><span class="am-plus">+</span>
-              <span class="am-lbl">Muvaffaqiyatli loyihalar</span>
-            </div>
-            <div class="app-metric">
-              <span class="am-val" data-count="60">0</span><span class="am-plus">K+</span>
-              <span class="am-lbl">Flora Holding kunlik eksporti</span>
-            </div>
-            <div class="app-metric">
-              <span class="am-val" data-count="99">0</span><span class="am-plus">.9%</span>
-              <span class="am-lbl">Tizimlar barqarorligi</span>
-            </div>
-          </div>
+        <!-- Monitor Portal Tunnel Glow (plays as you dive into the screen) -->
+        <div class="monitor-zoom-portal" id="monitorPortal" aria-hidden="true">
+          <div class="portal-glare"></div>
         </div>
       </div>
     </section>
@@ -577,6 +584,9 @@
       </div>
     </div>
   </div>
+
+  <!-- 3D Spatial Warp Transition Flash Layer -->
+  <div id="transition3dFlash" class="transition-3d-flash" aria-hidden="true"></div>
 
   <script src="app.js"></script>
 </body>
